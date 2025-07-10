@@ -7,54 +7,127 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section
-        className="d-flex align-items-center justify-content-center text-center text-white"
+        className="text-white d-flex align-items-center"
         style={{
           minHeight: "100vh",
           backgroundImage:
-            "linear-gradient(to right, rgba(10,10,50,0.9), rgba(30,0,80,0.9)), url('/bg-circuit.jpg')",
+            "linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('/bg-circuit.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          position: "relative",
+          paddingLeft: "8%",
+          paddingRight: "8%",
         }}
       >
-        <div>
-          <h1 className="display-4 fw-bold mb-4">
-            We Are At The Forefront of Technology
-          </h1>
+        <div className="w-100">
+          <div className="text-start" style={{ maxWidth: "700px" }}>
+            <h1 className="fw-bold display-5 mb-3">
+              <span style={{ color: "#ffff" }}>Next-Gen Solutions for </span>{" "}
+              <br />
+              the Digital Frontier
+            </h1>
+            <p className="lead text-light">
+              With a foundation in innovation and a vision for tomorrow, we
+              craft agile, scalable, and smart technologies that drive business
+              success in the digital era.{" "}
+            </p>
+          </div>
+
+          {/* Carousel dots (dummy styling, not functional yet) */}
+          <div className="mt-4">
+            <div className="d-flex gap-2">
+              <span
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: "#ff007f",
+                  borderRadius: "50%",
+                  display: "inline-block",
+                }}
+              ></span>
+              <span
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: "#fff",
+                  opacity: 0.5,
+                  borderRadius: "50%",
+                  display: "inline-block",
+                }}
+              ></span>
+              <span
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor: "#fff",
+                  opacity: 0.5,
+                  borderRadius: "50%",
+                  display: "inline-block",
+                }}
+              ></span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Trusted By Section */}
+
       <section
         className="py-5 text-white text-center"
-        style={{ background: "linear-gradient(90deg, #2a005f, #4e007e)" }}
+        style={{
+          background: "linear-gradient(90deg, #2a005f, #4e007e)", // Gradient background
+          paddingTop: "50px",
+          paddingBottom: "50px",
+        }}
       >
-        <h4 className="mb-4 fw-bold">Trusted by Industry Giants Worldwide</h4>
+        <h4 className="mb-4 fw-bold fs-2">
+          Trusted by Industry Giants Worldwide
+        </h4>
+
         <div
           className="position-relative overflow-hidden"
-          style={{ height: "70px" }}
+          style={{ height: "110px" }}
         >
           <div
-            className="d-flex align-items-center"
+            className="d-flex align-items-center scroll-track"
             style={{
               whiteSpace: "nowrap",
-              animation: "scrollLeft 25s linear infinite",
+              animation: "scrollLeft 20s linear infinite",
             }}
           >
-            {["ebco", "elica", "faber", "franke", "h1", "jaguar", "last"].map(
-              (logo, i) => (
+            {/* Duplicate for seamless loop */}
+            {[...Array(2)].flatMap((_, index) =>
+              [
+                "accs",
+                "beer",
+                "foton",
+                "hyatt",
+                "mehta",
+                "nagebaba",
+                "nmp",
+                "ruby",
+                "shar",
+                "sula",
+              ].map((logo, i) => (
                 <div
-                  key={i}
-                  className="mx-4 px-3 py-2 rounded bg-white bg-opacity-10 shadow-sm"
-                  style={{ transition: "transform 0.3s" }}
+                  key={`${index}-${i}`}
+                  className="mx-3 px-3 py-2 shadow-lg d-inline-flex align-items-center justify-content-center"
+                  style={{
+                    backgroundColor: "#fff", // White card
+                    width: 110,
+                    height: 110,
+                    borderRadius: "12px",
+                  }}
                 >
                   <img
-                    src={`/assets/logo/${logo}.png`}
+                    src={`/clogo/${logo}.png`}
                     alt={logo}
                     style={{
-                      width: "80px", // Set fixed width
-                      height: "80px", // Set fixed height
-                      objectFit: "contain", // Ensure the image maintains its aspect ratio
-                      filter: "grayscale(1) brightness(1.2)",
+                      maxWidth: "90px",
+                      maxHeight: "90px",
+                      objectFit: "contain",
+                      // filter: "grayscale(1) brightness(1.2)",
+                      transition: "transform 0.3s ease-in-out",
                     }}
                     onMouseOver={(e) =>
                       (e.currentTarget.style.transform = "scale(1.1)")
@@ -64,18 +137,23 @@ export default function Home() {
                     }
                   />
                 </div>
-              )
+              ))
             )}
           </div>
         </div>
+
+        {/* Smooth Loop Animation */}
         <style jsx>{`
           @keyframes scrollLeft {
             0% {
-              transform: translateX(100%);
+              transform: translateX(0);
             }
             100% {
-              transform: translateX(-100%);
+              transform: translateX(-50%);
             }
+          }
+          .scroll-track {
+            width: max-content;
           }
         `}</style>
       </section>
@@ -84,15 +162,18 @@ export default function Home() {
       <section className="row m-0 align-items-center py-5 px-4 bg-white text-dark">
         <div className="col-md-6">
           <h2 className="fw-bold mb-3">
-            Expert IT Solutions in AI, ML, Cybersecurity & Development
+            Expert IT solutions in AI ML, software development and cyber
+            security.{" "}
           </h2>
           <p>
-            At the forefront of digital transformation, we deliver intelligent
-            IT solutions that harness the power of Artificial Intelligence,
-            Machine Learning, and advanced Software Development. From predictive
-            models and automation to scalable custom software and
-            enterprise-grade cybersecurity, we help businesses innovate, secure,
-            and grow in a data-driven world.
+            Digital transformation isn’t just a trend — it’s a necessity. Our
+            team brings together the latest advancements in AI and ML with agile
+            software development practices to create dynamic, data-driven
+            solutions. From automated customer experiences to intelligent
+            analytics platforms and fortified security architectures, we tailor
+            every project to your specific goals. Whether you're a startup or an
+            enterprise, we deliver flexible, scalable solutions that grow with
+            your business and adapt to evolving technologies.
           </p>
           <button className="btn btn-outline-danger mt-3 px-4">Explore</button>
         </div>
@@ -108,100 +189,251 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-light py-5 px-4">
-        <h3 className="text-center fw-bold mb-5 text-dark">
-          Services Designed for Impact
-        </h3>
-        <div className="row">
-          {[
-            "Cyber Security",
-            "AI/ML Solutions",
-            "Full Stack Development",
-            "Cloud Consulting",
-            "DevOps Engineering",
-            "Blockchain Solutions",
-          ].map((service, i) => (
-            <div key={i} className="col-md-4 mb-4">
-              <div
-                className="card text-white h-100 shadow position-relative"
-                style={{ backgroundColor: "#1b1b2f" }}
-              >
-                <div className="card-body text-center">
-                  <img
-                    src={`/assets/logo${i + 1}.png`}
-                    alt={service}
-                    height={60}
-                    className="mb-3"
-                  />
-                  <h5 className="card-title">{service}</h5>
-                  <p className="card-text">
-                    Premium quality {service.toLowerCase()} tailored for scale.
-                  </p>
-                </div>
-                <div
-                  className="position-absolute bottom-0 end-0 p-3"
-                  style={{ cursor: "pointer" }}
-                >
-                  <div
-                    style={{
-                      backgroundColor: "#ff007f",
-                      borderRadius: "50%",
-                      width: 40,
-                      height: 40,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                    }}
-                  >
-                    &rarr;
-                  </div>
-                </div>
-              </div>
+   <section className="bg-light py-5 px-4">
+  <h3 className="text-center fw-bold mb-5 text-dark">
+    Services Designed for Impact
+  </h3>
+  <div className="row">
+    {[
+      {
+        title: "Enterprise Security Architecture",
+        image: "/services/security.png",
+        description:
+          "Secure your entire tech ecosystem with end-to-end cybersecurity tailored to your operations.",
+      },
+      {
+        title: "AI & ML Development",
+        image: "/services/ai-ml.png",
+        description:
+          "From predictive analytics to intelligent automation, we bring data science to life with scalable AI/ML applications.",
+      },
+      {
+        title: "End-to-End App Development",
+        image: "/services/app-dev.png",
+        description:
+          "We design, build, and deploy high-performing web and mobile applications using modern full stack technologies.",
+      },
+      {
+        title: "Cloud Infrastructure Services",
+        image: "/services/cloud.png",
+        description:
+          "Migrate, manage, and scale your business with robust cloud solutions built on AWS, Azure, or Google Cloud.",
+      },
+      {
+        title: "DevOps Transformation",
+        image: "/services/devops.png",
+        description:
+          "Streamline your development lifecycle with CI/CD pipelines, infrastructure automation, and agile DevOps practices.",
+      },
+      {
+        title: "Blockchain Solutions",
+        image: "/services/blockchain.png",
+        description:
+          "Implement secure and decentralized applications using blockchain technology.",
+      },
+    ].map((service, i) => (
+      <div key={i} className="col-md-4 mb-4">
+        <div
+          className="card text-white h-100 shadow position-relative"
+          style={{ backgroundColor: "#1b1b2f", borderRadius: 16 }}
+        >
+          <div className="card-body text-center">
+            <div
+              style={{
+                height: 100,
+                marginBottom: 20,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                style={{
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: 12,
+                }}
+              />
             </div>
-          ))}
+            <h5 className="card-title">{service.title}</h5>
+            <p className="card-text">{service.description}</p>
+          </div>
+          <div
+            className="position-absolute bottom-0 end-0 p-3"
+            style={{ cursor: "pointer" }}
+          >
+            <div
+              style={{
+                backgroundColor: "#ff007f",
+                borderRadius: "50%",
+                width: 40,
+                height: 40,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+              }}
+            >
+              &rarr;
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Why Choose Us Section */}
       <section
-        className="text-white text-center py-5 px-4"
-        style={{ background: "linear-gradient(to right, #390064, #660077)" }}
+        className="py-5 px-4 text-white"
+        style={{
+          background: "linear-gradient(to right, #2a0042, #4e007e)",
+          overflow: "hidden",
+        }}
       >
-        <h3 className="fw-bold mb-4">
-          Why Industry Leaders Choose Kodeosoftech
-        </h3>
-        <p>
-          We drive innovation, security and digital transformation at scale.
-        </p>
-        <div className="row mt-4">
-          {[
-            { title: "Award Winning Team", icon: "award" },
-            { title: "24/7 Client Support", icon: "support" },
-            { title: "100+ Clients Served", icon: "clients" },
-          ].map((item, i) => (
-            <div key={i} className="col-md-4 mb-3">
-              <div className="bg-white text-dark p-4 rounded shadow">
-                <h5 className="fw-semibold">{item.title}</h5>
+        <div className="container-fluid">
+          <div className="row align-items-start">
+            {/* LEFT TEXT CONTENT */}
+            <div className="col-lg-6 mb-4">
+              <h2 className="fw-bold mb-3">
+                Transforming Expertise Into Business Results
+              </h2>
+              <p>
+                We specialize in converting knowledge into action. Through
+                expert training, scalable digital solutions, and strategic
+                consulting, Kodeo Software Technology helps organizations across
+                industries innovate safely and grow confidently in a
+                fast-changing tech landscape.
+              </p>
+              <ul className="list-unstyled mt-4">
+                <li>✔️ Bespoke Training for Operational Success</li>
+                <li>✔️ Solutions Engineered for Scale and Speed</li>
+                <li>✔️ Cross-Sector Experience You Can Trust</li>
+                <li>✔️ Support That Never Sleeps</li>
+              </ul>
+            </div>
+
+            {/* RIGHT: 3 CARDS IN HORIZONTAL SCROLL */}
+            <div className="col-lg-6" style={{ marginTop: "120px" }}>
+              <div
+                className="d-flex gap-4 pb-3"
+                style={{
+                  overflowX: "auto",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                  WebkitOverflowScrolling: "touch",
+                }}
+              >
+                {[
+                  {
+                    title: "24/7 Customer Support",
+                    desc: "Fixed 1000+ tech problems efficiently.",
+                    icon: "bi-headset",
+                  },
+                  {
+                    title: "Fast Response Time",
+                    desc: "Average query resolved within 30 minutes.",
+                    icon: "bi-clock",
+                  },
+                  {
+                    title: "Global Client Reach",
+                    desc: "Serving businesses in 10+ countries worldwide.",
+                    icon: "bi-globe",
+                  },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="p-4 rounded-4 shadow"
+                    style={{
+                      background: "rgba(255, 255, 255, 0.68)",
+                      backdropFilter: "blur(10px)",
+                      minWidth: "250px",
+                      maxWidth: "250px",
+                      color: "black",
+                      flexShrink: 0,
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Icon */}
+                    <div
+                      style={{
+                        backgroundColor: "#ff007f",
+                        width: 50,
+                        height: 50,
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "white",
+                        fontSize: "24px",
+                        marginBottom: "15px",
+                      }}
+                    >
+                      <i className={`bi ${item.icon}`}></i>
+                    </div>
+                    <h6 className="fw-bold">{item.title}</h6>
+                    <p className="mb-0" style={{ fontSize: "0.9rem" }}>
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </div>
+
+        {/* Hide Scrollbar Globally */}
+        <style jsx>{`
+          ::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
       </section>
 
       {/* Recent Projects */}
+
       <section className="py-5 px-4 bg-dark text-white">
         <h3 className="text-center mb-5">OUR RECENT PROJECTS</h3>
         <div className="row">
-          {[1, 2, 3].map((num) => (
-            <div key={num} className="col-md-4 mb-4">
-              <div className="bg-light rounded overflow-hidden shadow-sm">
+          {[
+            {
+              img: "/bcci.jpg",
+              alt: "EV Charging Dashboard",
+            },
+            {
+              img: "/bcci.jpg",
+              alt: "Blogify MERN App",
+            },
+            {
+              img: "/bcci.jpg",
+              alt: "IoT Smart Station",
+            },
+          ].map((project, i) => (
+            <div key={i} className="col-md-4 mb-4">
+              <div
+                className="rounded shadow-sm overflow-hidden"
+                style={{
+                  background: "#fff",
+                  borderRadius: "16px",
+                  height: "100%",
+                  transition: "transform 0.3s",
+                }}
+              >
                 <Image
-                  src={`/projects/project${num}.jpg`}
-                  alt={`Project ${num}`}
-                  width={400}
-                  height={250}
+                  src={project.img}
+                  alt={project.alt}
+                  width={500}
+                  height={300}
                   className="w-100"
+                  style={{
+                    objectFit: "cover",
+                    height: "100%",
+                    borderRadius: "16px",
+                  }}
                 />
               </div>
             </div>
@@ -210,35 +442,119 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
+
       <section className="bg-light py-5 px-4">
-        <h3 className="text-center mb-5 text-dark">What our clients say</h3>
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 className="fw-bold mb-1 text-dark">What our clients say</h2>
+            <p className="text-muted">Stories of Transformation</p>
+          </div>
+          <a
+            href="#"
+            className="text-dark d-flex align-items-center"
+            style={{ textDecoration: "none", fontWeight: 500 }}
+          >
+            View More <span className="ms-2">→</span>
+          </a>
+        </div>
+
         <div className="row">
           {[
             {
-              name: "Anjali",
+              name: "Marco Cornacchia",
+              company: "Agarwal Hospitals",
               feedback:
-                "Absolutely stunning designs! Transformed my space beautifully with elegance.Highly recommend their expertise!",
+                "Absolutely stunning designs! Transformed my space beautifully with elegance. Highly recommend their expertise!",
               rating: 5,
+              avatar: "/users/avatar1.jpg",
             },
             {
-              name: "Rohan",
+              name: "Marco Cornacchia",
+              company: "Agarwal Hospitals",
               feedback:
-                "Absolutely stunning designs! Transformed my space beautifully with elegance.Highly recommend their expertise!.",
-              rating: 4,
+                "Absolutely stunning designs! Transformed my space beautifully with elegance. Highly recommend their expertise!",
+              rating: 5,
+              avatar: "/users/avatar1.jpg",
             },
             {
-              name: "Divya",
+              name: "Marco Cornacchia",
+              company: "Agarwal Hospitals",
               feedback:
-                "Absolutely stunning designs! Transformed my space beautifully with elegance.Highly recommend their expertise!",
+                "Absolutely stunning designs! Transformed my space beautifully with elegance. Highly recommend their expertise!",
               rating: 5,
+              avatar: "/users/avatar1.jpg",
             },
           ].map((review, i) => (
             <div key={i} className="col-md-4 mb-4">
-              <div className="bg-dark text-white p-4 rounded shadow-sm h-100">
-                <h5>{review.name}</h5>
-                <p className="mb-2">{review.feedback}</p>
-                <p className="text-warning mb-0">
-                  {"\u2B50".repeat(review.rating)}
+              <div
+                className="p-4 text-white rounded h-100"
+                style={{
+                  backgroundColor: "#2b003e",
+                  minHeight: 180,
+                }}
+              >
+                <div className="mb-2">
+                  {"★".repeat(review.rating)}
+                  <span className="text-muted" style={{ opacity: 0.5 }}>
+                    {"★".repeat(5 - review.rating)}
+                  </span>
+                </div>
+                <div className="d-flex align-items-center mb-2">
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    width={40}
+                    height={40}
+                    className="rounded-circle me-3"
+                  />
+                  <div>
+                    <strong>{review.name}</strong>
+                    <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
+                      {review.company}
+                    </div>
+                  </div>
+                </div>
+                <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>
+                  {review.feedback}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Centered Last 2 Cards with gap */}
+        <div className="d-flex justify-content-center gap-4 flex-wrap mt-3">
+          {[4, 5].map((i) => (
+            <div key={i} className="col-md-4" style={{ maxWidth: "360px" }}>
+              <div
+                className="p-4 text-white rounded h-100"
+                style={{
+                  backgroundColor: "#2b003e",
+                  minHeight: 180,
+                }}
+              >
+                <div className="mb-2">
+                  {"★".repeat(5)}
+                  <span className="text-muted" style={{ opacity: 0.5 }}></span>
+                </div>
+                <div className="d-flex align-items-center mb-2">
+                  <img
+                    src="/users/avatar1.jpg"
+                    alt="Marco"
+                    width={40}
+                    height={40}
+                    className="rounded-circle me-3"
+                  />
+                  <div>
+                    <strong>Marco Cornacchia</strong>
+                    <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
+                      Agarwal Hospitals
+                    </div>
+                  </div>
+                </div>
+                <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>
+                  Absolutely stunning designs! Transformed my space beautifully
+                  with elegance. Highly recommend their expertise!
                 </p>
               </div>
             </div>
