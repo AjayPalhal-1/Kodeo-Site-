@@ -81,7 +81,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/imgs/cyber5.jpg" // Path to your image
+            src="/imgs/ai3.png" // Path to your image
             alt="Cybersecurity"
             layout="fill" // Makes the image cover the entire section
             objectFit="cover" // Ensures the image covers the section without distortion
@@ -124,7 +124,7 @@ export default function Home() {
             {[
               {
                 title: "Predictive Analytics",
-                image: "/imgs/predictive.jpg", // Replace with your image path
+                image: "/Services/ss1/ai1.webp", // Replace with your image path
                 points: [
                   "Make data-driven decisions with AI models that forecast trends, demand, and behaviours.",
                   "Improve supply chain efficiency, financial planning, and customer engagement.",
@@ -133,7 +133,7 @@ export default function Home() {
               },
               {
                 title: "Natural Language Processing (NLP)",
-                image: "/imgs/nlp.jpg", // Replace with your image path
+                image: "/Services/ss1/NLP 2.jpeg", // Replace with your image path
                 points: [
                   "Extract insights from unstructured text, emails, chats, and reviews.",
                   "Enable intelligent chatbots, auto-summarization, and sentiment analysis.",
@@ -142,7 +142,7 @@ export default function Home() {
               },
               {
                 title: "Computer Vision",
-                image: "/imgs/vision.jpg", // Replace with your image path
+                image: "/Services/ss1/computer vision.jpeg", // Replace with your image path
                 points: [
                   "Analyse and interpret images and video at scale using AI.",
                   "Use facial recognition, object detection, and scene segmentation.",
@@ -151,7 +151,7 @@ export default function Home() {
               },
               {
                 title: "Recommendation Systems",
-                image: "/imgs/recommend.jpg", // Replace with your image path
+                image: "/Services/ss1/recommendation system 2.jpeg", // Replace with your image path
                 points: [
                   "Increase customer engagement with personalized suggestions.",
                   "Deploy collaborative and content-based filtering algorithms.",
@@ -353,10 +353,10 @@ export default function Home() {
             <Col md={6} className="d-none d-md-block">
               <div className="text-center">
                 <Image
-                  src="/intet.png" // Make sure this path matches your image name and location
+                  src="/imgs/AI 1.jpg" // Make sure this path matches your image name and location
                   alt="Consultation"
-                  width={500}
-                  height={400}
+                  width={600}
+                  height={500}
                   className="img-fluid"
                 />
               </div>

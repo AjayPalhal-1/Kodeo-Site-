@@ -80,7 +80,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/imgs/cyber5.jpg" // Path to your image
+            src="/imgs/cyber 1.png" // Path to your image
             alt="Cybersecurity"
             layout="fill" // Makes the image cover the entire section
             objectFit="cover" // Ensures the image covers the section without distortion
@@ -112,7 +112,7 @@ In today’s hyper-digital world, cybersecurity is the cornerstone of every orga
   {[
     {
       title: "Network Security",
-      image: "/imgs/network-security.jpg",
+      image: "/Services/subss/network_security.png",
       points: [
         "Protect your core infrastructure from unauthorized access and threats.",
         "Utilize advanced firewalls, intrusion detection/prevention (IDS/IPS), and secure VPNs.",
@@ -121,7 +121,7 @@ In today’s hyper-digital world, cybersecurity is the cornerstone of every orga
     },
     {
       title: "Endpoint Protection",
-      image: "/imgs/endpoint.jpg",
+      image: "/Services/subss/endpoint.avif",
       points: [
         "Safeguard all connected devices from malware and ransomware attacks.",
         "Use next-gen antivirus, patch management, and device encryption.",
@@ -130,7 +130,7 @@ In today’s hyper-digital world, cybersecurity is the cornerstone of every orga
     },
     {
       title: "Cloud Security",
-      image: "/imgs/cloud-sec.jpg",
+      image: "/Services/subss/cloud1.jpeg",
       points: [
         "Secure your cloud data and applications from breaches and leaks.",
         "Enable identity management, cloud workload protection, and real-time monitoring.",
@@ -139,7 +139,7 @@ In today’s hyper-digital world, cybersecurity is the cornerstone of every orga
     },
     {
       title: "Threat Intelligence",
-      image: "/imgs/threat-intel.jpg",
+      image: "/Services/subss/threat intelligence 4.jpeg",
       points: [
         "Stay ahead of hackers with real-time threat feeds and vulnerability data.",
         "Get actionable insights from dark web monitoring, malware analysis, and behavioural analytics.",
@@ -290,10 +290,10 @@ In today’s hyper-digital world, cybersecurity is the cornerstone of every orga
       <Col md={6} className="d-none d-md-block">
         <div className="text-center">
           <Image
-            src="/intet.png" // Make sure this path matches your image name and location
+            src="/imgs/cyber2.png" // Make sure this path matches your image name and location
             alt="Consultation"
-            width={500}
-            height={400}
+            width={400}
+            height={600}
             className="img-fluid"
           />
         </div>

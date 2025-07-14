@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from 'next/image';
+
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -24,9 +26,19 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         {/* Left: Logo */}
-        <Link className="navbar-brand fw-bold text-white fs-4" href="/">
-          Kodeo
-        </Link>
+     {/* Left: Logo */}
+<Link className="navbar-brand d-flex align-items-center" href="/">
+  <Image
+    src="/kodeo.svg"
+    alt="Kodeo Logo"
+    width={60}
+    height={50}
+    className="me-2 "
+    style={{ objectFit: "cover" }}
+  />
+  {/* <span className="fw-bold text-white fs-5">Kodeo</span> */}
+</Link>
+
 
         {/* Toggle Button (for mobile) */}
         <button
@@ -61,6 +73,9 @@ export default function Navbar() {
                     Cyber Security
                   </Link>
                 </li>
+                  <Link className="dropdown-item" href="/devops">
+                    DevOps
+                  </Link>
                 <li>
                   <Link className="dropdown-item" href="/aiml">
                     AI/ML Solutions
@@ -73,7 +88,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link className="dropdown-item" href="/cloud">
-                    Cloud Consulting
+                    Cloud Computing
                   </Link>
                 </li>
               </ul>

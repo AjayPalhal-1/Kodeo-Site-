@@ -2,73 +2,71 @@
 import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { useEffect, useState } from "react";
+
 export default function Home() {
+
+  const bgImages = ["/Services/ss1/homepage 2.jpeg", "/Services/ss1/homepage 3.jpeg", "/Services/ss1/homepage 4.jpeg"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+    }, 3000); // Rotate every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="text-white d-flex align-items-center"
-        style={{
-          minHeight: "100vh",
-          backgroundImage:
-            "linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('/bg-circuit.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative",
-          paddingLeft: "8%",
-          paddingRight: "8%",
-        }}
-      >
-        <div className="w-100">
-          <div className="text-start" style={{ maxWidth: "700px" }}>
-            <h1 className="fw-bold display-5 mb-3">
-              <span style={{ color: "#ffff" }}>Next-Gen Solutions for </span>{" "}
-              <br />
-              the Digital Frontier
-            </h1>
-            <p className="lead text-light">
-              With a foundation in innovation and a vision for tomorrow, we
-              craft agile, scalable, and smart technologies that drive business
-              success in the digital era.{" "}
-            </p>
-          </div>
+     <section
+      className="text-white d-flex align-items-center"
+      style={{
+        minHeight: "100vh",
+        backgroundImage: `linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('${bgImages[currentIndex]}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        position: "relative",
+        paddingLeft: "8%",
+        paddingRight: "8%",
+        transition: "background-image 0.6s ease-in-out",
+      }}
+    >
+      <div className="w-100">
+        <div className="text-start" style={{ maxWidth: "700px" }}>
+          <h1 className="fw-bold display-5 mb-3">
+            <span style={{ color: "#ffff" }}>Next-Gen Solutions for </span>
+            <br />
+            the Digital Frontier
+          </h1>
+          <p className="lead text-light">
+            With a foundation in innovation and a vision for tomorrow, we craft
+            agile, scalable, and smart technologies that drive business success
+            in the digital era.
+          </p>
+        </div>
 
-          {/* Carousel dots (dummy styling, not functional yet) */}
-          <div className="mt-4">
-            <div className="d-flex gap-2">
+        {/* Carousel Dots */}
+        <div className="mt-4">
+          <div className="d-flex gap-2">
+            {bgImages.map((_, i) => (
               <span
+                key={i}
                 style={{
                   width: "10px",
                   height: "10px",
-                  backgroundColor: "#ff007f",
+                  backgroundColor:
+                    i === currentIndex ? "#ff007f" : "rgba(255,255,255,0.5)",
                   borderRadius: "50%",
                   display: "inline-block",
+                  transition: "background-color 0.3s",
                 }}
               ></span>
-              <span
-                style={{
-                  width: "10px",
-                  height: "10px",
-                  backgroundColor: "#fff",
-                  opacity: 0.5,
-                  borderRadius: "50%",
-                  display: "inline-block",
-                }}
-              ></span>
-              <span
-                style={{
-                  width: "10px",
-                  height: "10px",
-                  backgroundColor: "#fff",
-                  opacity: 0.5,
-                  borderRadius: "50%",
-                  display: "inline-block",
-                }}
-              ></span>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Trusted By Section */}
 
@@ -189,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-   <section className="bg-light py-5 px-4">
+ <section className="bg-light py-5 px-4">
   <h3 className="text-center fw-bold mb-5 text-dark">
     Services Designed for Impact
   </h3>
@@ -197,37 +195,37 @@ export default function Home() {
     {[
       {
         title: "Enterprise Security Architecture",
-        image: "/services/security.png",
+        image: "/Images/Original/enterprise security architecture.png",
         description:
           "Secure your entire tech ecosystem with end-to-end cybersecurity tailored to your operations.",
       },
       {
         title: "AI & ML Development",
-        image: "/services/ai-ml.png",
+        image: "/Images/Original/ai-ml development.png",
         description:
           "From predictive analytics to intelligent automation, we bring data science to life with scalable AI/ML applications.",
       },
       {
         title: "End-to-End App Development",
-        image: "/services/app-dev.png",
+        image: "/Images/Original/end to end.png",
         description:
           "We design, build, and deploy high-performing web and mobile applications using modern full stack technologies.",
       },
       {
         title: "Cloud Infrastructure Services",
-        image: "/services/cloud.png",
+        image: "/Images/Original/cloud infrastucture services.png",
         description:
           "Migrate, manage, and scale your business with robust cloud solutions built on AWS, Azure, or Google Cloud.",
       },
       {
         title: "DevOps Transformation",
-        image: "/services/devops.png",
+        image: "/Images/Original/devops.png",
         description:
           "Streamline your development lifecycle with CI/CD pipelines, infrastructure automation, and agile DevOps practices.",
       },
       {
         title: "Blockchain Solutions",
-        image: "/services/blockchain.png",
+        image: "/Images/Original/blockchain.png",
         description:
           "Implement secure and decentralized applications using blockchain technology.",
       },
@@ -235,13 +233,26 @@ export default function Home() {
       <div key={i} className="col-md-4 mb-4">
         <div
           className="card text-white h-100 shadow position-relative"
-          style={{ backgroundColor: "#1b1b2f", borderRadius: 16 }}
+          style={{
+            backgroundColor: "#1b1b2f",
+            borderRadius: 16,
+            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "scale(1.03)";
+            e.currentTarget.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)";
+          }}
         >
           <div className="card-body text-center">
             <div
               style={{
-                height: 100,
-                marginBottom: 20,
+                height: 190,
+                marginBottom: 25,
+                marginTop: 10,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -260,30 +271,13 @@ export default function Home() {
             <h5 className="card-title">{service.title}</h5>
             <p className="card-text">{service.description}</p>
           </div>
-          <div
-            className="position-absolute bottom-0 end-0 p-3"
-            style={{ cursor: "pointer" }}
-          >
-            <div
-              style={{
-                backgroundColor: "#ff007f",
-                borderRadius: "50%",
-                width: 40,
-                height: 40,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-              }}
-            >
-              &rarr;
-            </div>
-          </div>
+         
         </div>
       </div>
     ))}
   </div>
 </section>
+
 
 
       {/* Why Choose Us Section */}

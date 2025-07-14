@@ -336,7 +336,7 @@ export default function AboutUsPage() {
       {/* Top Left Image */}
       <div className="col-md-6">
         <img
-          src="/your-path/vision-image.jpg"
+          src="/Services/ss1/newvission.png"
           alt="Vision"
           className="img-fluid w-100 h-100 object-fit-cover"
           style={{ objectFit: "cover", height: "100%" }}
@@ -375,7 +375,7 @@ export default function AboutUsPage() {
       {/* Bottom Right Image */}
       <div className="col-md-6">
         <img
-          src="/your-path/mission-image.jpg"
+          src="/Services/ss1/newmm.png"
           alt="Mission"
           className="img-fluid w-100 h-100 object-fit-cover"
           style={{ objectFit: "cover", height: "100%" }}

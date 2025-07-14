@@ -80,8 +80,8 @@ export default function Home() {
           }}
         >
           <Image
-            src="/imgs/cyber5.jpg" // Path to your image
-            alt="Cybersecurity"
+            src="/Services/ss1/fullstackbolt1.png" // Path to your image
+            alt="Full Stack"
             layout="fill" // Makes the image cover the entire section
             objectFit="cover" // Ensures the image covers the section without distortion
             objectPosition="center" // Keeps the image centered
@@ -111,7 +111,7 @@ In the digital era, having a seamless and high-performing application is critica
   {[
     {
       title: "Frontend Development",
-      image: "/imgs/frontend.jpg", // Use appropriate image path
+      image: "/Services/ss1/front end 2.jpeg", // Use appropriate image path
       points: [
         "Build interactive, responsive UIs using React, Angular, or Vue.js.",
         "Ensure accessibility, speed, and mobile-first design with pixel-perfect layout.",
@@ -120,7 +120,7 @@ In the digital era, having a seamless and high-performing application is critica
     },
     {
       title: "Backend Development",
-      image: "/imgs/backend.jpg", // Use appropriate image path
+      image: "/Services/ss1/backend.jpeg", // Use appropriate image path
       points: [
         "Design scalable backend systems using Node.js, Django, Flask, or Laravel.",
         "Securely manage databases, business logic, and authentication.",
@@ -138,7 +138,7 @@ In the digital era, having a seamless and high-performing application is critica
     },
     {
       title: "API & Integration Services",
-      image: "/imgs/api.jpg", // Optional image
+      image: "/Services/ss1/API.jpeg", // Optional image
       points: [
         "Develop RESTful APIs and GraphQL endpoints for data exchange.",
         "Integrate third-party services like Stripe, Twilio, and Firebase.",
@@ -277,9 +277,9 @@ In the digital era, having a seamless and high-performing application is critica
       <Col md={6} className="d-none d-md-block">
         <div className="text-center">
           <Image
-            src="/intet.png" // Make sure this path matches your image name and location
+            src="/imgs/Full stack 2.png" // Make sure this path matches your image name and location
             alt="Consultation"
-            width={500}
+            width={700}
             height={400}
             className="img-fluid"
           />

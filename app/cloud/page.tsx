@@ -80,7 +80,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/imgs/cyber5.jpg" // Path to your image
+            src="/imgs/cloud 4.png" // Path to your image
             alt="Cybersecurity"
             layout="fill" // Makes the image cover the entire section
             objectFit="cover" // Ensures the image covers the section without distortion
@@ -112,7 +112,7 @@ Cloud computing is more than just storage—it's about driving digital transform
   {[
     {
       title: "Cloud Infrastructure Setup",
-      image: "/imgs/cloud-infra.jpg", // Replace with your actual image path
+      image: "/imgs/cloud 2.png", // Replace with your actual image path
       points: [
         "Provision scalable infrastructure using AWS, Azure, or GCP.",
         "Configure compute, storage, and networking to meet business needs.",
@@ -121,7 +121,7 @@ Cloud computing is more than just storage—it's about driving digital transform
     },
     {
       title: "Cloud Migration Services",
-      image: "/imgs/cloud-migration.jpg", // Replace with your actual image path
+      image: "/imgs/cloud 1.png", // Replace with your actual image path
       points: [
         "Assess, plan, and execute migrations from on-premise to the cloud.",
         "Use rehosting, replatforming, or refactoring strategies.",
@@ -130,7 +130,7 @@ Cloud computing is more than just storage—it's about driving digital transform
     },
     {
       title: "DevOps in the Cloud",
-      image: "/imgs/devops-cloud.jpg", // Replace with your actual image path
+      image: "/Services/ss1/devops in cloud.jpeg", // Replace with your actual image path
       points: [
         "Integrate CI/CD pipelines for faster and more reliable releases.",
         "Automate builds, tests, and deployments.",
@@ -139,7 +139,7 @@ Cloud computing is more than just storage—it's about driving digital transform
     },
     {
       title: "Serverless Application Development",
-      image: "/imgs/serverless.jpg", // Replace with your actual image path
+      image: "/Services/ss1/serverless.jpeg", // Replace with your actual image path
       points: [
         "Build and deploy using AWS Lambda, Azure Functions, or Google Cloud Functions.",
         "Scale automatically with reduced operational overhead.",
@@ -306,9 +306,9 @@ Cloud computing is more than just storage—it's about driving digital transform
       <Col md={6} className="d-none d-md-block">
         <div className="text-center">
           <Image
-            src="/intet.png" // Make sure this path matches your image name and location
+            src="/imgs/cloud 2.png" // Make sure this path matches your image name and location
             alt="Consultation"
-            width={500}
+            width={600}
             height={400}
             className="img-fluid"
           />
