@@ -178,10 +178,10 @@ export default function Home() {
 
         <div className="col-md-6 text-center">
           <img
-            src="/next.svg"
+            src="/Images/Original/hom.png"
             alt="AI and Cybersecurity Illustration"
             className="img-fluid"
-            style={{ maxHeight: "300px", borderRadius: "16px", opacity: 0.1 }}
+            style={{ maxHeight: "300px", borderRadius: "16px" }}
           />
         </div>
       </section>

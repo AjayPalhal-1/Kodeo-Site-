@@ -30,74 +30,52 @@ export default function Home() {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Scroll Progress Circle */}
-      <div
-        className="position-absolute top-50 end-0 translate-middle-y"
-        style={{
-          width: '50px',
-          height: '50px',
-          borderRadius: '50%',
-          backgroundColor: 'rgba(255, 255, 255, 0.7)',
-          boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
-          border: '5px solid #10b981',
-          transition: 'all 0.3s ease',
-          marginRight: '15px',
-          transform: `scale(${1 + (scrollProgress / 200)})`,
-          opacity: scrollProgress > 0 ? 1 : 0, // Hide when no scroll
-        }}
-      >
-        <div
-          style={{
-            width: `${scrollProgress}%`,
-            height: '100%',
-            backgroundColor: '#10b981',
-            borderRadius: '50%',
-            transition: 'width 0.1s ease',
-          }}
-        />
-      </div>
+  
 
       {/* Hero Section */}
-      <section
-        style={{
-          position: 'relative',
-          minHeight: '100vh',
-          paddingTop: '140px',
-          paddingBottom: '80px',
-          color: 'white',
-          textAlign: 'center',
-        }}
-      >
-        {/* Background Image */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: -1, // Keeps image in the background
-          }}
-        >
-          <Image
-            src="/imgs/DevOps 3.png" // Path to your image
-            alt="Cybersecurity"
-            layout="fill" // Makes the image cover the entire section
-            objectFit="cover" // Ensures the image covers the section without distortion
-            objectPosition="center" // Keeps the image centered
-          />
-        </div>
 
-        {/* Hero Text */}
-      <Container style={{ textAlign: 'left', paddingLeft: '6vw', paddingTop: '50vh' }}>
-  <h1>
-From Code to Deployment—Faster, Smarter, Safer 
-  </h1>
-  <p className="lead">
-DevOps solutions that streamline workflows, accelerate time-to-market, and ensure stability.  </p>
-</Container>
- 
-      </section>
+    <section
+  style={{
+    position: 'relative',
+    minHeight: '100vh',
+    paddingTop: '140px',
+    paddingBottom: '80px',
+    color: 'white',
+    textAlign: 'center',
+    overflow: 'hidden', // Prevents scroll issues on mobile
+  }}
+>
+  {/* Background Image */}
+  <div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: -1,
+    }}
+  >
+    <Image
+      src="/imgs/DevOps 3.png"
+      alt="Cybersecurity"
+      fill
+      priority
+      style={{
+        objectFit: 'cover',
+        objectPosition: 'center',
+      }}
+    />
+  </div>
+
+  {/* Hero Text */}
+  <Container style={{ textAlign: 'left', paddingLeft: '6vw', paddingTop: '50vh' }}>
+    <h1>From Code to Deployment—Faster, Smarter, Safer</h1>
+    <p className="lead">
+      DevOps solutions that streamline workflows, accelerate time-to-market, and ensure stability.
+    </p>
+  </Container>
+</section>
 
       {/* Solutions */}
     {/* Solutions */}
