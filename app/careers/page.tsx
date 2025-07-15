@@ -44,9 +44,12 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="text-dark" style={{ fontFamily: 'Poppins, sans-serif' }}>
+    <div className="text-white" style={{ fontFamily: 'Poppins, sans-serif' }}>
       {/* Hero Section */}
-      <div className="position-relative bg-dark text-white overflow-hidden" style={{ height: '100vh' }}>
+      <div
+        className="position-relative bg-dark text-white overflow-hidden"
+        style={{ height: '100vh' }}
+      >
         <Image
           src="/imgs/carrer.jpeg"
           alt="Hero Background"
@@ -58,26 +61,23 @@ export default function CareersPage() {
           className="position-absolute top- start-0 w-100 h-120"
           style={{ backdropFilter: 'blur(0px)', zIndex: 1 }}
         ></div>
-  <div className="position-relative z-2 h-100 d-flex flex-column justify-content-end ps-5 pb-5">
-  <div className="w-90 w-md-55">
-    <h1 className="display-4 fw-bold mb-1">Join Our<br />Innovative Team!</h1>
-
-    {/* ✅ Newly added sentence */}
-    <p className="fs-5 mb-2">
-We are looking for talented individuals to contribute to our success. Explore our <br />open positions and start your journey with us.
-    </p>
-
-   
-  </div>
-</div>
-
-        
+        <div className="position-relative z-2 h-100 d-flex flex-column justify-content-end ps-5 pb-5">
+          <div className="w-90 w-md-55">
+            <h1 className="display-4 fw-bold mb-1">
+              Join Our <br /> Innovative Team!
+            </h1>
+            <p className="fs-5 mb-2">
+              We are looking for talented individuals to contribute to our success.
+              Explore our <br /> open positions and start your journey with us.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Apply Section */}
-      <div className="container py-5">
+      <div className="container py-5" style={{ backgroundColor: '#f7f6fa' }}>
         <div className="row g-5 align-items-center justify-content-center">
-          {/* Left Side: Image */}
+          {/* Left Image */}
           <div className="col-lg-6 text-center">
             <Image
               src="/imgs/ai3.png"
@@ -92,18 +92,21 @@ We are looking for talented individuals to contribute to our success. Explore ou
             />
           </div>
 
-          {/* Right Side: Form */}
+          {/* Form */}
           <div className="col-lg-6">
-            {/* <h3 className="fw-bold mb-4 text-dark">Apply</h3> */}
             <form
               onSubmit={handleSubmit}
-              className="p-4 rounded-4 bg-dark text-white"
+              className="p-4 rounded-4"
+              style={{ background: '#3a006a', boxShadow: '0 4px 32px rgba(30,0,60,0.10)' }}
             >
-              {/* Role Dropdown */}
+              <h3 className="fw-bold mb-4">Apply</h3>
+
+              {/* Role */}
               <div className="mb-3">
                 <select
                   name="role"
-                  className="form-select rounded-pill bg-secondary border-0 text-white"
+                  className="form-select bg-secondary border-0 text-white"
+                  style={{ background: '#2a0050' }}
                   value={formData.role}
                   onChange={handleChange}
                 >
@@ -124,20 +127,22 @@ We are looking for talented individuals to contribute to our success. Explore ou
                 <input
                   type="text"
                   name="name"
-                  placeholder="Enter your name"
-                  className="form-control rounded-pill bg-secondary border-0 text-white"
+                  placeholder="Full Name"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
                 />
                 {errors.name && <small className="text-danger">{errors.name}</small>}
               </div>
 
-              {/* Resume Upload */}
+              {/* Resume */}
               <div className="mb-3">
                 <input
                   type="file"
                   name="resume"
                   accept=".pdf,.doc,.docx"
-                  className="form-control rounded-pill bg-secondary border-0 text-white"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
                 />
                 {errors.resume && <small className="text-danger">{errors.resume}</small>}
@@ -148,15 +153,17 @@ We are looking for talented individuals to contribute to our success. Explore ou
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Phone number"
-                  className="form-control rounded-pill bg-secondary border-0 text-white"
+                  placeholder="Phone"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
                 />
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email ID"
-                  className="form-control rounded-pill bg-secondary border-0 text-white"
+                  placeholder="Email"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
                 />
               </div>
@@ -169,39 +176,48 @@ We are looking for talented individuals to contribute to our success. Explore ou
                   type="text"
                   name="location"
                   placeholder="Location"
-                  className="form-control rounded-pill bg-secondary border-0 text-white"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
                 />
               </div>
 
-              {/* Portfolio Link */}
+              {/* Portfolio */}
               <div className="mb-3">
                 <input
                   type="url"
                   name="portfolio"
                   placeholder="Portfolio Link"
-                  className="form-control rounded-pill bg-secondary border-0 text-white"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
                 />
               </div>
 
               {/* Message */}
-              <div className="mb-3">
+              <div className="mb-4">
                 <textarea
                   name="message"
+                  placeholder="Message"
                   rows={2}
-                  placeholder="Portfolio Link Message*"
-                  className="form-control rounded-4 bg-secondary border-0 text-white"
+                  className="form-control"
+                  style={{ background: '#2a0050', border: 'none', color: '#fff' }}
                   onChange={handleChange}
-                ></textarea>
+                />
                 {errors.message && <small className="text-danger">{errors.message}</small>}
               </div>
 
               {/* Submit */}
               <button
                 type="submit"
-                className="btn w-100 rounded-pill fw-bold"
-                style={{ backgroundColor: '#FF2F92', color: 'white' }}
+                className="btn w-100 fw-bold"
+                style={{
+                  background: 'linear-gradient(90deg, #ff007f, #a800ff)',
+                  color: '#fff',
+                  fontSize: '1.2rem',
+                  border: 'none',
+                  borderRadius: 8,
+                }}
               >
                 Apply
               </button>
@@ -209,7 +225,6 @@ We are looking for talented individuals to contribute to our success. Explore ou
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

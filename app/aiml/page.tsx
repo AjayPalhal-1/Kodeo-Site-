@@ -31,33 +31,7 @@ export default function Home() {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Scroll Progress Circle */}
-      <div
-        className="position-absolute top-50 end-0 translate-middle-y"
-        style={{
-          width: "50px",
-          height: "50px",
-          borderRadius: "50%",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          border: "5px solid #10b981",
-          transition: "all 0.3s ease",
-          marginRight: "15px",
-          transform: `scale(${1 + scrollProgress / 200})`,
-          opacity: scrollProgress > 0 ? 1 : 0, // Hide when no scroll
-        }}
-      >
-        <div
-          style={{
-            width: `${scrollProgress}%`,
-            height: "100%",
-            backgroundColor: "#10b981",
-            borderRadius: "50%",
-            transition: "width 0.1s ease",
-          }}
-        />
-      </div>
-
+    
       {/* Hero Section */}
       <section
         style={{

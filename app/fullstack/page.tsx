@@ -9,22 +9,7 @@ import Image from "next/image";
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Update the scroll progress based on the scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(scrollPercent);
-    };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <>
