@@ -5,12 +5,9 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-
-
-
 const Footer = () => {
   const [showPrivacy, setShowPrivacy] = useState(false);
-const [showTerms, setShowTerms] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
   return (
     <footer
       className="text-white pt-5 pb-3"
@@ -31,8 +28,8 @@ const [showTerms, setShowTerms] = useState(false);
               <br />
               Hinjewadi Phase 2, Pune, 411057
             </p>
-            <p className="mb-2">info@kodeosoftwaretechnology.com</p>
-            <p className="mb-3">+91 89 8445 4565</p>
+            <p className="mb-2">hr@kodeosoftwaretechnology.com</p>
+            <p className="mb-3">+91 7378914416</p>
             <div className="d-flex gap-3">
               <a href="#" className="text-white fs-5">
                 <i className="bi bi-facebook"></i>
@@ -138,75 +135,74 @@ const [showTerms, setShowTerms] = useState(false);
 
         <hr style={{ borderColor: "#444" }} />
 
-      {/* Terms & Conditions Modal */}
-{showTerms && (
-  <div className="modal fade show d-block" tabIndex={-1} role="dialog">
-    <div className="modal-dialog modal-dialog-centered" role="document">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Terms & Conditions</h5>
-          <button
-            type="button"
-            className="btn-close"
-            onClick={() => setShowTerms(false)}
-          ></button>
+        {/* Terms & Conditions Modal */}
+        {showTerms && (
+          <div className="modal fade show d-block" tabIndex={-1} role="dialog">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Terms & Conditions</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setShowTerms(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p>
+                    Welcome to Kodeosoftwaretechnology. These terms govern your
+                    use of our services...
+                  </p>
+                  {/* Add full terms here */}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="text-center small text-secondary">
+          © 2025 Kodeosoftwaretechnology. All rights reserved. |
+          <span
+            className="mx-2 text-decoration-underline text-primary"
+            style={{ cursor: "pointer" }}
+            onClick={() => setShowTerms(true)}
+          >
+            Terms & Conditions
+          </span>
+          |
+          <span
+            className="mx-2 text-decoration-underline text-primary"
+            style={{ cursor: "pointer" }}
+            onClick={() => setShowPrivacy(true)}
+          >
+            Privacy Policy
+          </span>
         </div>
-        <div className="modal-body">
-          <p>
-            Welcome to Kodeosoftwaretechnology. These terms govern your use of our services...
-          </p>
-          {/* Add full terms here */}
-        </div>
+
+        {/* Privacy Policy Modal */}
+        {showPrivacy && (
+          <div className="modal fade show d-block" tabIndex={-1} role="dialog">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Privacy Policy</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setShowPrivacy(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p>
+                    We value your privacy. This policy explains how we handle
+                    your data, cookies, and more...
+                  </p>
+                  {/* Add full privacy content here */}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </div>
-  </div>
-)}
-<div className="text-center small text-secondary">
-  © 2025 Kodeosoftwaretechnology. All rights reserved. |
-  <span
-    className="mx-2 text-decoration-underline text-primary"
-    style={{ cursor: "pointer" }}
-    onClick={() => setShowTerms(true)}
-  >
-    Terms & Conditions
-  </span>
-  |
-  <span
-    className="mx-2 text-decoration-underline text-primary"
-    style={{ cursor: "pointer" }}
-    onClick={() => setShowPrivacy(true)}
-  >
-    Privacy Policy
-  </span>
-</div>
-
-
-{/* Privacy Policy Modal */}
-{showPrivacy && (
-  <div className="modal fade show d-block" tabIndex={-1} role="dialog">
-    <div className="modal-dialog modal-dialog-centered" role="document">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title">Privacy Policy</h5>
-          <button
-            type="button"
-            className="btn-close"
-            onClick={() => setShowPrivacy(false)}
-          ></button>
-        </div>
-        <div className="modal-body">
-          <p>
-            We value your privacy. This policy explains how we handle your data, cookies, and more...
-          </p>
-          {/* Add full privacy content here */}
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
-
-      </div>   
     </footer>
   );
 };

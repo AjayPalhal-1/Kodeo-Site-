@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,23 +26,22 @@ export default function Navbar() {
     >
       <div className="container-fluid">
         {/* Left: Logo */}
-     {/* Left: Logo */}
-<Link className="navbar-brand d-flex align-items-center" href="/">
-  <Image
-    src="/kodeo.svg"
-    alt="Kodeo Logo"
-    width={60}
-    height={50}
-    className="me-2 "
-    style={{ objectFit: "cover" }}
-  />
-  {/* <span className="fw-bold text-white fs-5">Kodeo</span> */}
-</Link>
-
+        {/* Left: Logo */}
+        <Link className="navbar-brand d-flex align-items-center" href="/">
+          <Image
+            src="/kodeo.svg"
+            alt="Kodeo Logo"
+            width={60}
+            height={50}
+            className="me-2 "
+            style={{ objectFit: "cover" }}
+          />
+          {/* <span className="fw-bold text-white fs-5">Kodeo</span> */}
+        </Link>
 
         {/* Toggle Button (for mobile) */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           onClick={() => setIsCollapsed(!isCollapsed)}
           aria-label="Toggle navigation"
@@ -68,29 +67,42 @@ export default function Navbar() {
                 Services
               </a>
               <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" href="/cyber">
-                    Cyber Security
-                  </Link>
-                </li>
-                  <Link className="dropdown-item" href="/devops">
-                    DevOps
-                  </Link>
-                <li>
-                  <Link className="dropdown-item" href="/aiml">
-                    AI/ML Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="/fullstack">
-                    Full Stack Development
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" href="/cloud">
-                    Cloud Computing
-                  </Link>
-                </li>
+                <Link
+                  className="dropdown-item"
+                  href="/fullstack"
+                  onClick={() => setIsCollapsed(true)}
+                >
+                  Full Stack Development
+                </Link>
+
+                <Link
+                  className="dropdown-item"
+                  href="/cloud"
+                  onClick={() => setIsCollapsed(true)}
+                >
+                  Cloud Computing
+                </Link>
+                <Link
+                  className="dropdown-item"
+                  href="/devops"
+                  onClick={() => setIsCollapsed(true)}
+                >
+                  DevOps
+                </Link>
+                <Link
+                  className="dropdown-item"
+                  href="/aiml"
+                  onClick={() => setIsCollapsed(true)}
+                >
+                  AI/ML Solutions
+                </Link>
+                <Link
+                  className="dropdown-item"
+                  href="/cyber"
+                  onClick={() => setIsCollapsed(true)}
+                >
+                  Cyber Security
+                </Link>
               </ul>
             </li>
 

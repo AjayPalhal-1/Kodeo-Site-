@@ -263,9 +263,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-
       {/* Our Journey  */}
-
       <section
         className="py-5"
         style={{ background: "#1e1b32", color: "#fff" }}
@@ -273,15 +271,18 @@ export default function AboutUsPage() {
         <div className="container">
           <h2
             className="text-center fw-bold mb-5"
-            style={{ borderBottom: "2px solid #fff", display: "inline-block" }}
+            style={{
+              borderBottom: "2px solid #fff",
+              display: "inline-block",
+            }}
           >
             OUR JOURNEY
           </h2>
+
           <div
-            className="position-relative d-flex justify-content-between align-items-start flex-wrap px-4"
+            className="timeline d-flex flex-column flex-md-row justify-content-between align-items-start gap-4 px-2"
             style={{ borderTop: "2px solid #555", paddingTop: "3rem" }}
           >
-            {/* Timeline Item */}
             {[
               {
                 year: "2018",
@@ -304,89 +305,131 @@ export default function AboutUsPage() {
                 desc: "Recognized for excellence in cybersecurity solutions and innovation.",
               },
             ].map((item, index) => (
-              <div key={index} className="text-center" style={{ width: "22%" }}>
+              <div
+                key={index}
+                className="timeline-item d-flex flex-row flex-md-column align-items-start gap-3 w-100"
+                style={{
+                  maxWidth: "100%", // ← allows full width on mobile
+                }}
+              >
                 <div
-                  className="mx-auto mb-3"
                   style={{
                     background: "#a78bfa",
                     width: 50,
                     height: 50,
                     borderRadius: "50%",
-                    lineHeight: "50px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                     fontWeight: "bold",
-                    fontSize: "1rem",
+                    fontSize: "0.9rem",
                     color: "#fff",
+                    flexShrink: 0,
                   }}
                 >
                   {item.year}
                 </div>
-                <h5 className="fw-bold">{item.title}</h5>
-                <p style={{ fontSize: "0.95rem", color: "#d1d5db" }}>
-                  {item.desc}
-                </p>
+                <div style={{ flex: 1 }}>
+                  <h5 className="fw-bold mb-1">{item.title}</h5>
+                  <p
+                    style={{
+                      fontSize: "0.95rem",
+                      color: "#d1d5db",
+                      marginBottom: 0,
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/*  Vission Mission */}
+
       <section style={{ background: "#f2eafa", padding: "60px 0" }}>
-  <div className="container">
-    <div className="row g-0">
-      {/* Top Left Image */}
-      <div className="col-md-6">
-        <img
-          src="/Services/ss1/newvission.png"
-          alt="Vision"
-          className="img-fluid w-100 h-100 object-fit-cover"
-          style={{ objectFit: "cover", height: "100%" }}
-        />
-      </div>
+        <div className="container">
+          <div className="row g-0">
+            {/* Top Left Image (Vision Image) */}
+            <div className="col-md-6">
+              <img
+                src="/Services/ss1/newvission.png"
+                alt="Vision"
+                className="img-fluid w-100 h-100 object-fit-cover"
+                style={{    objectFit: "cover",
+                  height: "300px", // ⬅️ Increase height
+                  width: "80%", // ⬅️ Reduce width
+                   borderRadius: "50px",
+                 }}
+              />
+            </div>
 
-      {/* Top Right Text */}
-      <div
-        className="col-md-6 d-flex flex-column justify-content-center p-5"
-        style={{ background: "#f2eafa" }}
-      >
-        <h3 className="fw-bold mb-3">Vision</h3>
-        <p style={{ fontSize: "1.1rem", color: "#333" }}>
-        Our vision is to lead the future of technology by delivering innovative, intelligent, and
-         secure digital solutions. We aim to become a global leader in AI, software development,
-          and cybersecurity—transforming the way businesses operate. Through continuous innovation and
-         forward-thinking strategies, we strive to shape a smarter and more connected world.
-        </p>
-      </div>
+            {/* Top Right Text (Vision Text) */}
+            <div
+              className="col-md-6 d-flex flex-column justify-content-center p-5"
+              style={{ background: "#f2eafa" }}
+            >
+              <h3 className="fw-bold mb-3">Vision</h3>
+              <p style={{ fontSize: "1.1rem", color: "#333" }}>
+                Our vision is to lead the future of technology by delivering
+                innovative, intelligent, and secure digital solutions. We aim to
+                become a global leader in AI, software development, and
+                cybersecurity—transforming the way businesses operate. Through
+                continuous innovation and forward-thinking strategies, we strive
+                to shape a smarter and more connected world.
+              </p>
+            </div>
 
-      {/* Bottom Left Text */}
-      <div
-        className="col-md-6 d-flex flex-column justify-content-center p-5"
-        style={{ background: "#f2eafa" }}
-      >
-        <h3 className="fw-bold mb-3">Mission</h3>
-        <p style={{ fontSize: "1.1rem", color: "#333" }}>
-           Our mission is to empower businesses by providing scalable
-           , customized, and performance-driven tech solutions. We are 
-           committed to solving real-world challenges through advanced digital tools
-           , ensuring efficiency, security, and growth. With a
-            focus on collaboration and excellence, we aim to create lasting value for our clients.
-        </p>
-      </div>
+            {/* Bottom Right Image (Mission Image) — Mobile FIRST */}
+            <div className="col-12 d-block d-md-none">
+              <img
+                src="/Services/ss1/m1.png"
+                alt="Mission"
+                className="img-fluid w-100 object-fit-cover"
+                style={{
+                  objectFit: "cover",
+                  height: "300px", // ⬅️ Increase height
+                  width: "80%", // ⬅️ Reduce width
 
-      {/* Bottom Right Image */}
-      <div className="col-md-6">
-        <img
-          src="/Services/ss1/newmm.png"
-          alt="Mission"
-          className="img-fluid w-100 h-100 object-fit-cover"
-          style={{ objectFit: "cover", height: "100%" }}
-        />
-      </div>
-    </div>
-  </div>
-</section>
+                  borderRadius: "15px",
+                }}
+              />
+            </div>
 
+            {/* Bottom Left Text (Mission Text) */}
+            <div
+              className="col-md-6 d-flex flex-column justify-content-center p-5"
+              style={{ background: "#f2eafa" }}
+            >
+              <h3 className="fw-bold mb-3">Mission</h3>
+              <p style={{ fontSize: "1.1rem", color: "#333" }}>
+                Our mission is to empower businesses by providing scalable,
+                customized, and performance-driven tech solutions. We are
+                committed to solving real-world challenges through advanced
+                digital tools, ensuring efficiency, security, and growth. With a
+                focus on collaboration and excellence, we aim to create lasting
+                value for our clients.
+              </p>
+            </div>
 
+            {/* Bottom Right Image (Mission Image) — Desktop ONLY */}
+            <div className="col-md-6 d-none d-md-block">
+              <img
+                src="/Services/ss1/m1.png"
+                alt="Mission"
+                className="img-fluid w-100 h-100 object-fit-cover"
+                style={{   objectFit: "cover",
+                  height: "300px", // ⬅️ Increase height
+                  width: "80%", // ⬅️ Reduce width
 
+                  borderRadius: "50px", }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
