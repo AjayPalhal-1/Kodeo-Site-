@@ -83,7 +83,7 @@ export default function Navbar() {
                   Cloud Computing
                 </Link>
                 <Link
-                  className="dropdown-item"
+                  className="dropdown-item" 
                   href="/devops"
                   onClick={() => setIsCollapsed(true)}
                 >

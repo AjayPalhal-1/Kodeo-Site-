@@ -31,17 +31,27 @@ const Footer = () => {
             <p className="mb-2">hr@kodeosoftwaretechnology.com</p>
             <p className="mb-3">+91 7378914416</p>
             <div className="d-flex gap-3">
-              <a href="#" className="text-white fs-5">
+              <a
+                href="https://fb.me/Kodeosoftwaretechnology"
+                className="text-white fs-5"
+              >
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="text-white fs-5">
+              <a
+                href="https://www.instagram.com/kodeo.soft?igsh=cWZoeXNxMHIxMGpy
+ "
+                className="text-white fs-5"
+              >
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="#" className="text-white fs-5">
+              <a
+                href="https://www.linkedin.com/company/kodeo-software-technology/?originalSubdomain=in"
+                className="text-white fs-5"
+              >
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a href="#" className="text-white fs-5">
-                <i className="bi bi-whatsapp"></i>
+              <a href="https://t.me/infokodeo" className="text-white fs-5">
+                <i className="bi bi-telegram"></i>
               </a>
             </div>
           </div>

@@ -19,6 +19,224 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // --- Testimonials Carousel State ---
+  const testimonials = [
+    {
+      name: "Aarav Mehta",
+      company: "CTO, FinEdge Solutions",
+      feedback:
+        "Their AI-driven analytics transformed our decision-making process. The delivery was smooth, and the results exceeded expectations. Highly recommended!",
+      rating: 5,
+    },
+    {
+      name: "Sophia Williams",
+      company: "CEO, HealthSync Tech",
+      feedback:
+        "An exceptional team! They built a secure and scalable platform for us in record time. Their expertise in cloud and cybersecurity is unmatched.",
+      rating: 5,
+    },
+    {
+      name: "Akash Patel",
+      company: "Head of Engineering, SmartLogix",
+      feedback:
+        "Their team delivered a robust, future-ready SaaS platform. Seamless integration, clean UI, and excellent support—couldn’t ask for more.",
+      rating: 5,
+    },
+    {
+      name: "Maya Chen",
+      company: "COO, NeoCommerce",
+      feedback:
+        "We trusted them with our AI-powered recommendation engine, and the results were phenomenal. Sales are up, and customers are happier!",
+      rating: 5,
+    },
+    {
+      name: "Olivia Martinez",
+      company: "Founder, InnovateX",
+      feedback:
+        "They developed a custom AI chatbot for us that revolutionized our customer support. Brilliant work with flawless execution.",
+      rating: 5,
+    },
+    {
+      name: "Liam Thompson",
+      company: "CIO, CloudCore Systems",
+      feedback:
+        "Their cloud migration strategy saved us time and resources. The team’s technical depth and problem-solving skills are outstanding.",
+      rating: 5,
+    },
+  ];
+  const testimonialsPerSlide = 3;
+  const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
+  const [testimonialSlide, setTestimonialSlide] = useState(0);
+
+  // Auto-advance carousel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTestimonialSlide((prev) => (prev + 1) % totalSlides);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [totalSlides]);
+
+  // --- Why Choose Us Carousel State ---
+  const whyChooseUsCards = [
+    {
+      title: "24/7 Customer Support",
+      desc: "Fixed 1000+ tech problems efficiently.",
+      icon: "bi-headset",
+    },
+    {
+      title: "Fast Response Time",
+      desc: "Average query resolved within 30 minutes.",
+      icon: "bi-clock",
+    },
+    {
+      title: "Global Client Reach",
+      desc: "Serving businesses in 10+ countries worldwide.",
+      icon: "bi-globe",
+    },
+    {
+      title: "Certified Security Experts",
+      desc: "Our team holds top industry certifications for your peace of mind.",
+      icon: "bi-shield-lock",
+    },
+    {
+      title: "Proactive Monitoring",
+      desc: "We detect and resolve issues before they impact your business.",
+      icon: "bi-graph-up-arrow",
+    },
+  ];
+  // Responsive: 3 per slide on desktop, 1 per slide on mobile
+  const [whySlide, setWhySlide] = useState(0);
+  const [cardsPerSlide, setCardsPerSlide] = useState(3);
+  const whyTotalSlides = whyChooseUsCards.length;
+
+  useEffect(() => {
+    // Responsive: update cardsPerSlide on resize
+    function handleResize() {
+      setCardsPerSlide(window.innerWidth < 768 ? 1 : 3);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Reset slide if cardsPerSlide changes
+    setWhySlide(0);
+  }, [cardsPerSlide]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWhySlide((prev) => (prev + 1) % whyChooseUsCards.length);
+    }, 3000); // 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  // Helper to rotate array
+  function rotateArray(arr: any[], n: number) {
+    return arr.slice(n).concat(arr.slice(0, n));
+  }
+
+  // Touch event handlers for swipe
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+ 
+  const extendedCards = [
+    whyChooseUsCards[whyChooseUsCards.length - 1],
+    ...whyChooseUsCards,
+    whyChooseUsCards[0],
+  ];
+  const cardWidth = 270; // px, including gap
+  const containerWidth = cardsPerSlide * cardWidth;
+  // Start at index 1 (first real card)
+  const [slideIndex, setSlideIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Update slideIndex when whySlide changes (for auto/dot/swipe)
+  useEffect(() => {
+    setIsTransitioning(true);
+    setSlideIndex(whySlide + 1);
+  }, [whySlide]);
+
+  // Handle transition end for infinite loop
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    if (slideIndex === 0) {
+      // Jump to last real card
+      setSlideIndex(whyChooseUsCards.length);
+    } else if (slideIndex === whyChooseUsCards.length + 1) {
+      // Jump to first real card
+      setSlideIndex(1);
+    }
+  };
+
+  // Update whySlide when slideIndex changes via swipe
+  useEffect(() => {
+    if (!isTransitioning) {
+      if (slideIndex === 0) {
+        setTimeout(() => setWhySlide(whyChooseUsCards.length - 1), 0);
+      } else if (slideIndex === whyChooseUsCards.length + 1) {
+        setTimeout(() => setWhySlide(0), 0);
+      } else {
+        setTimeout(() => setWhySlide(slideIndex - 1), 0);
+      }
+    }
+  }, [slideIndex, isTransitioning]);
+
+  // Touch event handlers for swipe (update slideIndex directly)
+  function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
+    setTouchStartX(e.touches[0].clientX);
+    setTouchEndX(null);
+  }
+  function handleTouchMove(e: React.TouchEvent<HTMLDivElement>) {
+    setTouchEndX(e.touches[0].clientX);
+  }
+  function handleTouchEnd() {
+    if (touchStartX !== null && touchEndX !== null) {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // Swipe left
+          setIsTransitioning(true);
+          setSlideIndex((prev) => prev + 1);
+        } else {
+          // Swipe right
+          setIsTransitioning(true);
+          setSlideIndex((prev) => prev - 1);
+        }
+      }
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+  }
+
+  // Centered carousel logic for desktop
+  let visibleCards: { title: string; desc: string; icon: string; pos: number }[] = [];
+  if (cardsPerSlide === 3) {
+    // Desktop: [prev, active, next]
+    const prevIdx = (whySlide - 1 + whyChooseUsCards.length) % whyChooseUsCards.length;
+    const nextIdx = (whySlide + 1) % whyChooseUsCards.length;
+    visibleCards = [
+      { ...whyChooseUsCards[prevIdx], pos: -1 },
+      { ...whyChooseUsCards[whySlide], pos: 0 },
+      { ...whyChooseUsCards[nextIdx], pos: 1 },
+    ];
+  } else {
+    // Mobile: [active]
+    visibleCards = [{ ...whyChooseUsCards[whySlide], pos: 0 }];
+  }
+
+  // --- True sliding carousel logic for desktop/mobile ---
+  // For desktop: center active card, for mobile: show only active
+  let slideIndexForTrueSlide = whySlide;
+  if (cardsPerSlide === 3) {
+    // Center the active card
+    slideIndexForTrueSlide = whySlide;
+  } else {
+    // Mobile: show only active
+    slideIndexForTrueSlide = whySlide;
+  }
+
   return (
     <>
       {/* Hero Section */}
@@ -199,7 +417,7 @@ export default function Home() {
           {[
             {
               title: "Enterprise Security Architecture",
-              image: "/Images/Original/enterprise security architecture.png",
+              image: "/Services/ss1/enterprise-security-stock.jpg",
               description:
                 "Secure your entire tech ecosystem with end-to-end cybersecurity tailored to your operations.",
             },
@@ -256,24 +474,29 @@ export default function Home() {
                 <div className="card-body text-center">
                   <div
                     style={{
-                      height: "auto",
-                      maxHeight: 160,
-                      marginBottom: 25,
+                      width: "100%",
+                      aspectRatio: "4/3",
+                      maxWidth: 320,
+                      maxHeight: 220,
+                      margin: "0 auto 25px auto",
                       marginTop: 10,
+                      borderRadius: 16,
+                      overflow: "hidden",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
+                      background: "#fff",
                     }}
                   >
                     <img
                       src={service.image}
                       alt={service.title}
                       style={{
-                        height: "auto",
-                        maxHeight: 160,
                         width: "100%",
-                        objectFit: "contain",
-                        borderRadius: 12,
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: 16,
+                        display: "block",
                       }}
                     />
                   </div>
@@ -319,35 +542,32 @@ export default function Home() {
             {/* RIGHT: 3 CARDS IN HORIZONTAL SCROLL */}
             <div className="col-lg-6" style={{ marginTop: "120px" }}>
               <div
-                className="d-flex gap-4 pb-3"
                 style={{
-                  overflowX: "auto",
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                  WebkitOverflowScrolling: "touch",
+                  minHeight: 220,
+                  width: containerWidth,
+                  overflow: "hidden",
+                  margin: "0 auto",
+                  position: "relative",
                 }}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
-                {[
-                  {
-                    title: "24/7 Customer Support",
-                    desc: "Fixed 1000+ tech problems efficiently.",
-                    icon: "bi-headset",
-                  },
-                  {
-                    title: "Fast Response Time",
-                    desc: "Average query resolved within 30 minutes.",
-                    icon: "bi-clock",
-                  },
-                  {
-                    title: "Global Client Reach",
-                    desc: "Serving businesses in 10+ countries worldwide.",
-                    icon: "bi-globe",
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded-4 shadow"
-                    style={{
+                <div
+                  className="d-flex gap-4 align-items-stretch"
+                  style={{
+                    width: extendedCards.length * cardWidth,
+                    transform: `translateX(-${slideIndex * cardWidth - (cardsPerSlide === 3 ? cardWidth : 0)}px)`,
+                    transition: isTransitioning ? "transform 0.5s cubic-bezier(.4,2,.6,1)" : "none",
+                  }}
+                  onTransitionEnd={handleTransitionEnd}
+                >
+                  {extendedCards.map((item, i) => {
+                    // Peek effect
+                    let pos = i - slideIndex;
+                    if (pos < -1) pos += extendedCards.length;
+                    if (pos > 1) pos -= extendedCards.length;
+                    let style = {
                       background: "rgba(255, 255, 255, 0.68)",
                       backdropFilter: "blur(10px)",
                       minWidth: "250px",
@@ -355,31 +575,59 @@ export default function Home() {
                       color: "black",
                       flexShrink: 0,
                       border: "1px solid rgba(255, 255, 255, 0.2)",
-                      position: "relative",
+                      position: "relative" as "relative",
+                      opacity: pos === 0 ? 1 : 0.4,
+                      transform: pos === 0 ? "scale(1)" : "scale(0.92)",
+                      zIndex: pos === 0 ? 2 : 1,
+                      transition: "all 0.5s cubic-bezier(.4,2,.6,1)",
+                    };
+                    return (
+                      <div key={item.title + i} className="p-4 rounded-4 shadow" style={style}>
+                        {/* Icon */}
+                        <div
+                          style={{
+                            backgroundColor: "#ff007f",
+                            width: 50,
+                            height: 50,
+                            borderRadius: "50%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "white",
+                            fontSize: "24px",
+                            marginBottom: "15px",
+                          }}
+                        >
+                          <i className={`bi ${item.icon}`}></i>
+                        </div>
+                        <h6 className="fw-bold">{item.title}</h6>
+                        <p className="mb-0" style={{ fontSize: "0.9rem" }}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              {/* Carousel Dots */}
+              <div className="d-flex justify-content-center mt-3 gap-2">
+                {Array.from({ length: whyChooseUsCards.length }).map((_, idx) => (
+                  <span
+                    key={idx}
+                    onClick={() => {
+                      setIsTransitioning(true);
+                      setSlideIndex(idx + 1);
                     }}
-                  >
-                    {/* Icon */}
-                    <div
-                      style={{
-                        backgroundColor: "#ff007f",
-                        width: 50,
-                        height: 50,
-                        borderRadius: "50%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "white",
-                        fontSize: "24px",
-                        marginBottom: "15px",
-                      }}
-                    >
-                      <i className={`bi ${item.icon}`}></i>
-                    </div>
-                    <h6 className="fw-bold">{item.title}</h6>
-                    <p className="mb-0" style={{ fontSize: "0.9rem" }}>
-                      {item.desc}
-                    </p>
-                  </div>
+                    style={{
+                      width: 12,
+                      height: 12,
+                      borderRadius: "50%",
+                      background: idx === whySlide ? "#ff007f" : "#ccc",
+                      display: "inline-block",
+                      cursor: "pointer",
+                      transition: "background 0.3s",
+                    }}
+                  ></span>
                 ))}
               </div>
             </div>
@@ -443,100 +691,77 @@ export default function Home() {
 
       {/* Testimonials */}
 
-    <section className="bg-light py-5 px-4">
-  <div className="d-flex justify-content-between align-items-center mb-4">
-    <div>
-      <h2 className="fw-bold mb-1 text-dark">What our clients say</h2>
-      <p className="text-muted">Stories of Transformation</p>
-    </div>
-    <a
-      href="#"
-      className="text-dark d-flex align-items-center"
-      style={{ textDecoration: "none", fontWeight: 500 }}
-    >
-      View More <span className="ms-2">→</span>
-    </a>
-  </div>
-
-  <div className="row">
-    {[
-      {
-        name: "Aarav Mehta",
-        company: "CTO, FinEdge Solutions",
-        feedback:
-          "Their AI-driven analytics transformed our decision-making process. The delivery was smooth, and the results exceeded expectations. Highly recommended!",
-        rating: 5,
-      },
-      {
-        name: "Sophia Williams",
-        company: "CEO, HealthSync Tech",
-        feedback:
-          "An exceptional team! They built a secure and scalable platform for us in record time. Their expertise in cloud and cybersecurity is unmatched.",
-        rating: 5,
-      },
-      {
-        name: "Akash Patel",
-        company: "Head of Engineering, SmartLogix",
-        feedback:
-          "Their team delivered a robust, future-ready SaaS platform. Seamless integration, clean UI, and excellent support—couldn’t ask for more.",
-        rating: 5,
-      },
-      {
-        name: "Maya Chen",
-        company: "COO, NeoCommerce",
-        feedback:
-          "We trusted them with our AI-powered recommendation engine, and the results were phenomenal. Sales are up, and customers are happier!",
-        rating: 5,
-      },
-      {
-        name: "Olivia Martinez",
-        company: "Founder, InnovateX",
-        feedback:
-          "They developed a custom AI chatbot for us that revolutionized our customer support. Brilliant work with flawless execution.",
-        rating: 5,
-      },
-      {
-        name: "Liam Thompson",
-        company: "CIO, CloudCore Systems",
-        feedback:
-          "Their cloud migration strategy saved us time and resources. The team’s technical depth and problem-solving skills are outstanding.",
-        rating: 5,
-      },
-    ].map((review, i) => (
-      <div key={i} className="col-md-4 mb-4">
-        <div
-          className="p-4 text-white rounded h-100"
-          style={{
-            backgroundColor: "#2b003e",
-            minHeight: 180,
-          }}
-        >
-          <div className="mb-2">
-            {"★".repeat(review.rating)}
-            <span className="text-muted" style={{ opacity: 0.5 }}>
-              {"★".repeat(5 - review.rating)}
-            </span>
+      <section className="bg-light py-5 px-4">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 className="fw-bold mb-1 text-dark">What our clients say</h2>
+            <p className="text-muted">Stories of Transformation</p>
           </div>
-          <div className="d-flex align-items-center mb-2">
-            <i className="bi bi-person-circle fs-3 text-white me-3"></i>
-            <div>
-              <strong>{review.name}</strong>
-              <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
-                {review.company}
-              </div>
-            </div>
-          </div>
-          <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>{review.feedback}</p>
+          <a
+            href="#"
+            className="text-dark d-flex align-items-center"
+            style={{ textDecoration: "none", fontWeight: 500 }}
+          >
+          </a>
         </div>
-      </div>
-    ))}
-  </div>
 
+        <div className="row">
+          {testimonials
+            .slice(
+              testimonialSlide * testimonialsPerSlide,
+              testimonialSlide * testimonialsPerSlide + testimonialsPerSlide
+            )
+            .map((review, i) => (
+              <div key={i} className="col-md-4 mb-4">
+                <div
+                  className="p-4 text-white rounded h-100"
+                  style={{
+                    backgroundColor: "#2b003e",
+                    minHeight: 180,
+                  }}
+                >
+                  <div className="mb-2">
+                    {"★".repeat(review.rating)}
+                    <span className="text-muted" style={{ opacity: 0.5 }}>
+                      {"★".repeat(5 - review.rating)}
+                    </span>
+                  </div>
+                  <div className="d-flex align-items-center mb-2">
+                    <i className="bi bi-person-circle fs-3 text-white me-3"></i>
+                    <div>
+                      <strong>{review.name}</strong>
+                      <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
+                        {review.company}
+                      </div>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>{review.feedback}</p>
+                </div>
+              </div>
+            ))}
+        </div>
 
-</section>
+        {/* Carousel Dots */}
+        <div className="d-flex justify-content-center mt-3 gap-2">
+          {Array.from({ length: totalSlides }).map((_, idx) => (
+            <span
+              key={idx}
+              onClick={() => setTestimonialSlide(idx)}
+              style={{
+                width: 12,
+                height: 12,
+                borderRadius: "50%",
+                background: idx === testimonialSlide ? "#ff007f" : "#ccc",
+                display: "inline-block",
+                cursor: "pointer",
+                transition: "background 0.3s",
+              }}
+            ></span>
+          ))}
+        </div>
+      </section>
 
-
-
+      {/* Place your global style here, just before the closing fragment */}
     </>
   );
 }

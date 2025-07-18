@@ -9,8 +9,6 @@ import Image from "next/image";
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
-
-
   return (
     <>
       {/* Navbar Component */}
@@ -216,58 +214,64 @@ export default function Home() {
             <Col md={6}>
               <div
                 style={{
-                  background: "#501A78",
-                  padding: "30px",
-                  borderRadius: "20px",
-                  boxShadow: "0 0 20px rgba(0,0,0,0.3)",
+                  background: "rgba(80, 26, 120, 0.25)", // translucent purple
+                  padding: "35px",
+                  borderRadius: "25px",
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  transition: "0.3s ease",
                 }}
               >
-                <h4 className="fw-bold text-white mb-3">Let’s Get Started</h4>
+                <h3 className="fw-bold text-white mb-3">Let’s Get Started</h3>
                 <p className="text-white-50 mb-4">
-                  Just give a try with our 30min free consultation
+                  Just give a try with our 30-minute free consultation
                 </p>
                 <Form>
-                  <Form.Group className="mb-3" controlId="formName">
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter your name"
-                      className="rounded-pill px-4 py-2"
-                    />
+                  {/* Name */}
+                  <Form.Group className="mb-4" controlId="formName">
+                    <Form.Label className="text-white">Your Name</Form.Label>
+                    <Form.Control type="text" className="modern-input" />
                   </Form.Group>
+
+                  {/* Phone and Email */}
                   <Row>
                     <Col md={6}>
-                      <Form.Group className="mb-3" controlId="formPhone">
-                        <Form.Control
-                          type="text"
-                          placeholder="Phone number"
-                          className="rounded-pill px-4 py-2"
-                        />
+                      <Form.Group className="mb-4" controlId="formPhone">
+                        <Form.Label className="text-white">
+                          Phone Number
+                        </Form.Label>
+                        <Form.Control type="text" className="modern-input" />
                       </Form.Group>
                     </Col>
                     <Col md={6}>
-                      <Form.Group className="mb-3" controlId="formEmail">
-                        <Form.Control
-                          type="email"
-                          placeholder="Email ID"
-                          className="rounded-pill px-4 py-2"
-                        />
+                      <Form.Group className="mb-4" controlId="formEmail">
+                        <Form.Label className="text-white">Email ID</Form.Label>
+                        <Form.Control type="email" className="modern-input" />
                       </Form.Group>
                     </Col>
                   </Row>
+
+                  {/* Idea */}
                   <Form.Group className="mb-4" controlId="formIdea">
+                    <Form.Label className="text-white">
+                      Your Idea or Requirements
+                    </Form.Label>
                     <Form.Control
                       as="textarea"
-                      rows={2}
-                      placeholder="Your idea or requirements"
-                      className="rounded-pill px-4 py-2"
+                      rows={3}
+                      className="modern-input"
+                      style={{ resize: "none" }}
                     />
                   </Form.Group>
+
+                  {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-100 rounded-pill py-2"
-                    style={{ background: "#f43f5e", border: "none" }}
+                    className="w-100 py-3 fw-bold neon-button"
                   >
-                    Submit
+                    🚀 Submit
                   </Button>
                 </Form>
               </div>

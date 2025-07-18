@@ -7,31 +7,11 @@ import Footer from "../components/Footer"; // Import the Footer component
 import Image from "next/image";
 
 export default function Home() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  // Update the scroll progress based on the scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(scrollPercent);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       {/* Navbar Component */}
       <Navbar />
 
-    
       {/* Hero Section */}
       <section
         style={{
@@ -164,96 +144,106 @@ export default function Home() {
       </section>
 
       {/* Development Process */}
-<section id="process" className="py-5 bg-light">
-  <Container>
-    <h2 className="text-center mb-4">Development Process</h2>
+      <section id="process" className="py-5 bg-light">
+        <Container>
+          <h2 className="text-center mb-4">Development Process</h2>
 
-    {/* Step 1 */}
-    <Row className="mb-4 align-items-center">
-      <Col md={6}>
-        <h5>✅ Problem Definition & Data Collection</h5>
-        <p>
-          Understand business objectives and gather both structured and unstructured data.
-          Collaborate with stakeholders to define KPIs and success metrics.
-        </p>
-      </Col>
-      <Col md={6}>
-        <Row>
-          {["📊", "🧠"].map((icon, i) => (
-            <Col xs={6} key={i} className="mb-3 text-center">
-              <span style={{ fontSize: "2rem" }}>{icon}</span>
-              <p className="mt-2">{i === 0 ? "Data Sources" : "Business Understanding"}</p>
+          {/* Step 1 */}
+          <Row className="mb-4 align-items-center">
+            <Col md={6}>
+              <h5>✅ Problem Definition & Data Collection</h5>
+              <p>
+                Understand business objectives and gather both structured and
+                unstructured data. Collaborate with stakeholders to define KPIs
+                and success metrics.
+              </p>
             </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
-
-    {/* Step 2 */}
-    <Row className="mb-4 align-items-center">
-      <Col md={6}>
-        <h5>✅ Data Cleaning & Preprocessing</h5>
-        <p>
-          Handle missing values, normalize datasets, and build clean data pipelines.
-          Ensure data integrity for efficient model training.
-        </p>
-      </Col>
-      <Col md={6}>
-        <Row>
-          {["🧹", "🔄"].map((icon, i) => (
-            <Col xs={6} key={i} className="mb-3 text-center">
-              <span style={{ fontSize: "2rem" }}>{icon}</span>
-              <p className="mt-2">{i === 0 ? "Cleaning" : "Normalization"}</p>
+            <Col md={6}>
+              <Row>
+                {["📊", "🧠"].map((icon, i) => (
+                  <Col xs={6} key={i} className="mb-3 text-center">
+                    <span style={{ fontSize: "2rem" }}>{icon}</span>
+                    <p className="mt-2">
+                      {i === 0 ? "Data Sources" : "Business Understanding"}
+                    </p>
+                  </Col>
+                ))}
+              </Row>
             </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
+          </Row>
 
-    {/* Step 3 */}
-    <Row className="mb-4 align-items-center">
-      <Col md={6}>
-        <h5>✅ Feature Engineering</h5>
-        <p>
-          Extract meaningful features to boost model accuracy.
-          Apply techniques like one-hot encoding, scaling, and dimensionality reduction.
-        </p>
-      </Col>
-      <Col md={6}>
-        <Row>
-          {["🧬", "📐"].map((icon, i) => (
-            <Col xs={6} key={i} className="mb-3 text-center">
-              <span style={{ fontSize: "2rem" }}>{icon}</span>
-              <p className="mt-2">{i === 0 ? "Feature Design" : "Dimensionality Reduction"}</p>
+          {/* Step 2 */}
+          <Row className="mb-4 align-items-center">
+            <Col md={6}>
+              <h5>✅ Data Cleaning & Preprocessing</h5>
+              <p>
+                Handle missing values, normalize datasets, and build clean data
+                pipelines. Ensure data integrity for efficient model training.
+              </p>
             </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
-
-    {/* Step 4 */}
-    <Row className="mb-4 align-items-center">
-      <Col md={6}>
-        <h5>✅ Model Selection & Training</h5>
-        <p>
-          Choose algorithms like linear models, tree-based methods, or deep learning networks.
-          Train using historical data and validate with cross-validation techniques.
-        </p>
-      </Col>
-      <Col md={6}>
-        <Row>
-          {["🤖", "📈"].map((icon, i) => (
-            <Col xs={6} key={i} className="mb-3 text-center">
-              <span style={{ fontSize: "2rem" }}>{icon}</span>
-              <p className="mt-2">{i === 0 ? "Model Building" : "Evaluation"}</p>
+            <Col md={6}>
+              <Row>
+                {["🧹", "🔄"].map((icon, i) => (
+                  <Col xs={6} key={i} className="mb-3 text-center">
+                    <span style={{ fontSize: "2rem" }}>{icon}</span>
+                    <p className="mt-2">
+                      {i === 0 ? "Cleaning" : "Normalization"}
+                    </p>
+                  </Col>
+                ))}
+              </Row>
             </Col>
-          ))}
-        </Row>
-      </Col>
-    </Row>
-  </Container>
-</section>
+          </Row>
 
+          {/* Step 3 */}
+          <Row className="mb-4 align-items-center">
+            <Col md={6}>
+              <h5>✅ Feature Engineering</h5>
+              <p>
+                Extract meaningful features to boost model accuracy. Apply
+                techniques like one-hot encoding, scaling, and dimensionality
+                reduction.
+              </p>
+            </Col>
+            <Col md={6}>
+              <Row>
+                {["🧬", "📐"].map((icon, i) => (
+                  <Col xs={6} key={i} className="mb-3 text-center">
+                    <span style={{ fontSize: "2rem" }}>{icon}</span>
+                    <p className="mt-2">
+                      {i === 0 ? "Feature Design" : "Dimensionality Reduction"}
+                    </p>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+
+          {/* Step 4 */}
+          <Row className="mb-4 align-items-center">
+            <Col md={6}>
+              <h5>✅ Model Selection & Training</h5>
+              <p>
+                Choose algorithms like linear models, tree-based methods, or
+                deep learning networks. Train using historical data and validate
+                with cross-validation techniques.
+              </p>
+            </Col>
+            <Col md={6}>
+              <Row>
+                {["🤖", "📈"].map((icon, i) => (
+                  <Col xs={6} key={i} className="mb-3 text-center">
+                    <span style={{ fontSize: "2rem" }}>{icon}</span>
+                    <p className="mt-2">
+                      {i === 0 ? "Model Building" : "Evaluation"}
+                    </p>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
       {/* Let's Get Started Section */}
       <section
@@ -262,76 +252,88 @@ export default function Home() {
       >
         <Container>
           <Row className="align-items-center">
-            {/* Left: Form Card */}
+            {/* Left: Form Glass Card */}
             <Col md={6}>
               <div
                 style={{
-                  background: "#501A78",
-                  padding: "30px",
-                  borderRadius: "20px",
-                  boxShadow: "0 0 20px rgba(0,0,0,0.3)",
+                  background: "rgba(80, 26, 120, 0.25)", // translucent purple
+                  padding: "35px",
+                  borderRadius: "25px",
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  transition: "0.3s ease",
                 }}
               >
-                <h4 className="fw-bold text-white mb-3">Let’s Get Started</h4>
+                <h3 className="fw-bold text-white mb-3">Let’s Get Started</h3>
                 <p className="text-white-50 mb-4">
-                  Just give a try with our 30min free consultation
+                  Just give a try with our 30-minute free consultation
                 </p>
                 <Form>
-                  <Form.Group className="mb-3" controlId="formName">
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter your name"
-                      className="rounded-pill px-4 py-2"
-                    />
+                  {/* Name */}
+                  <Form.Group className="mb-4" controlId="formName">
+                    <Form.Label className="text-white">Your Name</Form.Label>
+                    <Form.Control type="text" className="modern-input" />
                   </Form.Group>
+
+                  {/* Phone and Email */}
                   <Row>
                     <Col md={6}>
-                      <Form.Group className="mb-3" controlId="formPhone">
-                        <Form.Control
-                          type="text"
-                          placeholder="Phone number"
-                          className="rounded-pill px-4 py-2"
-                        />
+                      <Form.Group className="mb-4" controlId="formPhone">
+                        <Form.Label className="text-white">
+                          Phone Number
+                        </Form.Label>
+                        <Form.Control type="text" className="modern-input" />
                       </Form.Group>
                     </Col>
                     <Col md={6}>
-                      <Form.Group className="mb-3" controlId="formEmail">
-                        <Form.Control
-                          type="email"
-                          placeholder="Email ID"
-                          className="rounded-pill px-4 py-2"
-                        />
+                      <Form.Group className="mb-4" controlId="formEmail">
+                        <Form.Label className="text-white">Email ID</Form.Label>
+                        <Form.Control type="email" className="modern-input" />
                       </Form.Group>
                     </Col>
                   </Row>
+
+                  {/* Idea */}
                   <Form.Group className="mb-4" controlId="formIdea">
+                    <Form.Label className="text-white">
+                      Your Idea or Requirements
+                    </Form.Label>
                     <Form.Control
                       as="textarea"
-                      rows={2}
-                      placeholder="Your idea or requirements"
-                      className="rounded-pill px-4 py-2"
+                      rows={3}
+                      className="modern-input"
+                      style={{ resize: "none" }}
                     />
                   </Form.Group>
+
+                  {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-100 rounded-pill py-2"
-                    style={{ background: "#f43f5e", border: "none" }}
+                    className="w-100 py-3 fw-bold neon-button"
                   >
-                    Submit
+                    🚀 Submit
                   </Button>
                 </Form>
               </div>
             </Col>
 
             {/* Right: Image */}
-            <Col md={6} className="d-none d-md-block">
+            <Col md={8} className="text-center">
               <div className="text-center">
                 <Image
-                  src="/imgs/AI 1.jpg" // Make sure this path matches your image name and location
+                  src="/imgs/AI 1.jpg"
                   alt="Consultation"
-                  width={600}
+                  width={800} // You can change to 1000 if you want even bigger
                   height={500}
-                  className="img-fluid"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "20px",
+                    boxShadow: "0 0 50px rgba(144, 97, 255, 0.3)",
+                    objectFit: "cover",
+                  }}
                 />
               </div>
             </Col>
