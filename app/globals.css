@@ -60,3 +60,195 @@ select.custom-input option {
   box-shadow: 0 0 25px rgba(244, 63, 94, 1);
   transform: scale(1.02);
 }
+
+section * {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+
+@media (max-width: 576px) {
+  .project-img {
+    height: 200px !important;
+    object-fit: cover;
+  }
+}
+
+.hero-section {
+  min-height: 100vh;
+  padding-left: 8%;
+  padding-right: 8%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: background-image 0.6s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
+}
+
+
+
+
+
+
+.career-hero {
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .career-hero {
+    height: 60vh; /* or try 50vh */
+  }
+}
+
+
+.contact-hero {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #0a0033;
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: 60vh; /* Or try 50vh if needed */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero .text-white {
+    margin-bottom: 40px !important;
+    margin-left: 20px !important;
+  }
+}
+
+
+.about-hero {
+  height: 100vh; /* Default for desktop */
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 60vh; /* Smaller height on mobile */
+  }
+}
+
+
+.about-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #f5f5f5; /* optional background */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 60vh;
+    padding: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Hero Section Styling ===== */
+.about-hero .hero-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.about-hero .hero-content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* ✅ Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+  .about-hero .hero-content h1 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .about-hero .hero-content p {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero .hero-content h1 {
+    font-size: 1.6rem;
+    padding-right: 20px;
+  }
+
+  .about-hero .hero-content p {
+    font-size: 0.95rem;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .about-hero .hero-content {
+        padding-left: 0vw !important;
+
+    padding-right: 40vw !important; /* shift more to left on desktop */
+  }
+}
+
+@media (min-width: 992px) {
+  .mycode {
+        padding-right: 22vw !important;
+
+  }
+}
+
+
+.white-text {
+  color: #fff !important;
+}
+
+

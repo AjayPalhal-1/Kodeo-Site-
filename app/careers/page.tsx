@@ -46,10 +46,8 @@ export default function CareersPage() {
   return (
     <div className="text-white" style={{ fontFamily: "Poppins, sans-serif" }}>
       {/* Hero Section */}
-      <div
-        className="position-relative bg-dark text-white overflow-hidden"
-        style={{ height: "100vh" }}
-      >
+     <div className="career-hero position-relative bg-dark text-white overflow-hidden">
+
         <Image
           src="/imgs/carrer.jpeg"
           alt="Hero Background"

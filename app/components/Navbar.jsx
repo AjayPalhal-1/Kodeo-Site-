@@ -66,6 +66,7 @@ export default function Navbar() {
               >
                 Services
               </a>
+
               <ul className="dropdown-menu">
                 <Link
                   className="dropdown-item"
@@ -83,7 +84,7 @@ export default function Navbar() {
                   Cloud Computing
                 </Link>
                 <Link
-                  className="dropdown-item" 
+                  className="dropdown-item"
                   href="/devops"
                   onClick={() => setIsCollapsed(true)}
                 >
@@ -107,13 +108,21 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-white" href="/about">
+              <Link
+                className="nav-link text-white"
+                href="/about"
+                onClick={() => setIsCollapsed(true)}
+              >
                 About Us
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-white" href="/careers">
+              <Link
+                className="nav-link text-white"
+                href="/careers"
+                onClick={() => setIsCollapsed(true)}
+              >
                 Careers
               </Link>
             </li>
@@ -121,6 +130,7 @@ export default function Navbar() {
               <Link
                 className="btn"
                 href="/contacts"
+                onClick={() => setIsCollapsed(true)}
                 style={{
                   backgroundColor: "#ff007f",
                   color: "#fff",

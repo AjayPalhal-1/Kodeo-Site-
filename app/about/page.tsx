@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
+import "../globals.css";
 
 export default function AboutUsPage() {
   // Animation ref for hero text
@@ -15,12 +16,10 @@ export default function AboutUsPage() {
   return (
     <div className="w-100 px-0 mx-0" style={{ overflowX: "hidden" }}>
       {/* Hero Section */}
-      <section
-        className="position-relative"
-        style={{ minHeight: "100vh", width: "100%" }}
-      >
+
+      <section className="about-hero position-relative">
         <Image
-          src="/Images/Original/Aboutus.png" // <-- Place your hero image in public/about-hero.jpg
+          src="/Images/Original/Aboutus.png"
           alt="About Us Banner"
           layout="fill"
           objectFit="cover"
@@ -28,31 +27,33 @@ export default function AboutUsPage() {
           className="w-100 h-100 position-absolute top-0 start-0"
           style={{ zIndex: 1, objectPosition: "center" }}
         />
-        {/* Overlay */}
-        <div
-          className="position-absolute top-0 start-0 w-100 h-100"
-          style={{ background: "rgba(0,0,0,0.45)", zIndex: 2 }}
-        />
-        {/* Text with fade-up animation */}
+
+        {/* Overlay - optional */}
+        <div className="hero-content position-absolute top-0 start-0 w-100 h-100" />
+
+        {/* Text */}
         <div
           ref={heroTextRef}
-          className="position-relative text-white d-flex flex-column justify-content-end"
+          className="hero-content position-relative text-white d-flex flex-column justify-content-end px-3 px-md-5 pb-5"
           style={{
             zIndex: 3,
-            minHeight: "100vh",
-            paddingLeft: "7vw",
-            paddingBottom: "8vh",
+            height: "100%", // removes 100vh issue
             opacity: 0,
+            paddingLeft: "5vw", // default
+            paddingBottom: "8vh",
+
             transform: "translateY(60px)",
             transition:
               "opacity 1.4s 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.4s 0.2s cubic-bezier(0.23, 1, 0.32, 1)",
           }}
         >
-          <h1 className="display-4 fw-bold mb-2">About Us</h1>
-          <p className="fs-8" style={{ maxWidth: 600 }}>
+          <h1 className=" mycode display-5 fw-bold mb-2 text-break text-md-nowrap">
+            About Us
+          </h1>
+          <p className="fs-6 fs-md-5 fw-light" style={{ maxWidth: "600px" }}>
             Kodeo Software Technology is your trusted partner in innovation. We
             deliver powerful, future-ready digital solutions that drive business
-            growth with confidence, clarity, and consistency.{" "}
+            growth with confidence, clarity, and consistency.
           </p>
         </div>
       </section>
@@ -150,8 +151,8 @@ export default function AboutUsPage() {
             </div>
 
             {/* Right: Feature Cards */}
-            <div className="col-lg-6">
-              <div className="row g-3 d-flex flex-wrap">
+            <div className=" col-lg-6">
+              <div className=" row g-3 d-flex flex-wrap">
                 {[
                   {
                     title: "24/7 Customer Support",
@@ -232,11 +233,10 @@ export default function AboutUsPage() {
                 ].map((card, index) => (
                   <div className="col-6 d-flex" key={index}>
                     <div
-                      className="px-3 py-3 w-100 d-flex flex-column align-items-center justify-content-center text-center"
+                      className="px-3 py-3 w-100 d-flex flex-column align-items-center justify-content-center text-center white-text"
                       style={{
                         background: "#3a006a",
                         borderRadius: 16,
-                        color: "#fff",
                         minHeight: 120,
                         height: "100%",
                       }}
@@ -250,7 +250,10 @@ export default function AboutUsPage() {
                       </div>
                       <div
                         className="text-center"
-                        style={{ fontSize: "0.9rem", opacity: 0.85 }}
+                        style={{
+                          fontSize: "0.9rem",
+                          opacity: 0.85,
+                        }}
                       >
                         {card.desc}
                       </div>
@@ -264,6 +267,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Our Journey  */}
+
       <section
         className="py-5"
         style={{ background: "#1e1b32", color: "#fff" }}
@@ -357,12 +361,12 @@ export default function AboutUsPage() {
               <img
                 src="/Services/ss1/newvission.png"
                 alt="Vision"
-                className="img-fluid w-100 h-100 object-fit-cover"
-                style={{    objectFit: "cover",
-                  height: "300px", // ⬅️ Increase height
-                  width: "80%", // ⬅️ Reduce width
-                   borderRadius: "50px",
-                 }}
+                className="img-fluid w-100"
+                style={{
+                  objectFit: "cover",
+                  height: "300px",
+                  borderRadius: "30px",
+                }}
               />
             </div>
 
@@ -387,13 +391,11 @@ export default function AboutUsPage() {
               <img
                 src="/Services/ss1/m1.png"
                 alt="Mission"
-                className="img-fluid w-100 object-fit-cover"
+                className="img-fluid w-100"
                 style={{
                   objectFit: "cover",
-                  height: "300px", // ⬅️ Increase height
-                  width: "80%", // ⬅️ Reduce width
-
-                  borderRadius: "15px",
+                  height: "300px",
+                  borderRadius: "30px",
                 }}
               />
             </div>
@@ -420,11 +422,13 @@ export default function AboutUsPage() {
                 src="/Services/ss1/m1.png"
                 alt="Mission"
                 className="img-fluid w-100 h-100 object-fit-cover"
-                style={{   objectFit: "cover",
+                style={{
+                  objectFit: "cover",
                   height: "300px", // ⬅️ Increase height
                   width: "80%", // ⬅️ Reduce width
 
-                  borderRadius: "50px", }}
+                  borderRadius: "50px",
+                }}
               />
             </div>
           </div>

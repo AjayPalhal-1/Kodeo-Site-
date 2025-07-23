@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Link from "next/link"; // Ensure this import is at the top
 
 import { useEffect, useState } from "react";
 
@@ -140,7 +141,6 @@ export default function Home() {
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
- 
   const extendedCards = [
     whyChooseUsCards[whyChooseUsCards.length - 1],
     ...whyChooseUsCards,
@@ -211,10 +211,16 @@ export default function Home() {
   }
 
   // Centered carousel logic for desktop
-  let visibleCards: { title: string; desc: string; icon: string; pos: number }[] = [];
+  let visibleCards: {
+    title: string;
+    desc: string;
+    icon: string;
+    pos: number;
+  }[] = [];
   if (cardsPerSlide === 3) {
     // Desktop: [prev, active, next]
-    const prevIdx = (whySlide - 1 + whyChooseUsCards.length) % whyChooseUsCards.length;
+    const prevIdx =
+      (whySlide - 1 + whyChooseUsCards.length) % whyChooseUsCards.length;
     const nextIdx = (whySlide + 1) % whyChooseUsCards.length;
     visibleCards = [
       { ...whyChooseUsCards[prevIdx], pos: -1 },
@@ -240,17 +246,11 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
+
       <section
-        className="text-white d-flex align-items-center"
+        className="hero-section text-white d-flex align-items-center"
         style={{
-          minHeight: "100vh",
           backgroundImage: `linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('${bgImages[currentIndex]}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative",
-          paddingLeft: "8%",
-          paddingRight: "8%",
-          transition: "background-image 0.6s ease-in-out",
         }}
       >
         <div className="w-100">
@@ -378,11 +378,23 @@ export default function Home() {
       </section>
 
       {/* Operational Excellence Section */}
+
       <section className="row m-0 align-items-center py-5 px-4 bg-white text-dark">
-        <div className="col-md-6">
+        {/* Image column - shown first on mobile */}
+        <div className="col-md-6 order-1 order-md-2 text-center mb-4 mb-md-0">
+          <img
+            src="/Images/Original/hom.png"
+            alt="AI and Cybersecurity Illustration"
+            className="img-fluid"
+            style={{ maxHeight: "300px", borderRadius: "16px" }}
+          />
+        </div>
+
+        {/* Text column - shown second on mobile */}
+        <div className="col-md-6 order-2 order-md-1">
           <h2 className="fw-bold mb-3">
-            Expert IT solutions in AI ML, software development and cyber
-            security.{" "}
+            Expert IT solutions in software development, AI ML and cyber
+            security.
           </h2>
           <p>
             Digital transformation isn’t just a trend — it’s a necessity. Our
@@ -395,15 +407,6 @@ export default function Home() {
             your business and adapt to evolving technologies.
           </p>
           <button className="btn btn-outline-danger mt-3 px-4">Explore</button>
-        </div>
-
-        <div className="col-md-6 text-center">
-          <img
-            src="/Images/Original/hom.png"
-            alt="AI and Cybersecurity Illustration"
-            className="img-fluid"
-            style={{ maxHeight: "300px", borderRadius: "16px" }}
-          />
         </div>
       </section>
 
@@ -420,90 +423,99 @@ export default function Home() {
               image: "/Services/ss1/enterprise-security-stock.jpg",
               description:
                 "Secure your entire tech ecosystem with end-to-end cybersecurity tailored to your operations.",
+              route: "/cyber",
             },
             {
               title: "AI & ML Development",
               image: "/Images/Original/ai-ml development.png",
               description:
                 "From predictive analytics to intelligent automation, we bring data science to life with scalable AI/ML applications.",
+              route: "/aiml",
             },
             {
               title: "End-to-End App Development",
               image: "/Images/Original/end to end.png",
               description:
                 "We design, build, and deploy high-performing web and mobile applications using modern full stack technologies.",
+              route: "/fullstack",
             },
             {
               title: "Cloud Infrastructure Services",
               image: "/Images/Original/cloud infrastucture services.png",
               description:
                 "Migrate, manage, and scale your business with robust cloud solutions built on AWS, Azure, or Google Cloud.",
+              route: "/cloud",
             },
             {
               title: "DevOps Transformation",
               image: "/Images/Original/devops.png",
               description:
                 "Streamline your development lifecycle with CI/CD pipelines, infrastructure automation, and agile DevOps practices.",
+              route: "/devops",
             },
             {
               title: "Blockchain Solutions",
               image: "/Images/Original/blockchain.png",
               description:
                 "Implement secure and decentralized applications using blockchain technology.",
+              route: "/", // Update this if you have a page for blockchain
             },
           ].map((service, i) => (
             <div key={i} className="col-md-4 mb-4">
-              <div
-                className="card text-white h-100 shadow position-relative"
-                style={{
-                  backgroundColor: "#1b1b2f",
-                  borderRadius: 16,
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "scale(1.03)";
-                  e.currentTarget.style.boxShadow =
-                    "0 8px 20px rgba(0, 0, 0, 0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.boxShadow =
-                    "0 4px 12px rgba(0, 0, 0, 0.2)";
-                }}
-              >
-                <div className="card-body text-center">
-                  <div
-                    style={{
-                      width: "100%",
-                      aspectRatio: "4/3",
-                      maxWidth: 320,
-                      maxHeight: 220,
-                      margin: "0 auto 25px auto",
-                      marginTop: 10,
-                      borderRadius: 16,
-                      overflow: "hidden",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: "#fff",
-                    }}
-                  >
-                    <img
-                      src={service.image}
-                      alt={service.title}
+              <Link href={service.route} passHref>
+                <div
+                  className="card text-white h-100 shadow position-relative"
+                  style={{
+                    backgroundColor: "#1b1b2f",
+                    borderRadius: 16,
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.03)";
+                    e.currentTarget.style.boxShadow =
+                      "0 8px 20px rgba(0, 0, 0, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 12px rgba(0, 0, 0, 0.2)";
+                  }}
+                >
+                  <div className="card-body text-center">
+                    <div
                       style={{
                         width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
+                        aspectRatio: "4/3",
+                        maxWidth: 320,
+                        maxHeight: 220,
+                        margin: "0 auto 25px auto",
+                        marginTop: 10,
                         borderRadius: 16,
-                        display: "block",
+                        overflow: "hidden",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: "#fff",
                       }}
-                    />
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          borderRadius: 16,
+                          display: "block",
+                        }}
+                      />
+                    </div>
+                    <h5 className="card-title">{service.title}</h5>
+                    <p className="card-text">{service.description}</p>
                   </div>
-                  <h5 className="card-title">{service.title}</h5>
-                  <p className="card-text">{service.description}</p>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -557,8 +569,13 @@ export default function Home() {
                   className="d-flex gap-4 align-items-stretch"
                   style={{
                     width: extendedCards.length * cardWidth,
-                    transform: `translateX(-${slideIndex * cardWidth - (cardsPerSlide === 3 ? cardWidth : 0)}px)`,
-                    transition: isTransitioning ? "transform 0.5s cubic-bezier(.4,2,.6,1)" : "none",
+                    transform: `translateX(-${
+                      slideIndex * cardWidth -
+                      (cardsPerSlide === 3 ? cardWidth : 0)
+                    }px)`,
+                    transition: isTransitioning
+                      ? "transform 0.5s cubic-bezier(.4,2,.6,1)"
+                      : "none",
                   }}
                   onTransitionEnd={handleTransitionEnd}
                 >
@@ -582,7 +599,11 @@ export default function Home() {
                       transition: "all 0.5s cubic-bezier(.4,2,.6,1)",
                     };
                     return (
-                      <div key={item.title + i} className="p-4 rounded-4 shadow" style={style}>
+                      <div
+                        key={item.title + i}
+                        className="p-4 rounded-4 shadow"
+                        style={style}
+                      >
                         {/* Icon */}
                         <div
                           style={{
@@ -611,24 +632,26 @@ export default function Home() {
               </div>
               {/* Carousel Dots */}
               <div className="d-flex justify-content-center mt-3 gap-2">
-                {Array.from({ length: whyChooseUsCards.length }).map((_, idx) => (
-                  <span
-                    key={idx}
-                    onClick={() => {
-                      setIsTransitioning(true);
-                      setSlideIndex(idx + 1);
-                    }}
-                    style={{
-                      width: 12,
-                      height: 12,
-                      borderRadius: "50%",
-                      background: idx === whySlide ? "#ff007f" : "#ccc",
-                      display: "inline-block",
-                      cursor: "pointer",
-                      transition: "background 0.3s",
-                    }}
-                  ></span>
-                ))}
+                {Array.from({ length: whyChooseUsCards.length }).map(
+                  (_, idx) => (
+                    <span
+                      key={idx}
+                      onClick={() => {
+                        setIsTransitioning(true);
+                        setSlideIndex(idx + 1);
+                      }}
+                      style={{
+                        width: 12,
+                        height: 12,
+                        borderRadius: "50%",
+                        background: idx === whySlide ? "#ff007f" : "#ccc",
+                        display: "inline-block",
+                        cursor: "pointer",
+                        transition: "background 0.3s",
+                      }}
+                    ></span>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -676,11 +699,11 @@ export default function Home() {
                   alt={project.alt}
                   width={500}
                   height={300}
-                  className="w-100"
+                  className="w-100 project-img"
                   style={{
                     objectFit: "cover",
                     height: "100%",
-                    borderRadius: "16px",
+                    borderRadius: "5px",
                   }}
                 />
               </div>
@@ -701,11 +724,11 @@ export default function Home() {
             href="#"
             className="text-dark d-flex align-items-center"
             style={{ textDecoration: "none", fontWeight: 500 }}
-          >
-          </a>
+          ></a>
         </div>
 
-        <div className="row">
+        {/* Responsive Testimonial Cards */}
+        <div className="row d-none d-md-flex">
           {testimonials
             .slice(
               testimonialSlide * testimonialsPerSlide,
@@ -735,10 +758,60 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>{review.feedback}</p>
+                  <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>
+                    {review.feedback}
+                  </p>
                 </div>
               </div>
             ))}
+        </div>
+
+        {/* Mobile Slider */}
+        <div
+          className="d-md-none overflow-auto"
+          style={{ paddingBottom: "1rem" }}
+        >
+          <div
+            className="d-flex"
+            style={{ gap: "1rem", paddingRight: "1rem", paddingLeft: "0.3rem" }}
+          >
+            {testimonials.map((review, i) => (
+              <div
+                key={i}
+                style={{
+                  flex: "0 0 88%", // One full card + small peek of next
+                  minWidth: "88%",
+                }}
+              >
+                <div
+                  className="p-4 text-white rounded"
+                  style={{
+                    backgroundColor: "#2b003e",
+                    minHeight: 180,
+                  }}
+                >
+                  <div className="mb-2">
+                    {"★".repeat(review.rating)}
+                    <span className="text-muted" style={{ opacity: 0.5 }}>
+                      {"★".repeat(5 - review.rating)}
+                    </span>
+                  </div>
+                  <div className="d-flex align-items-center mb-2">
+                    <i className="bi bi-person-circle fs-3 text-white me-3"></i>
+                    <div>
+                      <strong>{review.name}</strong>
+                      <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
+                        {review.company}
+                      </div>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: "0.95rem", opacity: 0.9 }}>
+                    {review.feedback}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Carousel Dots */}
