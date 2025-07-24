@@ -7,25 +7,6 @@ import Footer from "../components/Footer"; // Import the Footer component
 import Image from "next/image";
 
 export default function Home() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  // Update the scroll progress based on the scroll position
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(scrollPercent);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       {/* Navbar Component */}
@@ -34,6 +15,7 @@ export default function Home() {
       {/* Hero Section */}
 
       <section
+        className="devopshero"
         style={{
           position: "relative",
           minHeight: "100vh",
@@ -41,23 +23,14 @@ export default function Home() {
           paddingBottom: "80px",
           color: "white",
           textAlign: "center",
-          overflow: "hidden", // Prevents scroll issues on mobile
+          overflow: "hidden",
         }}
       >
         {/* Background Image */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            zIndex: -1,
-          }}
-        >
+        <div className="backgroundImage">
           <Image
             src="/imgs/DevOps 3.png"
-            alt="Cybersecurity"
+            alt="DevOps Background"
             fill
             priority
             style={{
@@ -68,9 +41,7 @@ export default function Home() {
         </div>
 
         {/* Hero Text */}
-        <Container
-          style={{ textAlign: "left", paddingLeft: "6vw", paddingTop: "50vh" }}
-        >
+        <Container className="devopshero-container">
           <h1>From Code to Deployment—Faster, Smarter, Safer</h1>
           <p className="lead">
             DevOps solutions that streamline workflows, accelerate

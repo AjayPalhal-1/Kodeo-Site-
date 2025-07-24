@@ -6,16 +6,30 @@ import Link from "next/link"; // Ensure this import is at the top
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const bgImages = [
-    "/Services/ss1/homepage 2.jpeg",
-    "/Services/ss1/homepage 3.jpeg",
-    "/Services/ss1/homepage 4.jpeg",
+  // Define this above your component return
+  const heroSlides = [
+    {
+      image: "/Services/ss1/backgroundimages/next gen 1.png",
+      heading: "Next-Gen Solutions for the Digital Frontier",
+      text: "With a foundation in innovation and a vision for tomorrow, we craft agile, scalable, and smart technologies that drive business success in the digital era.",
+    },
+    {
+      image: "/Services/ss1/backgroundimages/next gen 2.png",
+      heading: "Shaping the Future with Scalable Solutions",
+      text: "Crafting innovative solutions that scale with your digital needs for a seamless experience.",
+    },
+    {
+      image: "/Services/ss1/backgroundimages/next gen 3.png",
+      heading: "Smart, Future-Ready Digital Transformation",
+      text: "We design intelligent solutions that prepare businesses for the future and keep them ahead in the digital world.",
+    },
   ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % bgImages.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
     }, 5000); // Rotate every 3 seconds
     return () => clearInterval(interval);
   }, []);
@@ -58,10 +72,10 @@ export default function Home() {
       rating: 5,
     },
     {
-      name: "Liam Thompson",
-      company: "CIO, CloudCore Systems",
+      name: "Rahul Iyer",
+      company: "Director of IT, VestaCorp",
       feedback:
-        "Their cloud migration strategy saved us time and resources. The team’s technical depth and problem-solving skills are outstanding.",
+        "Their cybersecurity solutions were excellent. We passed audits with no issues thanks to their team.",
       rating: 5,
     },
   ];
@@ -250,27 +264,28 @@ export default function Home() {
       <section
         className="hero-section text-white d-flex align-items-center"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('${bgImages[currentIndex]}')`,
+          backgroundImage: `linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('${heroSlides[currentIndex].image}')`,
+          minHeight: "100vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 1s ease-in-out",
         }}
       >
-        <div className="w-100">
-          <div className="text-start" style={{ maxWidth: "700px" }}>
+        <div className="w-100 px-3 px-md-5">
+          <div
+            className="text-start"
+            style={{ maxWidth: "700px", zIndex: 2, position: "relative" }}
+          >
             <h1 className="fw-bold display-5 mb-3">
-              <span style={{ color: "#ffff" }}>Next-Gen Solutions for </span>
-              <br />
-              the Digital Frontier
+              {heroSlides[currentIndex].heading}
             </h1>
-            <p className="lead text-light">
-              With a foundation in innovation and a vision for tomorrow, we
-              craft agile, scalable, and smart technologies that drive business
-              success in the digital era.
-            </p>
+            <p className="lead text-light">{heroSlides[currentIndex].text}</p>
           </div>
 
           {/* Carousel Dots */}
           <div className="mt-4">
             <div className="d-flex gap-2">
-              {bgImages.map((_, i) => (
+              {heroSlides.map((_, i) => (
                 <span
                   key={i}
                   style={{
@@ -379,6 +394,7 @@ export default function Home() {
 
       {/* Operational Excellence Section */}
 
+
       <section className="row m-0 align-items-center py-5 px-4 bg-white text-dark">
         {/* Image column - shown first on mobile */}
         <div className="col-md-6 order-1 order-md-2 text-center mb-4 mb-md-0">
@@ -386,7 +402,7 @@ export default function Home() {
             src="/Images/Original/hom.png"
             alt="AI and Cybersecurity Illustration"
             className="img-fluid"
-            style={{ maxHeight: "300px", borderRadius: "16px" }}
+            style={{ maxHeight: "400px", borderRadius: "16px" }}
           />
         </div>
 
@@ -409,6 +425,9 @@ export default function Home() {
           <button className="btn btn-outline-danger mt-3 px-4">Explore</button>
         </div>
       </section>
+
+
+
 
       {/* Services Section */}
 
@@ -672,15 +691,15 @@ export default function Home() {
         <div className="row">
           {[
             {
-              img: "/bcci.jpg",
+              img: "/Frame 188.png",
               alt: "EV Charging Dashboard",
             },
             {
-              img: "/bcci.jpg",
+              img: "/Frame 189.png",
               alt: "Blogify MERN App",
             },
             {
-              img: "/bcci.jpg",
+              img: "/Frame 190.png",
               alt: "IoT Smart Station",
             },
           ].map((project, i) => (

@@ -14,38 +14,12 @@ export default function Home() {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Scroll Progress Circle */}
-      <div
-        className="position-absolute top-50 end-0 translate-middle-y"
-        style={{
-          width: "50px",
-          height: "50px",
-          borderRadius: "50%",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          border: "5px solid #10b981",
-          transition: "all 0.3s ease",
-          marginRight: "15px",
-          transform: `scale(${1 + scrollProgress / 200})`,
-          opacity: scrollProgress > 0 ? 1 : 0, // Hide when no scroll
-        }}
-      >
-        <div
-          style={{
-            width: `${scrollProgress}%`,
-            height: "100%",
-            backgroundColor: "#10b981",
-            borderRadius: "50%",
-            transition: "width 0.1s ease",
-          }}
-        />
-      </div>
-
       {/* Hero Section */}
       <section
+        className="cyberhero"
         style={{
           position: "relative",
-          minHeight: "100vh",
+          height: "100vh",
           paddingTop: "140px",
           paddingBottom: "80px",
           color: "white",
@@ -64,11 +38,11 @@ export default function Home() {
           }}
         >
           <Image
-            src="/imgs/cyber 1.png" // Path to your image
+            src="/imgs/cyber 1.png"
             alt="Cybersecurity"
-            layout="fill" // Makes the image cover the entire section
-            objectFit="cover" // Ensures the image covers the section without distortion
-            objectPosition="center" // Keeps the image centered
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
           />
         </div>
 

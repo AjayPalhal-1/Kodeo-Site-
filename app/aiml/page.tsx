@@ -14,49 +14,47 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
+        className="ai-hero-section"
         style={{
           position: "relative",
-          minHeight: "100vh",
-          paddingTop: "140px",
-          paddingBottom: "80px",
-          color: "white",
-          textAlign: "center",
+          overflow: "hidden",
+          padding: 0,
+          margin: 0,
+          width: "100%",
+          maxWidth: "100vw", // center-align the section to fill screen
+        
         }}
       >
         {/* Background Image */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: -1, // Keeps image in the background
-          }}
-        >
-          <Image
-            src="/imgs/ai3.png" // Path to your image
-            alt="Cybersecurity"
-            layout="fill" // Makes the image cover the entire section
-            objectFit="cover" // Ensures the image covers the section without distortion
-            objectPosition="center" // Keeps the image centered
-          />
-        </div>
-
+        <div className="hero-bg-img"></div>
         {/* Hero Text */}
-        <Container
-          style={{ textAlign: "left", paddingLeft: "6vw", paddingTop: "50vh" }}
-        >
-          <h1>Transforming Data Into Decisions</h1>
-          <p className="lead">
-            Unlock the power of Artificial Intelligence and Machine Learning to
-            drive smarter, faster, and more accurate outcomes for your business.{" "}
-          </p>
+        <Container fluid className="pt-5">
+          <Row>
+            <Col
+              xs={12}
+              md={10}
+              lg={8}
+              className="text-start px-3 px-md-4 px-lg-5 hero-text-col"
+              style={{
+                paddingTop: "28vh",
+              }}
+            >
+              <h1 className=" hero-text-col display-6 display-md-5 display-lg-4 fw-bold">
+                Transforming Data Into Decisions
+              </h1>
+              <p className="lead mt-3" style={{ fontSize: "1rem" }}>
+                Unlock the power of Artificial Intelligence and Machine Learning
+                to drive smarter, faster, and more accurate outcomes for your
+                business.
+              </p>
+            </Col>
+          </Row>
         </Container>
       </section>
 
       {/* Solutions */}
       {/* Solutions */}
+
       <section id="solutions" className="py-5">
         <Container>
           <h2 className="text-center mb-4">Our AI/ML Solutions</h2>

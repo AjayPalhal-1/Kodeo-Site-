@@ -16,6 +16,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
+        className="fullstackhero"
         style={{
           position: "relative",
           minHeight: "100vh",

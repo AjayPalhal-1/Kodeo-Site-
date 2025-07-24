@@ -289,22 +289,22 @@ export default function AboutUsPage() {
           >
             {[
               {
-                year: "2018",
+                year: "2021",
                 title: "Foundation",
                 desc: "We established Kodeo, focusing on innovative software solutions.",
               },
               {
-                year: "2019",
+                year: "2022",
                 title: "Expansion",
                 desc: "Launched our first breakthrough product for secure web development.",
               },
               {
-                year: "2020",
+                year: "2023",
                 title: "Going Global",
                 desc: "Expanded internationally, gaining clients across multiple countries.",
               },
               {
-                year: "2021",
+                year: "2024",
                 title: "Recognition",
                 desc: "Recognized for excellence in cybersecurity solutions and innovation.",
               },

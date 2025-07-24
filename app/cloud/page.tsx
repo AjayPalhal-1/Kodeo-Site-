@@ -14,38 +14,12 @@ export default function Home() {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Scroll Progress Circle */}
-      <div
-        className="position-absolute top-50 end-0 translate-middle-y"
-        style={{
-          width: "50px",
-          height: "50px",
-          borderRadius: "50%",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
-          border: "5px solid #10b981",
-          transition: "all 0.3s ease",
-          marginRight: "15px",
-          transform: `scale(${1 + scrollProgress / 200})`,
-          opacity: scrollProgress > 0 ? 1 : 0, // Hide when no scroll
-        }}
-      >
-        <div
-          style={{
-            width: `${scrollProgress}%`,
-            height: "100%",
-            backgroundColor: "#10b981",
-            borderRadius: "50%",
-            transition: "width 0.1s ease",
-          }}
-        />
-      </div>
-
       {/* Hero Section */}
       <section
+        className="cloudhero"
         style={{
           position: "relative",
-          minHeight: "100vh",
+          height: "110vh",
           paddingTop: "140px",
           paddingBottom: "80px",
           color: "white",
@@ -73,13 +47,11 @@ export default function Home() {
         </div>
 
         {/* Hero Text */}
-        <Container
-          style={{ textAlign: "left", paddingLeft: "6vw", paddingTop: "50vh" }}
-        >
+        <Container className="cyberhero-text">
           <h1>Secure, Scalable, and Smarter Cloud</h1>
           <p className="lead">
             Transform your IT with cloud-native architecture built for speed,
-            resilience, and innovation. v{" "}
+            resilience, and innovation.
           </p>
         </Container>
       </section>

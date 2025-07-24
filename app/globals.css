@@ -252,3 +252,274 @@ section * {
 }
 
 
+
+
+
+
+
+/* Hero  fullstacl section mobile tweaks */
+@media (max-width: 768px) {
+  .fullstackhero {
+    min-height: 55vh !important;
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .fullstackhero .container {
+    padding-left: 5vw !important;
+    padding-right: 5vw !important;
+    padding-top: 30vh !important;
+  }
+
+  .fullstackhero h1 {
+    font-size: 1.6rem !important;
+  }
+
+  .fullstackhero p {
+    font-size: 0.95rem !important;
+  }
+}
+/* Desktop View (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .fullstackhero {
+    padding-top: 200px !important; /* or more if you want */
+  }
+}
+
+/* devops hero section code  */
+
+.devopshero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .devopshero {
+        min-height: 15vh !important;
+
+    padding-top: 80px; /* reduce top padding on mobile */
+    padding-bottom: 40px; /* reduce bottom padding */
+    text-align: center;
+  }
+
+  .devopshero h1 {
+    font-size: 1.5rem;
+    padding: 0 20px;
+  }
+
+  .devopshero p {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}
+.devopshero-container {
+  text-align: left;
+  padding-left: 6vw;
+  padding-top: 50vh;
+}
+
+@media (max-width: 768px) {
+  .devopshero-container {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30vh;
+  }
+}
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  z-index: -1;
+}
+
+/* ✅ Ensure proper fit on mobile */
+@media (max-width: 768px) {
+  .backgroundImage {
+    height: 100vh; /* Still keep full height */
+  }
+
+  .backgroundImage img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/* cyber page hero  */
+
+/* CSS for mobile view */
+.cyberhero {
+  position: relative;
+  height: 100vh;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .cyberhero {
+    height: 60vh !important; /* Reduce height on mobile */
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+
+  .cyberhero .container {
+    padding-top: 25vh !important;
+  }
+}
+
+
+/* Hero Section - Cloud Page */
+
+.cloudhero {
+  position: relative;
+  height: 100vh;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .cloudhero {
+    height: 45vh !important;
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+
+  .cloudhero .container {
+    padding-top: 13vh; /* Better padding so text sits correctly */
+    padding-left: 4vw;
+    padding-right: 4vw;
+    text-align: center;
+  }
+
+  .cloudhero h1 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .cloudhero .lead {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .cloudhero .container {
+    padding-top: 55vh; /* Adjust this value to move text down */
+    text-align: left;
+    padding-left: 6vw;
+    padding-right: 4vw;
+  }
+
+  .cloudhero h1 {
+    font-size: 2.2rem;
+    line-height: 2.6rem;
+    margin-bottom: 16px;
+  }
+
+  .cloudhero .lead {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+}
+
+
+/* Removed unused or conflicting .cyberhero-text rules */
+
+/* ai ml hero section */
+.ai-hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url("/imgs/homepage 4 or AI 2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: Add dark overlay for better text readability */
+.hero-bg-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Transparent black */
+  z-index: 1;
+}
+
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .ai-hero-section {
+    min-height: 50vh !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    text-align: left !important;
+  }
+
+  .hero-bg-img {
+    height: 50vh !important;
+    background-position: top center;
+  }
+
+  .ai-hero-section h1 {
+    font-size: 1.25rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .ai-hero-section p {
+    font-size: 0.9rem !important;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 992px) {
+  .hero-text-col {
+    padding-top: 35vh; /* Move text lower on desktop */
+  }
+}
+
+
+/* main home page hero section 
+
+*/
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 50vh !important; /* Reduce height on mobile */
+    background-position: top center !important;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .hero-section p {
+    font-size: 1rem !important;
+  }
+}
