@@ -39,7 +39,16 @@ const TermsPage = () => {
             <li className="list-group-item bg-transparent"><b>8. Indian Law:</b> All disputes under Indian law.</li>
           </ul>
 
-          <p><strong>Contact:</strong> hr@kodeosoftwaretechnology.com | 7378914416</p>
+          <p><strong>Contact:</strong></p>
+          <p>
+            <a href="mailto:hr@kodeosoftwaretechnology.com" className="text-decoration-none text-primary">
+              hr@kodeosoftwaretechnology.com
+            </a>{" "}
+            |{" "}
+            <a href="tel:7378914416" className="text-decoration-none text-primary">
+              7378914416
+            </a>
+          </p>
         </div>
       </div>
     </div>
