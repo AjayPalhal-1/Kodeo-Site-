@@ -16,17 +16,18 @@ const TermsPage = () => {
           <h1 className="mb-4 text-primary border-bottom pb-2">📜 Terms & Conditions</h1>
 
           <p><strong>Company:</strong> Kodeo Software Technology PVT. LTD</p>
-          <p>
-            <strong>Website:</strong>
-            <a
-              href="https://kodeosoftwaretechnology.com"
-              className="text-decoration-none text-primary ms-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              https://kodeosoftwaretechnology.com
-            </a>
-          </p>
+      <p>
+  <strong>Website:</strong>{" "}
+  <a
+    href="https://kodeosoftwaretechnology.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-decoration-none text-primary d-inline-block text-break"
+  >
+    https://kodeosoftwaretechnology.com
+  </a>
+</p>
+
 
           <ul className="list-group list-group-flush mb-4">
             <li className="list-group-item bg-transparent"><b>1. Agreement:</b> By using our services, you accept these terms.</li>
@@ -39,16 +40,7 @@ const TermsPage = () => {
             <li className="list-group-item bg-transparent"><b>8. Indian Law:</b> All disputes under Indian law.</li>
           </ul>
 
-          <p><strong>Contact:</strong></p>
-          <p>
-            <a href="mailto:hr@kodeosoftwaretechnology.com" className="text-decoration-none text-primary">
-              hr@kodeosoftwaretechnology.com
-            </a>{" "}
-            |{" "}
-            <a href="tel:7378914416" className="text-decoration-none text-primary">
-              7378914416
-            </a>
-          </p>
+          <p><strong>Contact:</strong> hr@kodeosoftwaretechnology.com | 7378914416</p>
         </div>
       </div>
     </div>
