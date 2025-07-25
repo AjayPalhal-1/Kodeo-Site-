@@ -160,14 +160,15 @@ const Footer = () => {
    
 <div className="text-center small text-secondary">
   © 2025 Kodeosoftwaretechnology. All rights reserved. |
-  <Link href="/terms" className="mx-2 text-decoration-underline text-primary">
+  <Link href="/terms" className="mx-2 text-decoration-none text-secondary">
     Terms & Conditions
   </Link>
   |
-  <Link href="/privacey" className="mx-2 text-decoration-underline text-primary">
+  <Link href="/privacey" className="mx-2 text-decoration-none text-secondary">
     Privacy Policy
   </Link>
 </div>
+
 
 
 

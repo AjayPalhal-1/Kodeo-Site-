@@ -72,7 +72,7 @@ export default function ContactPage() {
           <h5 className="fw-bold mb-3">Email</h5>
           <p className="mb-1">info@kodeosoftwaretechnology.com</p>
           <hr />
-          <h5 className="fw-bold mb-3">Website</h5>
+          <h5 className="fw-bold mb-3 ">Website</h5>
           <p>
             <a
               href="https://www.kodeosoftwaretechnology.com"

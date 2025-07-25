@@ -39,14 +39,16 @@ export default function Home() {
                 paddingTop: "28vh",
               }}
             >
-              <h1 className=" hero-text-col display-6 display-md-5 display-lg-4 fw-bold">
+              {/* <h1 className=" hero-text-col display-6 display-md-5 display-lg-4 fw-bold">
                 Transforming Data Into Decisions
-              </h1>
+              </h1> */}
+{/* 
               <p className="lead mt-3" style={{ fontSize: "1rem" }}>
                 Unlock the power of Artificial Intelligence and Machine Learning
                 to drive smarter, faster, and more accurate outcomes for your
                 business.
-              </p>
+              </p> */}
+
             </Col>
           </Row>
         </Container>
@@ -76,7 +78,7 @@ export default function Home() {
             {[
               {
                 title: "Predictive Analytics",
-                image: "/Services/ss1/ai1.webp", // Replace with your image path
+                image: "/kodeo-data/services-updated/aiml/pa.png", // Replace with your image path
                 points: [
                   "Make data-driven decisions with AI models that forecast trends, demand, and behaviours.",
                   "Improve supply chain efficiency, financial planning, and customer engagement.",
@@ -85,7 +87,7 @@ export default function Home() {
               },
               {
                 title: "Natural Language Processing (NLP)",
-                image: "/Services/ss1/NLP 2.jpeg", // Replace with your image path
+                image: "/kodeo-data/services-updated/aiml/NLP.png", // Replace with your image path
                 points: [
                   "Extract insights from unstructured text, emails, chats, and reviews.",
                   "Enable intelligent chatbots, auto-summarization, and sentiment analysis.",
@@ -94,7 +96,7 @@ export default function Home() {
               },
               {
                 title: "Computer Vision",
-                image: "/Services/ss1/computer vision.jpeg", // Replace with your image path
+                image: "/kodeo-data/services-updated/aiml/computer vision.png", // Replace with your image path
                 points: [
                   "Analyse and interpret images and video at scale using AI.",
                   "Use facial recognition, object detection, and scene segmentation.",
@@ -358,7 +360,7 @@ export default function Home() {
                 }}
               >
                 <Image
-                  src="/imgs/AI 1.jpg"
+                  src="/imgs/homepage 4 or AI 2.jpg"
                   alt="form-img"
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}

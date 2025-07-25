@@ -83,7 +83,7 @@ export default function Home() {
             {[
               {
                 title: "Frontend Development",
-                image: "/Services/ss1/front end 2.jpeg", // Use appropriate image path
+                image: "/kodeo-data/services-updated/fullstack/frontend-dev.png", // Use appropriate image path
                 points: [
                   "Build interactive, responsive UIs using React, Angular, or Vue.js.",
                   "Ensure accessibility, speed, and mobile-first design with pixel-perfect layout.",
@@ -92,7 +92,7 @@ export default function Home() {
               },
               {
                 title: "Backend Development",
-                image: "/Services/ss1/backend.jpeg", // Use appropriate image path
+                image: "/kodeo-data/services-updated/fullstack/backend1.png", // Use appropriate image path
                 points: [
                   "Design scalable backend systems using Node.js, Django, Flask, or Laravel.",
                   "Securely manage databases, business logic, and authentication.",
@@ -101,7 +101,7 @@ export default function Home() {
               },
               {
                 title: "Database Management",
-                image: "/imgs/Full stack 2.png", // Use appropriate image path
+                image: "/kodeo-data/services-updated/fullstack/data.png", // Use appropriate image path
                 points: [
                   "Work with SQL (MySQL, PostgreSQL) & NoSQL (MongoDB, Firebase).",
                   "Design schemas for fast retrieval, indexing, and storage optimization.",
@@ -318,7 +318,7 @@ export default function Home() {
                 }}
               >
                 <Image
-                  src="/imgs/Full stack 2.png"
+                  src="/kodeo-data/services-updated/fullstack/downside1.png"
                   alt="form-img"
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}

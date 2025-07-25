@@ -139,118 +139,94 @@ export default function Home() {
       </section>
 
       {/* Development Process */}
-      <section id="process" className="py-5 bg-light">
-        <Container>
-          <h2 className="text-center mb-5 fw-bold">
-            DevOps Development Process
-          </h2>
 
-          {[
-            {
-              title: "Assessment & Planning",
-              icon: "bi-clipboard-data",
-              points: [
-                "Analyze current development and operations processes.",
-                "Identify bottlenecks, tool gaps, and automation opportunities.",
-              ],
-            },
-            {
-              title: "Toolchain Selection",
-              icon: "bi-tools",
-              points: [
-                "Select the right tools for CI/CD, version control, monitoring, and IaC.",
-                "Ensure compatibility with existing platforms and workflows.",
-              ],
-            },
-            {
-              title: "Pipeline Design",
-              icon: "bi-diagram-3",
-              points: [
-                "Design CI/CD pipelines for build, test, staging, and production.",
-                "Set up triggers, approvals, and rollback strategies.",
-              ],
-            },
-            {
-              title: "Infrastructure Automation",
-              icon: "bi-cpu",
-              points: [
-                "Write IaC scripts using Terraform, Ansible, or similar tools.",
-                "Automate server setup, firewall rules, and storage configuration.",
-              ],
-            },
-            {
-              title: "Monitoring & Logging",
-              icon: "bi-graph-up-arrow",
-              points: [
-                "Track app health and performance using Prometheus, Grafana, or ELK.",
-                "Get real-time alerts and error visibility across environments.",
-              ],
-            },
-            {
-              title: "Security Integration (DevSecOps)",
-              icon: "bi-shield-lock-fill",
-              points: [
-                "Integrate security checks into every stage of the pipeline.",
-                "Use static and dynamic code analysis to find vulnerabilities early.",
-              ],
-            },
-            {
-              title: "Automated Testing",
-              icon: "bi-bug-fill",
-              points: [
-                "Implement unit, integration, and end-to-end testing automatically.",
-                "Increase confidence in each deployment with zero manual effort.",
-              ],
-            },
-            {
-              title: "Deployment & Rollback",
-              icon: "bi-cloud-upload-fill",
-              points: [
-                "Deploy with confidence using blue-green or canary strategies.",
-                "Automate rollback on failures to reduce downtime risk.",
-              ],
-            },
-          ].map((item, index) => (
-            <Row key={index} className="align-items-center mb-5">
-              {/* Left Content */}
-              <Col md={6}>
-                <h5 className="fw-bold mb-3">{item.title}</h5>
-                <ul className="ps-3">
-                  {item.points.map((point, i) => (
-                    <li
-                      key={i}
-                      style={{ fontSize: "0.95rem", marginBottom: "6px" }}
-                    >
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </Col>
+    <section id="devops-process" className="py-5 bg-light">
+  <Container>
+    <h2 className="text-center mb-5 fw-bold">DevOps Development Process</h2>
 
-              {/* Right Icon */}
-              <Col md={6} className="text-center">
-                <div
-                  style={{
-                    backgroundColor: "#0d6efd",
-                    width: "70px",
-                    height: "70px",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "white",
-                    fontSize: "28px",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-                    margin: "auto",
-                  }}
-                >
-                  <i className={`bi ${item.icon}`}></i>
-                </div>
-              </Col>
-            </Row>
-          ))}
-        </Container>
-      </section>
+    {[
+      {
+        title: "Plan & Strategy",
+        emojiTitle: "DevOps Plan 🧠",
+        points: [
+          "Define goals, tools, and workflows that align development with operations.",
+          "Map infrastructure and deployment pipelines for smooth integration.",
+          "Document every phase and set measurable objectives.",
+        ],
+      },
+      {
+        title: "Development & Coding",
+        emojiTitle: "DevOps Code 💻",
+        points: [
+          "Write code using standard practices and version control tools like Git.",
+          "Collaborate through branching, pull requests, and code reviews.",
+          "Ensure code modularity for reusability and testability.",
+        ],
+      },
+      {
+        title: "CI/CD Automation",
+        emojiTitle: "DevOps CI/CD ⚙️",
+        points: [
+          "Automate builds and deployments using Jenkins, GitHub Actions, or GitLab.",
+          "Reduce manual errors and accelerate delivery cycles.",
+          "Support rollback strategies and version control tagging.",
+        ],
+      },
+      {
+        title: "Testing & Monitoring",
+        emojiTitle: "DevOps Test & Monitor 🔍",
+        points: [
+          "Conduct unit, integration, and performance testing automatically.",
+          "Use tools like Selenium, JUnit, and LoadRunner.",
+          "Monitor uptime, errors, and logs using Prometheus, Grafana, or ELK stack.",
+        ],
+      },
+      {
+        title: "Security & Operations",
+        emojiTitle: "DevOps Secure 🔐",
+        points: [
+          "Implement DevSecOps by integrating security into CI/CD pipelines.",
+          "Use tools like SonarQube, Snyk, or Aqua Security.",
+          "Monitor system health, handle backups, and ensure high availability.",
+        ],
+      },
+    ].map((item, index) => (
+      <Row key={index} className="align-items-center mb-5">
+        {/* Left Content */}
+        <Col md={6}>
+          <h5 className="fw-bold mb-3">{item.title}</h5>
+          <ul className="ps-3">
+            {item.points.map((point, i) => (
+              <li key={i} style={{ fontSize: "0.95rem", marginBottom: "6px" }}>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </Col>
+
+        {/* Right Emoji Box */}
+        <Col md={6} className="text-center">
+          <div
+            style={{
+              backgroundColor: "#fff",
+              border: "2px dashed #0d6efd",
+              padding: "15px 25px",
+              borderRadius: "20px",
+              fontSize: "1.2rem",
+              fontWeight: "600",
+              color: "#333",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+              display: "inline-block",
+            }}
+          >
+            {item.emojiTitle}
+          </div>
+        </Col>
+      </Row>
+    ))}
+  </Container>
+</section>
+
 
       {/* Let's Get Started Section */}
  

@@ -144,90 +144,87 @@ export default function Home() {
 
       {/* Development Process */}
 
-      <section id="process" className="py-5 bg-light">
-        <Container>
-          <h2 className="text-center mb-5 fw-bold">
-            Cloud Development Process
-          </h2>
+ <section id="process" className="py-5 bg-light">
+  <Container>
+    <h2 className="text-center mb-5 fw-bold">Cloud Development Process</h2>
 
-          {[
-            {
-              title: "Cloud Infrastructure Setup",
-              icon: "bi-hdd-network",
-              points: [
-                "Provision scalable infrastructure using AWS, Azure, or GCP.",
-                "Configure compute, storage, and networking to meet business needs.",
-                "Automate deployments using Terraform, CloudFormation, or Bicep.",
-              ],
-            },
-            {
-              title: "Cloud Migration Services",
-              icon: "bi-arrow-repeat",
-              points: [
-                "Assess, plan, and execute migrations from on-premise to the cloud.",
-                "Use rehosting, replatforming, or refactoring strategies.",
-                "Minimize downtime and data loss during migration.",
-              ],
-            },
-            {
-              title: "DevOps in the Cloud",
-              icon: "bi-gear-wide-connected",
-              points: [
-                "Integrate CI/CD pipelines for faster and more reliable releases.",
-                "Automate builds, tests, and deployments.",
-                "Monitor performance and errors using cloud-native tools.",
-              ],
-            },
-            {
-              title: "Serverless Application Development",
-              icon: "bi-cloud-check-fill",
-              points: [
-                "Build and deploy using AWS Lambda, Azure Functions, or GCP Functions.",
-                "Scale automatically with reduced operational overhead.",
-                "Pay only for the compute you use.",
-              ],
-            },
-          ].map((item, index) => (
-            <Row key={index} className="align-items-center mb-5">
-              {/* Left Content */}
-              <Col md={6}>
-                <h5 className="fw-bold mb-3">{item.title}</h5>
-                <ul className="ps-3">
-                  {item.points.map((point, i) => (
-                    <li
-                      key={i}
-                      style={{ fontSize: "0.95rem", marginBottom: "6px" }}
-                    >
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </Col>
+    {[
+      {
+        title: "Cloud Infrastructure Setup",
+        emojiTitle: "Cloud Infrastructure ☁️",
+        points: [
+          "Provision scalable infrastructure using AWS, Azure, or GCP.",
+          "Configure compute, storage, and networking to meet business needs.",
+          "Automate deployments using Terraform, CloudFormation, or Bicep.",
+        ],
+      },
+      {
+        title: "Cloud Migration Services",
+        emojiTitle: "Cloud Plan 🧭",
+        points: [
+          "Assess, plan, and execute migrations from on-premise to the cloud.",
+          "Use rehosting, replatforming, or refactoring strategies.",
+          "Minimize downtime and data loss during migration.",
+        ],
+      },
+      {
+        title: "DevOps in the Cloud",
+        emojiTitle: "Cloud Deploy & Monitor 🚀",
+        points: [
+          "Integrate CI/CD pipelines for faster and more reliable releases.",
+          "Automate builds, tests, and deployments.",
+          "Monitor performance and errors using cloud-native tools.",
+        ],
+      },
+      {
+        title: "Serverless Application Development",
+        emojiTitle: "Cloud Secure 🔐",
+        points: [
+          "Build and deploy using AWS Lambda, Azure Functions, or GCP Functions.",
+          "Scale automatically with reduced operational overhead.",
+          "Pay only for the compute you use.",
+        ],
+      },
+    ].map((item, index) => (
+      <Row key={index} className="align-items-center mb-5">
+        {/* Left Content */}
+        <Col md={6}>
+          <h5 className="fw-bold mb-3">{item.title}</h5>
+          <ul className="ps-3">
+            {item.points.map((point, i) => (
+              <li
+                key={i}
+                style={{ fontSize: "0.95rem", marginBottom: "6px" }}
+              >
+                {point}
+              </li>
+            ))}
+          </ul>
+        </Col>
 
-              {/* Right Icon */}
-              <Col md={6} className="text-center">
-                <div
-                  style={{
-                    backgroundColor: "#ff007f",
-                    width: "70px",
-                    height: "70px",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "white",
-                    fontSize: "28px",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-                    margin: "auto",
-                  }}
-                >
-                  <i className={`bi ${item.icon}`}></i>
-                </div>
-              </Col>
-            </Row>
-          ))}
-        </Container>
-      </section>
+        {/* Right Text + Emoji */}
+        <Col md={6} className="text-center">
+          <div
+            style={{
+              backgroundColor: "#fff",
+              border: "2px dashed #ff007f",
+              padding: "15px 25px",
+              borderRadius: "20px",
+              fontSize: "1.2rem",
+              fontWeight: "600",
+              color: "#333",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+              display: "inline-block",
+            }}
+          >
+            {item.emojiTitle}
+          </div>
+        </Col>
+      </Row>
+    ))}
+  </Container>
+</section>
+
 
       {/* Let's Get Started Section */}
 
@@ -346,7 +343,8 @@ export default function Home() {
                 }}
               >
                 <Image
-                  src="/imgs/cloud 2.png"
+                  src="/kodeo-data/services-updated/cloud/Cloud-DevOps.png"
+
                   alt="form-img"
                   fill
                   style={{ objectFit: "cover", objectPosition: "center" }}
@@ -361,6 +359,8 @@ export default function Home() {
           </Row>
         </Container>
       </section>
+
+
     </>
   );
 }

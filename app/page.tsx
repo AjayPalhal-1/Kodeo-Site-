@@ -9,17 +9,17 @@ export default function Home() {
   // Define this above your component return
   const heroSlides = [
     {
-      image: "/Services/ss1/backgroundimages/next gen 1.png",
+      image: "/kodeo-data/home/nextgen3.png",
       heading: "Next-Gen Solutions for the Digital Frontier",
       text: "With a foundation in innovation and a vision for tomorrow, we craft agile, scalable, and smart technologies that drive business success in the digital era.",
     },
     {
-      image: "/Services/ss1/backgroundimages/next gen 2.png",
+      image: "/kodeo-data/home/future1.png",
       heading: "Shaping the Future with Scalable Solutions",
       text: "Crafting innovative solutions that scale with your digital needs for a seamless experience.",
     },
     {
-      image: "/Services/ss1/backgroundimages/next gen 3.png",
+      image: "/kodeo-data/home/smart3.png",
       heading: "Smart, Future-Ready Digital Transformation",
       text: "We design intelligent solutions that prepare businesses for the future and keep them ahead in the digital world.",
     },
@@ -261,48 +261,55 @@ export default function Home() {
     <>
       {/* Hero Section */}
 
-      <section
-        className="hero-section text-white d-flex align-items-center"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(151, 20, 85, 0.5), rgba(97, 71, 147, 0.8)), url('${heroSlides[currentIndex].image}')`,
-          minHeight: "100vh",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          transition: "background-image 1s ease-in-out",
-        }}
-      >
-        <div className="w-100 px-3 px-md-5">
-          <div
-            className="text-start"
-            style={{ maxWidth: "700px", zIndex: 2, position: "relative" }}
-          >
-            <h1 className="fw-bold display-5 mb-3">
-              {heroSlides[currentIndex].heading}
-            </h1>
-            <p className="lead text-light">{heroSlides[currentIndex].text}</p>
-          </div>
 
-          {/* Carousel Dots */}
-          <div className="mt-4">
-            <div className="d-flex gap-2">
-              {heroSlides.map((_, i) => (
-                <span
-                  key={i}
-                  style={{
-                    width: "10px",
-                    height: "10px",
-                    backgroundColor:
-                      i === currentIndex ? "#ff007f" : "rgba(255,255,255,0.5)",
-                    borderRadius: "50%",
-                    display: "inline-block",
-                    transition: "background-color 0.3s",
-                  }}
-                ></span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Hero Background Image */}
+
+<section
+  className="hero-section text-white position-relative d-flex align-items-end"
+  style={{
+    backgroundImage: `url('${heroSlides[currentIndex].image}')`,
+    minHeight: "100vh",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    transition: "background-image 1s ease-in-out",
+  }}
+>
+  {/* Text Positioned Lower on Image */}
+  <div className="w-100 px-3 px-md-5 pb-2">
+    <div
+      className="text-start"
+      style={{ maxWidth: "700px", zIndex: 2, position: "relative" }}
+    >
+      <h1 className="fw-bold display-5 mb-3">
+        {heroSlides[currentIndex].heading}
+      </h1>
+      <p className="lead text-light">{heroSlides[currentIndex].text}</p>
+    </div>
+
+    {/* Carousel Dots */}
+    <div className="mt-4 d-flex gap-2">
+      {heroSlides.map((_, i) => (
+        <span
+          key={i}
+          style={{
+            width: "10px",
+            height: "10px",
+            backgroundColor:
+              i === currentIndex ? "#ff007f" : "rgba(255,255,255,0.5)",
+            borderRadius: "50%",
+            display: "inline-block",
+            transition: "background-color 0.3s",
+          }}
+        ></span>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+
 
       {/* Trusted By Section */}
 
