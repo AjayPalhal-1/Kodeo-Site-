@@ -205,94 +205,135 @@ export default function Home() {
       </section>
 
       {/* Let's Get Started Section */}
-      <section
-        className="py-5"
+
+      <section className="form-section py-5 px-4  text-dark"
+
         style={{ backgroundColor: "#0a0a23", color: "#fff" }}
       >
         <Container>
-          <Row className="align-items-center">
+          <Row className="flex-column-reverse flex-md-row align-items-center">
             {/* Left: Form Card */}
+
             <Col md={6}>
               <div
                 style={{
-                  background: "rgba(80, 26, 120, 0.25)", // translucent purple
-                  padding: "35px",
-                  borderRadius: "25px",
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
-                  backdropFilter: "blur(16px)",
-                  WebkitBackdropFilter: "blur(16px)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  transition: "0.3s ease",
+                  minHeight: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
                 }}
               >
-                <h3 className="fw-bold text-white mb-3">Let’s Get Started</h3>
-                <p className="text-white-50 mb-4">
-                  Just give a try with our 30-minute free consultation
-                </p>
-                <Form>
-                  {/* Name */}
-                  <Form.Group className="mb-4" controlId="formName">
-                    <Form.Label className="text-white">Your Name</Form.Label>
-                    <Form.Control type="text" className="modern-input" />
-                  </Form.Group>
+                <div
+                  style={{
+                    background: "rgba(80, 26, 120, 0.25)", // translucent purple
+                    // padding: "25px",
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.3)",
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
+                    transition: "0.3s ease",
+                    padding: "25px 25px",
+                    borderRadius: "15px", // or any px value you like
 
-                  {/* Phone and Email */}
-                  <Row>
-                    <Col md={6}>
-                      <Form.Group className="mb-4" controlId="formPhone">
-                        <Form.Label className="text-white">
-                          Phone Number
-                        </Form.Label>
-                        <Form.Control type="text" className="modern-input" />
-                      </Form.Group>
-                    </Col>
-                    <Col md={6}>
-                      <Form.Group className="mb-4" controlId="formEmail">
-                        <Form.Label className="text-white">Email ID</Form.Label>
-                        <Form.Control type="email" className="modern-input" />
-                      </Form.Group>
-                    </Col>
-                  </Row>
 
-                  {/* Idea */}
-                  <Form.Group className="mb-4" controlId="formIdea">
-                    <Form.Label className="text-white">
-                      Your Idea or Requirements
-                    </Form.Label>
-                    <Form.Control
-                      as="textarea"
-                      rows={3}
-                      className="modern-input"
-                      style={{ resize: "none" }}
-                    />
-                  </Form.Group>
+                  }}
+                >
+                  <h3 className="fw-bold text-white mb-1">Let’s Get Started</h3>
+                  <p className="text-white-50 mb-3" style={{ fontSize: "0.9rem" }}>
+                    Just give a try with our 30-minute free consultation
+                  </p>
 
-                  {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    className="w-100 py-3 fw-bold neon-button"
-                  >
-                    🚀 Submit
-                  </Button>
-                </Form>
+                  <Form>
+
+                    <Form.Group className="mb-2" controlId="formName"
+                    >
+                      <Form.Label className="text-white" style={{ borderRadius: "12px" }}
+                      >Your Name</Form.Label>
+                      <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                      />
+                    </Form.Group>
+
+                    <Row>
+                      <Col md={6}>
+                        <Form.Group className="mb-2" controlId="formPhone">
+                          <Form.Label className="text-white">Phone Number</Form.Label>
+                          <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                          />
+                        </Form.Group>
+                      </Col>
+                      <Col md={6}>
+                        <Form.Group className="mb-2" controlId="formEmail">
+                          <Form.Label className="text-white">Email ID</Form.Label>
+                          <Form.Control type="email" className="modern-input" style={{ borderRadius: "35px" }}
+                          />
+                        </Form.Group>
+                      </Col>
+                    </Row>
+
+                    <Form.Group className="mb-2" controlId="formIdea">
+                      <Form.Label className="text-white">
+                        Your Idea or Requirements
+                      </Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        rows={2}
+                        className="modern-input"
+                        style={{ borderRadius: "40px" }}
+                      />
+                    </Form.Group>
+
+                    <Button
+                      type="submit"
+                      className="w-100 py-3 fw-bold neon-button"
+                      style={{
+                        background: "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
+                        color: "#fff",
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                        fontSize: "1rem",
+                        // boxShadow: "0 0 15px rgba(255,110,196,0.6), 0 0 30px rgba(120,115,245,0.6)",
+                        transition: "0.3s ease-in-out",
+                        borderRadius: "35px", // or any px value you like
+
+                      }}
+
+                    >
+                      🚀 Submit
+                    </Button>
+                  </Form>
+
+                </div>
               </div>
             </Col>
+
 
             {/* Right: Image */}
-            <Col md={6} className="d-none d-md-block">
-              <div className="text-center">
+            <Col xs={12} md={6} className="mb-4 mb-md-0">
+              <div
+                style={{
+                  position: "relative",
+                  width: "100%",
+                  height: "429px", // Match form height approx.
+                  borderRadius: "25px",
+                  overflow: "hidden",
+                }}
+              >
                 <Image
-                  src="/imgs/Full stack 2.png" // Make sure this path matches your image name and location
-                  alt="Consultation"
-                  width={700}
-                  height={400}
-                  className="img-fluid"
+                  src="/imgs/Full stack 2.png"
+                  alt="form-img"
+                  fill
+                  style={{ objectFit: "cover", objectPosition: "center" }}
+                  priority
                 />
               </div>
+
+
+
             </Col>
+
           </Row>
         </Container>
       </section>
+
     </>
   );
 }

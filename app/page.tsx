@@ -264,7 +264,7 @@ export default function Home() {
       <section
         className="hero-section text-white d-flex align-items-center"
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(20,0,60,0.9), rgba(0,0,60,0.9)), url('${heroSlides[currentIndex].image}')`,
+          backgroundImage: `linear-gradient(to right, rgba(151, 20, 85, 0.5), rgba(97, 71, 147, 0.8)), url('${heroSlides[currentIndex].image}')`,
           minHeight: "100vh",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -394,7 +394,6 @@ export default function Home() {
 
       {/* Operational Excellence Section */}
 
-
       <section className="row m-0 align-items-center py-5 px-4 bg-white text-dark">
         {/* Image column - shown first on mobile */}
         <div className="col-md-6 order-1 order-md-2 text-center mb-4 mb-md-0">
@@ -425,9 +424,6 @@ export default function Home() {
           <button className="btn btn-outline-danger mt-3 px-4">Explore</button>
         </div>
       </section>
-
-
-
 
       {/* Services Section */}
 
@@ -588,10 +584,9 @@ export default function Home() {
                   className="d-flex gap-4 align-items-stretch"
                   style={{
                     width: extendedCards.length * cardWidth,
-                    transform: `translateX(-${
-                      slideIndex * cardWidth -
+                    transform: `translateX(-${slideIndex * cardWidth -
                       (cardsPerSlide === 3 ? cardWidth : 0)
-                    }px)`,
+                      }px)`,
                     transition: isTransitioning
                       ? "transform 0.5s cubic-bezier(.4,2,.6,1)"
                       : "none",
