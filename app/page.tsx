@@ -262,49 +262,49 @@ export default function Home() {
       {/* Hero Section */}
 
 
-  {/* Hero Background Image */}
+      {/* Hero Background Image */}
 
-<section
-  className="hero-section text-white position-relative d-flex align-items-end"
-  style={{
-    backgroundImage: `url('${heroSlides[currentIndex].image}')`,
-    minHeight: "100vh",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    transition: "background-image 1s ease-in-out",
-  }}
->
-  {/* Text Positioned Lower on Image */}
-  <div className="w-100 px-3 px-md-5 pb-2">
-    <div
-      className="text-start"
-      style={{ maxWidth: "700px", zIndex: 2, position: "relative" }}
-    >
-      <h1 className="fw-bold display-5 mb-3">
-        {heroSlides[currentIndex].heading}
-      </h1>
-      <p className="lead text-light">{heroSlides[currentIndex].text}</p>
-    </div>
+      <section
+        className="hero-section text-white position-relative d-flex align-items-end"
+        style={{
+          backgroundImage: `url('${heroSlides[currentIndex].image}')`,
+          minHeight: "100vh",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 1s ease-in-out",
+        }}
+      >
+        {/* Text Positioned Lower on Image */}
+        <div className="w-100 px-3 px-md-5 pb-2">
+          <div
+            className="text-start"
+            style={{ maxWidth: "700px", zIndex: 2, position: "relative" }}
+          >
+            <h1 className="fw-bold display-5 mb-3">
+              {heroSlides[currentIndex].heading}
+            </h1>
+            <p className="lead text-light">{heroSlides[currentIndex].text}</p>
+          </div>
 
-    {/* Carousel Dots */}
-    <div className="mt-4 d-flex gap-2">
-      {heroSlides.map((_, i) => (
-        <span
-          key={i}
-          style={{
-            width: "10px",
-            height: "10px",
-            backgroundColor:
-              i === currentIndex ? "#ff007f" : "rgba(255,255,255,0.5)",
-            borderRadius: "50%",
-            display: "inline-block",
-            transition: "background-color 0.3s",
-          }}
-        ></span>
-      ))}
-    </div>
-  </div>
-</section>
+          {/* Carousel Dots */}
+          <div className="mt-4 d-flex gap-2">
+            {heroSlides.map((_, i) => (
+              <span
+                key={i}
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor:
+                    i === currentIndex ? "#ff007f" : "rgba(255,255,255,0.5)",
+                  borderRadius: "50%",
+                  display: "inline-block",
+                  transition: "background-color 0.3s",
+                }}
+              ></span>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
 

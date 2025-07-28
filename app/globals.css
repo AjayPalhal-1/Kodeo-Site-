@@ -1,12 +1,4 @@
- 
-
-
-
-
-
-
-
- .custom-input {
+.custom-input {
   background: #2a0050;
   border: none;
   color: white;
@@ -19,7 +11,6 @@
 select.custom-input option {
   color: white;
 }
-
 
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255,0,127, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -66,7 +57,6 @@ section * {
   color: inherit !important;
 }
 
-
 @media (max-width: 576px) {
   .project-img {
     height: 200px !important;
@@ -93,11 +83,6 @@ section * {
   }
 }
 
-
-
-
-
-
 .career-hero {
   height: 100vh;
 }
@@ -107,7 +92,6 @@ section * {
     height: 60vh; /* or try 50vh */
   }
 }
-
 
 .contact-hero {
   min-height: 100vh;
@@ -129,7 +113,6 @@ section * {
   }
 }
 
-
 .about-hero {
   height: 100vh; /* Default for desktop */
 }
@@ -139,7 +122,6 @@ section * {
     height: 60vh; /* Smaller height on mobile */
   }
 }
-
 
 .about-hero {
   height: 100vh;
@@ -233,7 +215,7 @@ section * {
 
 @media (min-width: 992px) {
   .about-hero .hero-content {
-        padding-left: 0vw !important;
+    padding-left: 0vw !important;
 
     padding-right: 40vw !important; /* shift more to left on desktop */
   }
@@ -241,21 +223,13 @@ section * {
 
 @media (min-width: 992px) {
   .mycode {
-        padding-right: 22vw !important;
-
+    padding-right: 22vw !important;
   }
 }
-
 
 .white-text {
   color: #fff !important;
 }
-
-
-
-
-
-
 
 /* Hero  fullstacl section mobile tweaks */
 @media (max-width: 768px) {
@@ -286,55 +260,6 @@ section * {
   }
 }
 
-/* devops hero section code  */
-
-.devopshero {
-  padding-top: 140px;
-  padding-bottom: 80px;
-}
-
-@media (max-width: 768px) {
-  .devopshero {
-        min-height: 15vh !important;
-
-    padding-top: 80px; /* reduce top padding on mobile */
-    padding-bottom: 40px; /* reduce bottom padding */
-    text-align: center;
-  }
-
-  .devopshero h1 {
-    font-size: 1.5rem;
-    padding: 0 20px;
-  }
-
-  .devopshero p {
-    font-size: 1rem;
-    padding: 0 20px;
-  }
-}
-.devopshero-container {
-  text-align: left;
-  padding-left: 6vw;
-  padding-top: 50vh;
-}
-
-@media (max-width: 768px) {
-  .devopshero-container {
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 30vh;
-  }
-}
-.backgroundImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  z-index: -1;
-}
-
 /* ✅ Ensure proper fit on mobile */
 @media (max-width: 768px) {
   .backgroundImage {
@@ -348,7 +273,6 @@ section * {
     height: 100%;
   }
 }
-
 
 /* cyber page hero  */
 
@@ -373,7 +297,6 @@ section * {
     padding-top: 25vh !important;
   }
 }
-
 
 /* Hero Section - Cloud Page */
 
@@ -432,7 +355,6 @@ section * {
   }
 }
 
-
 /* Removed unused or conflicting .cyberhero-text rules */
 
 /* ai ml hero section */
@@ -454,7 +376,7 @@ section * {
   bottom: 0;
   z-index: -1;
   /* background-image: url("/imgs/homepage 4 or AI 2.jpg"); */
-    background-image: url("/kodeo-data/services-updated/aiml/downside1.png");
+  background-image: url("/kodeo-data/services-updated/aiml/downside1.png");
 
   background-size: cover;
   background-position: center;
@@ -474,7 +396,6 @@ section * {
   background: rgba(0, 0, 0, 0.4); /* Transparent black */
   z-index: 1;
 }
-
 
 /* Mobile view adjustments */
 @media (max-width: 768px) {
@@ -506,7 +427,6 @@ section * {
   }
 }
 
-
 /* main home page hero section 
 
 */
@@ -525,8 +445,6 @@ section * {
     font-size: 1rem !important;
   }
 }
-
-
 
 /* fullstack bottom section  */
 
@@ -569,8 +487,6 @@ section.form-section .neon-button {
   }
 }
 
-
-
 /* term and condition privacey  */
 
 .kodeo-modal .modal-content {
@@ -599,5 +515,124 @@ section.form-section .neon-button {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* devops hero section code  */
+
+.devopshero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+}
+
+.devopshero-container {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-top: 90px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .devopshero {
+    min-height: 15vh !important;
+
+    padding-top: 80px; /* reduce top padding on mobile */
+    padding-bottom: 40px; /* reduce bottom padding */
+    text-align: center;
+  }
+
+  .devopshero h1 {
+    font-size: 1.5rem;
+    padding: 0 20px;
+  }
+
+  .devopshero p {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}
+.devopshero-container {
+  text-align: left;
+  padding-left: 6vw;
+  padding-top: 10vh;
+}
+
+@media (max-width: 768px) {
+  .devopshero-container {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30vh;
+  }
+  .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    z-index: -2;
+    height: auto; /* Let it grow based on content */
+    min-height: 100vh; /* Ensure it still covers full screen */
+  }
+}
+
+.devopshero {
+  position: relative;
+  min-height: "auto";
+  height: "auto";
+  padding-top: 140px;
+  padding-bottom: 80px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.devops-hero-image {
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Only for desktop view (min-width: 992px and above) */
+@media (min-width: 992px) {
+  .devopshero-container {
+    padding-top: 300px;
+  }
+}
+
+/* 🔽 Mobile-specific overrides */
+
+@media (max-width: 768px) {
+  .devopshero {
+    padding-top: 130px;
+    padding-bottom: 0px;
+    min-height: 100vh;
+  }
+
+  .devopshero-container {
+    text-align: center;
+    padding: 5px;
+    padding-top: 0vh; /* reduce so text sits higher */
+    padding-top: 40px;
+  }
+
+  .devops-hero-image {
+    object-fit: contain !important;
+    object-position: top center !important;
+  }
+  .backgroundImage {
+    height: 180vh;
+    padding-top: 300px;
+    margin-top: 10px;
   }
 }
