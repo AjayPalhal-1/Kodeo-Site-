@@ -16,33 +16,47 @@ export default function Home() {
 
       {/* Hero Section */}
 
-      <section
-        className="devopshero"
    
+
+      <section
+        className="cloudhero"
+        style={{
+          position: "relative",
+          height: "110vh",
+          paddingTop: "140px",
+          paddingBottom: "80px",
+          color: "white",
+          textAlign: "center",
+        }}
       >
         {/* Background Image */}
-        <div className="backgroundImage">
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: -1, // Keeps image in the background
+          }}
+        >
           <Image
             src="/kodeo-data/services-updated/devops/dev.png"
-            alt="DevOps Background"
-            fill
-            priority
-            className="devops-hero-image"
+            alt="Cybersecurity"
+            layout="fill" // Makes the image cover the entire section
+            objectFit="cover" // Ensures the image covers the section without distortion
+            objectPosition="center" // Keeps the image centered
           />
         </div>
 
         {/* Hero Text */}
-        <Container className="devopshero-container"
-      
-          >
+        <Container className="cyberhero-text">
           <h1 className="d-none d-lg-block">From Code to Deployment—Faster, Smarter, Safer</h1>
           <p className="lead">
             DevOps solutions that streamline workflows, accelerate
             time-to-market, and ensure stability.
           </p>
         </Container>
-
-
       </section>
 
 

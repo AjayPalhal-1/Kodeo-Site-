@@ -39,15 +39,15 @@ export default function Home() {
                 paddingTop: "28vh",
               }}
             >
-              {/* <h1 className=" hero-text-col display-6 display-md-5 display-lg-4 fw-bold">
+              <h1 className=" hero-text-col display-6 display-md-5 display-lg-4 fw-bold">
                 Transforming Data Into Decisions
-              </h1> */}
-{/* 
+              </h1>
+
               <p className="lead mt-3" style={{ fontSize: "1rem" }}>
                 Unlock the power of Artificial Intelligence and Machine Learning
                 to drive smarter, faster, and more accurate outcomes for your
                 business.
-              </p> */}
+              </p>
 
             </Col>
           </Row>
