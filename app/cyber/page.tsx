@@ -15,7 +15,8 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section
+
+      {/* <section
         className="cyberhero"
         style={{
           position: "relative",
@@ -26,7 +27,7 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        {/* Background Image */}
+      
         <div
           style={{
             position: "absolute",
@@ -34,7 +35,7 @@ export default function Home() {
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: -1, // Keeps image in the background
+            zIndex: -1, 
           }}
         >
           <Image
@@ -46,7 +47,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero Text */}
+        
         <Container
           style={{ textAlign: "left", paddingLeft: "6vw", paddingTop: "50vh" }}
         >
@@ -58,7 +59,69 @@ export default function Home() {
             connected world.{" "}
           </p>
         </Container>
+      </section> */}
+
+
+      <section
+        className="cyberhero"
+        style={{
+          position: "relative",
+          height: "100vh",
+          paddingTop: "140px",
+          paddingBottom: "80px",
+          color: "white",
+          textAlign: "center",
+          overflow: "hidden",
+        }}
+      >
+        {/* 🔄 Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="position-absolute w-100 h-100"
+          style={{
+            objectFit: "cover",
+            top: 0,
+            left: 0,
+            zIndex: -1,
+          }}
+        >
+          <source src="/devopsbcv.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Optional: Dark overlay for readability */}
+        <div
+          className="position-absolute w-100 h-100"
+          style={{
+            background: "rgba(0, 0, 0, 0.5)",
+            top: 0,
+            left: 0,
+            zIndex: 0,
+          }}
+        ></div>
+
+        {/* Hero Text */}
+        <Container
+          className="position-relative"
+          style={{
+            textAlign: "left",
+            paddingLeft: "6vw",
+            paddingTop: "50vh",
+            zIndex: 1,
+          }}
+        >
+          <h1>
+            Shielding Your Business from Evolving Cyber Threats <br />
+          </h1>
+          <p className="lead">
+            Secure your systems, protect your data, and stay one step ahead in a connected world.
+          </p>
+        </Container>
       </section>
+
 
       {/* Solutions */}
       {/* Solutions */}
@@ -226,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* Let's Get Started Section */}
- 
+
 
       <section className="form-section py-5 px-4  text-dark"
 
