@@ -124,6 +124,9 @@ export default function CyberSecurity3DAnimation() {
         <HackerNode onAttack={handleAttack} />
 
         <OrbitControls enableZoom={false} />
+
+        {/* animation added  */}
+        
       </Canvas>
     </div>
   );
