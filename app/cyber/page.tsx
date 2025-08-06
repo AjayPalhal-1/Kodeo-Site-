@@ -14,9 +14,9 @@ export default function Home() {
       {/* Navbar Component */}
       <Navbar />
 
-      {/* Hero Section */}
+      {/*  Normal Hero Section */}
 
-      {/* <section
+      <section
         className="cyberhero"
         style={{
           position: "relative",
@@ -59,10 +59,12 @@ export default function Home() {
             connected world.{" "}
           </p>
         </Container>
-      </section> */}
+      </section>
 
 
-      <section
+      {/*  Animation Hero Section */}
+
+      {/* <section
         className="cyberhero"
         style={{
           position: "relative",
@@ -74,7 +76,7 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        {/* 🔄 Background Video */}
+      
         <video
           autoPlay
           muted
@@ -92,7 +94,7 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Optional: Dark overlay for readability */}
+        
         <div
           className="position-absolute w-100 h-100"
           style={{
@@ -103,7 +105,7 @@ export default function Home() {
           }}
         ></div>
 
-        {/* Hero Text */}
+        
         <Container
           className="position-relative"
           style={{
@@ -120,7 +122,7 @@ export default function Home() {
             Secure your systems, protect your data, and stay one step ahead in a connected world.
           </p>
         </Container>
-      </section>
+      </section> */}
 
 
       {/* Solutions */}

@@ -48,9 +48,9 @@ export default function CareersPage() {
 
 
     <div className="text-white" style={{ fontFamily: "Poppins, sans-serif" }}>
-      {/* Hero Section */}
+      {/*  Normal Hero Section */}
 
-      {/* <div className="career-hero position-relative bg-dark text-white overflow-hidden">
+      <div className="career-hero position-relative bg-dark text-white overflow-hidden">
 
         <Image
           src="/imgs/carrer.jpeg"
@@ -75,51 +75,53 @@ export default function CareersPage() {
             </p>
           </div>
         </div>
+      </div>
+
+
+      {/*  Animation  Hero Section */}
+
+      {/* <div className="career-hero position-relative bg-dark text-white overflow-hidden" style={{ height: '100vh' }}>
+        
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="position-absolute w-100 h-100"
+          style={{
+            objectFit: "cover",
+            top: 0,
+            left: 0,
+            zIndex: 0,
+          }}
+        >
+          <source src="cyberbcv.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{
+            background: "rgba(0, 0, 0, 0.5)",
+            zIndex: 1,
+          }}
+        ></div>
+
+    
+        <div className="position-relative z-2 h-100 d-flex flex-column justify-content-end ps-5 pb-5">
+          <div className="w-90 w-md-55">
+            <h1 className="display-4 fw-bold mb-1">
+              Join Our <br /> Innovative Team!
+            </h1>
+            <p className="fs-5 mb-2">
+              We are looking for talented individuals to contribute to our
+              success. Explore our <br /> open positions and start your journey
+              with us.
+            </p>
+          </div>
+        </div>
       </div> */}
-
-
-      <div className="career-hero position-relative bg-dark text-white overflow-hidden" style={{ height: '100vh' }}>
-  {/* 🔄 Background Video */}
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="position-absolute w-100 h-100"
-    style={{
-      objectFit: "cover",
-      top: 0,
-      left: 0,
-      zIndex: 0,
-    }}
-  >
-    <source src="cyberbcv.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-
-  {/* Optional: Overlay to darken video */}
-  <div
-    className="position-absolute top-0 start-0 w-100 h-100"
-    style={{
-      background: "rgba(0, 0, 0, 0.5)",
-      zIndex: 1,
-    }}
-  ></div>
-
-  {/* Foreground Content */}
-  <div className="position-relative z-2 h-100 d-flex flex-column justify-content-end ps-5 pb-5">
-    <div className="w-90 w-md-55">
-      <h1 className="display-4 fw-bold mb-1">
-        Join Our <br /> Innovative Team!
-      </h1>
-      <p className="fs-5 mb-2">
-        We are looking for talented individuals to contribute to our
-        success. Explore our <br /> open positions and start your journey
-        with us.
-      </p>
-    </div>
-  </div>
-</div>
 
 
       {/* Apply Section */}
@@ -192,96 +194,96 @@ export default function CareersPage() {
               </div>
 
               {/* Compact Input Fields */}
-           {/* Full Name */}
-<div className="mb-1">
-  <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Full Name</label>
-  <input
-    type="text"
-    name="name"
-    className="form-control form-control-sm"
-    style={{
-      background: "#2a0050",
-      border: "none",
-      color: "#fff",
-      fontSize: "0.85rem",
-    }}
-    onChange={handleChange}
-  />
-  {errors.name && <small className="text-danger">{errors.name}</small>}
-</div>
+              {/* Full Name */}
+              <div className="mb-1">
+                <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  className="form-control form-control-sm"
+                  style={{
+                    background: "#2a0050",
+                    border: "none",
+                    color: "#fff",
+                    fontSize: "0.85rem",
+                  }}
+                  onChange={handleChange}
+                />
+                {errors.name && <small className="text-danger">{errors.name}</small>}
+              </div>
 
-{/* Resume */}
-<div className="mb-1">
-  <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Resume</label>
-  <input
-    type="file"
-    name="resume"
-    accept=".pdf,.doc,.docx"
-    className="form-control form-control-sm"
-    style={{
-      background: "#2a0050",
-      border: "none",
-      color: "#fff",
-      fontSize: "0.85rem",
-    }}
-    onChange={handleChange}
-  />
-  {errors.resume && <small className="text-danger">{errors.resume}</small>}
-</div>
+              {/* Resume */}
+              <div className="mb-1">
+                <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Resume</label>
+                <input
+                  type="file"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
+                  className="form-control form-control-sm"
+                  style={{
+                    background: "#2a0050",
+                    border: "none",
+                    color: "#fff",
+                    fontSize: "0.85rem",
+                  }}
+                  onChange={handleChange}
+                />
+                {errors.resume && <small className="text-danger">{errors.resume}</small>}
+              </div>
 
-{/* Phone */}
-<div className="mb-1">
-  <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Phone</label>
-  <input
-    type="tel"
-    name="phone"
-    className="form-control form-control-sm"
-    style={{
-      background: "#2a0050",
-      border: "none",
-      color: "#fff",
-      fontSize: "0.85rem",
-    }}
-    onChange={handleChange}
-  />
-  {errors.phone && <small className="text-danger">{errors.phone}</small>}
-</div>
+              {/* Phone */}
+              <div className="mb-1">
+                <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="form-control form-control-sm"
+                  style={{
+                    background: "#2a0050",
+                    border: "none",
+                    color: "#fff",
+                    fontSize: "0.85rem",
+                  }}
+                  onChange={handleChange}
+                />
+                {errors.phone && <small className="text-danger">{errors.phone}</small>}
+              </div>
 
-{/* Email & Location in one row */}
-<div className="d-flex gap-2 mb-1">
-  <div className="w-50">
-    <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Email</label>
-    <input
-      type="email"
-      name="email"
-      className="form-control form-control-sm"
-      style={{
-        background: "#2a0050",
-        border: "none",
-        color: "#fff",
-        fontSize: "0.85rem",
-      }}
-      onChange={handleChange}
-    />
-    {errors.email && <small className="text-danger">{errors.email}</small>}
-  </div>
-  <div className="w-50">
-    <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Location</label>
-    <input
-      type="text"
-      name="location"
-      className="form-control form-control-sm"
-      style={{
-        background: "#2a0050",
-        border: "none",
-        color: "#fff",
-        fontSize: "0.85rem",
-      }}
-      onChange={handleChange}
-    />
-    {errors.location && <small className="text-danger">{errors.location}</small>}
-  </div>
-</div>
+              {/* Email & Location in one row */}
+              <div className="d-flex gap-2 mb-1">
+                <div className="w-50">
+                  <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control form-control-sm"
+                    style={{
+                      background: "#2a0050",
+                      border: "none",
+                      color: "#fff",
+                      fontSize: "0.85rem",
+                    }}
+                    onChange={handleChange}
+                  />
+                  {errors.email && <small className="text-danger">{errors.email}</small>}
+                </div>
+                <div className="w-50">
+                  <label className="text-white mb-1" style={{ fontSize: "0.85rem" }}>Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    className="form-control form-control-sm"
+                    style={{
+                      background: "#2a0050",
+                      border: "none",
+                      color: "#fff",
+                      fontSize: "0.85rem",
+                    }}
+                    onChange={handleChange}
+                  />
+                  {errors.location && <small className="text-danger">{errors.location}</small>}
+                </div>
+              </div>
 
 
               {/* Message */}
