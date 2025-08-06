@@ -6,6 +6,9 @@ import Navbar from "../components/Navbar"; // Import the Navbar component
 import Footer from "../components/Footer"; // Import the Footer component
 import Image from "next/image";
 
+import ThreeDModel from "../components/threedmodel";
+
+
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -16,7 +19,7 @@ export default function Home() {
 
       {/*  Normal Hero Section */}
 
-      <section
+      {/* <section
         className="cyberhero"
         style={{
           position: "relative",
@@ -27,7 +30,8 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-      
+  <ThreeDModel />
+
         <div
           style={{
             position: "absolute",
@@ -35,7 +39,7 @@ export default function Home() {
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: -1, 
+            zIndex: -1,
           }}
         >
           <Image
@@ -47,7 +51,7 @@ export default function Home() {
           />
         </div>
 
-        
+
         <Container
           style={{ textAlign: "left", paddingLeft: "6vw", paddingTop: "50vh" }}
         >
@@ -59,7 +63,7 @@ export default function Home() {
             connected world.{" "}
           </p>
         </Container>
-      </section>
+      </section> */}
 
 
       {/*  Animation Hero Section */}
@@ -124,8 +128,54 @@ export default function Home() {
         </Container>
       </section> */}
 
+      {/* js Animation Hero Section */}
 
-      {/* Solutions */}
+      <section
+  className="cyberhero"
+  style={{
+    position: "relative",
+    height: "100vh",
+    paddingTop: "140px",
+    paddingBottom: "80px",
+    color: "white",
+    textAlign: "center",
+    overflow: "hidden", // prevent overflow from 3D canvas if any
+  }}
+>
+  {/* 3D Background Model */}
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      zIndex: -1,
+    }}
+  >
+    <ThreeDModel />
+  </div>
+
+  {/* Foreground Text */}
+  <Container
+    style={{
+      textAlign: "left",
+      paddingLeft: "6vw",
+      paddingTop: "50vh",
+    }}
+  >
+    <h1>
+      Shielding Your Business from Evolving Cyber Threats <br />
+    </h1>
+    <p className="lead">
+      Secure your systems, protect your data, and stay one step ahead in a
+      connected world.
+    </p>
+  </Container>
+</section>
+
+
+
       {/* Solutions */}
       <section id="solutions" className="py-5">
         <Container>
@@ -420,6 +470,7 @@ export default function Home() {
           </Row>
         </Container>
       </section>
+
     </>
   );
 }
