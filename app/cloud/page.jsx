@@ -308,6 +308,8 @@ export default function Home() {
 
                     <Button
                       type="submit"
+                      as="button"
+
                       className="w-100 py-3 fw-bold neon-button"
                       style={{
                         background: "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
