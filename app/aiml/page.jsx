@@ -22,7 +22,6 @@ export default function Home() {
           margin: 0,
           width: "100%",
           maxWidth: "100vw", // center-align the section to fill screen
-
         }}
       >
         {/* Background Image */}
@@ -48,7 +47,6 @@ export default function Home() {
                 to drive smarter, faster, and more accurate outcomes for your
                 business.
               </p>
-
             </Col>
           </Row>
         </Container>
@@ -246,10 +244,9 @@ export default function Home() {
       </section>
 
       {/* Let's Get Started Section */}
-   
 
-      <section className="form-section py-5 px-4  text-dark"
-
+      <section
+        className="form-section py-5 px-4  text-dark"
         style={{ backgroundColor: "#0a0a23", color: "#fff" }}
       >
         <Container>
@@ -275,37 +272,53 @@ export default function Home() {
                     transition: "0.3s ease",
                     padding: "25px 25px",
                     borderRadius: "15px", // or any px value you like
-
-
                   }}
                 >
                   <h3 className="fw-bold text-white mb-1">Let’s Get Started</h3>
-                  <p className="text-white-50 mb-3" style={{ fontSize: "0.9rem" }}>
+                  <p
+                    className="text-white-50 mb-3"
+                    style={{ fontSize: "0.9rem" }}
+                  >
                     Just give a try with our 30-minute free consultation
                   </p>
 
                   <Form>
-
-                    <Form.Group className="mb-2" controlId="formName"
-                    >
-                      <Form.Label className="text-white" style={{ borderRadius: "12px" }}
-                      >Your Name</Form.Label>
-                      <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                    <Form.Group className="mb-2" controlId="formName">
+                      <Form.Label
+                        className="text-white"
+                        style={{ borderRadius: "12px" }}
+                      >
+                        Your Name
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        className="modern-input"
+                        style={{ borderRadius: "35px" }}
                       />
                     </Form.Group>
 
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-2" controlId="formPhone">
-                          <Form.Label className="text-white">Phone Number</Form.Label>
-                          <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                          <Form.Label className="text-white">
+                            Phone Number
+                          </Form.Label>
+                          <Form.Control
+                            type="text"
+                            className="modern-input"
+                            style={{ borderRadius: "35px" }}
                           />
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-2" controlId="formEmail">
-                          <Form.Label className="text-white">Email ID</Form.Label>
-                          <Form.Control type="email" className="modern-input" style={{ borderRadius: "35px" }}
+                          <Form.Label className="text-white">
+                            Email ID
+                          </Form.Label>
+                          <Form.Control
+                            type="email"
+                            className="modern-input"
+                            style={{ borderRadius: "35px" }}
                           />
                         </Form.Group>
                       </Col>
@@ -325,9 +338,12 @@ export default function Home() {
 
                     <Button
                       type="submit"
+                      as="button"
+
                       className="w-100 py-3 fw-bold neon-button"
                       style={{
-                        background: "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
+                        background:
+                          "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
                         color: "#fff",
                         textTransform: "uppercase",
                         letterSpacing: "1px",
@@ -335,18 +351,14 @@ export default function Home() {
                         // boxShadow: "0 0 15px rgba(255,110,196,0.6), 0 0 30px rgba(120,115,245,0.6)",
                         transition: "0.3s ease-in-out",
                         borderRadius: "35px", // or any px value you like
-
                       }}
-
                     >
                       🚀 Submit
                     </Button>
                   </Form>
-
                 </div>
               </div>
             </Col>
-
 
             {/* Right: Image */}
             <Col xs={12} md={6} className="mb-4 mb-md-0">
@@ -367,15 +379,10 @@ export default function Home() {
                   priority
                 />
               </div>
-
-
-
             </Col>
-
           </Row>
         </Container>
       </section>
-      
     </>
   );
 }
