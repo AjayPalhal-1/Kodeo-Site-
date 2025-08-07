@@ -128,7 +128,7 @@ export default function Home() {
         </Container>
       </section> */}
 
-      {/* js Animation Hero Section */}
+      {/* js Animation  motion Hero Section */}
 
       <section
         className="cyberhero"
