@@ -8,7 +8,6 @@ import Image from "next/image";
 
 import ThreeDModel from "../components/threedmodel";
 
-
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -19,7 +18,7 @@ export default function Home() {
 
       {/*  Normal Hero Section */}
 
-      {/* <section
+      <section
         className="cyberhero"
         style={{
           position: "relative",
@@ -30,8 +29,6 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-  <ThreeDModel />
-
         <div
           style={{
             position: "absolute",
@@ -51,7 +48,6 @@ export default function Home() {
           />
         </div>
 
-
         <Container
           style={{ textAlign: "left", paddingLeft: "6vw", paddingTop: "50vh" }}
         >
@@ -63,8 +59,7 @@ export default function Home() {
             connected world.{" "}
           </p>
         </Container>
-      </section> */}
-
+      </section>
 
       {/*  Animation Hero Section */}
 
@@ -129,52 +124,6 @@ export default function Home() {
       </section> */}
 
       {/* js Animation  motion Hero Section */}
-
-      <section
-        className="cyberhero"
-        style={{
-          position: "relative",
-          height: "100vh",
-          paddingTop: "140px",
-          paddingBottom: "80px",
-          color: "white",
-          textAlign: "center",
-          overflow: "hidden", // prevent overflow from 3D canvas if any
-        }}
-      >
-        {/* 3D Background Model */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: -1,
-          }}
-        >
-          <ThreeDModel />
-        </div>
-
-        {/* Foreground Text */}
-        <Container
-          style={{
-            textAlign: "left",
-            paddingLeft: "6vw",
-            paddingTop: "50vh",
-          }}
-        >
-          <h1>
-            Shielding Your Business from Evolving Cyber Threats <br />
-          </h1>
-          <p className="lead">
-            Secure your systems, protect your data, and stay one step ahead in a
-            connected world.
-          </p>
-        </Container>
-      </section>
-
-
 
       {/* Solutions */}
       <section id="solutions" className="py-5">
@@ -342,9 +291,8 @@ export default function Home() {
 
       {/* Let's Get Started Section */}
 
-
-      <section className="form-section py-5 px-4  text-dark"
-
+      <section
+        className="form-section py-5 px-4  text-dark"
         style={{ backgroundColor: "#0a0a23", color: "#fff" }}
       >
         <Container>
@@ -370,37 +318,53 @@ export default function Home() {
                     transition: "0.3s ease",
                     padding: "25px 25px",
                     borderRadius: "15px", // or any px value you like
-
-
                   }}
                 >
                   <h3 className="fw-bold text-white mb-1">Let’s Get Started</h3>
-                  <p className="text-white-50 mb-3" style={{ fontSize: "0.9rem" }}>
+                  <p
+                    className="text-white-50 mb-3"
+                    style={{ fontSize: "0.9rem" }}
+                  >
                     Just give a try with our 30-minute free consultation
                   </p>
 
                   <Form>
-
-                    <Form.Group className="mb-2" controlId="formName"
-                    >
-                      <Form.Label className="text-white" style={{ borderRadius: "12px" }}
-                      >Your Name</Form.Label>
-                      <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                    <Form.Group className="mb-2" controlId="formName">
+                      <Form.Label
+                        className="text-white"
+                        style={{ borderRadius: "12px" }}
+                      >
+                        Your Name
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        className="modern-input"
+                        style={{ borderRadius: "35px" }}
                       />
                     </Form.Group>
 
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-2" controlId="formPhone">
-                          <Form.Label className="text-white">Phone Number</Form.Label>
-                          <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                          <Form.Label className="text-white">
+                            Phone Number
+                          </Form.Label>
+                          <Form.Control
+                            type="text"
+                            className="modern-input"
+                            style={{ borderRadius: "35px" }}
                           />
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-2" controlId="formEmail">
-                          <Form.Label className="text-white">Email ID</Form.Label>
-                          <Form.Control type="email" className="modern-input" style={{ borderRadius: "35px" }}
+                          <Form.Label className="text-white">
+                            Email ID
+                          </Form.Label>
+                          <Form.Control
+                            type="email"
+                            className="modern-input"
+                            style={{ borderRadius: "35px" }}
                           />
                         </Form.Group>
                       </Col>
@@ -422,26 +386,22 @@ export default function Home() {
                       type="submit"
                       className="w-100 py-3 fw-bold neon-button"
                       style={{
-                        background: "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
+                        background:
+                          "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
                         color: "#fff",
                         textTransform: "uppercase",
                         letterSpacing: "1px",
                         fontSize: "1rem",
                         transition: "0.3s ease-in-out",
                         borderRadius: "35px", // or any px value you like
-
                       }}
-
                     >
                       🚀 Submit
                     </Button>
-
                   </Form>
-
                 </div>
               </div>
             </Col>
-
 
             {/* Right: Image */}
             <Col xs={12} md={6} className="mb-4 mb-md-0">
@@ -462,15 +422,10 @@ export default function Home() {
                   priority
                 />
               </div>
-
-
-
             </Col>
-
           </Row>
         </Container>
       </section>
-
     </>
   );
 }

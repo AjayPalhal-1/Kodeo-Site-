@@ -5,13 +5,22 @@ import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 import Navbar from "../components/Navbar"; // Import the Navbar component
 import Footer from "../components/Footer"; // Import the Footer component
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import Threedmode from "../components/threedmode"; // adjust path as needed
+
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
 // import { LockModel } from './LockModel';
 
 export default function Home() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const DevOps3DAnimation = dynamic(
+    () => import("../components/threedmode"),
+    {
+      ssr: false,
+    }
+  );
 
   return (
     <>
@@ -20,7 +29,7 @@ export default function Home() {
 
       {/*  Normal Hero Section */}
 
-      {/* <section
+      <section
         className="cloudhero"
         style={{
           position: "relative",
@@ -58,43 +67,41 @@ export default function Home() {
             time-to-market, and ensure stability.
           </p>
         </Container>
-      </section> */}
+      </section>
 
       {/* js animation hero section  */}
 
-      <section className="position-relative text-white" style={{ height: '100vh' }}>
-        {/* 3D Background Animation */}
-        <Canvas
-          camera={{ position: [0, 0, 5], fov: 50 }}
+      {/* <section
+        className="position-relative text-white overflow-hidden"
+        style={{ height: "100vh" }}
+      >
+        
+        <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
             zIndex: 0,
-            width: '100%',
-            height: '100%',
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none", 
           }}
         >
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[2, 2, 2]} />
-          <Stars radius={100} depth={50} count={5000} factor={4} fade />
-          <LockModel /> {/* 👈🏽 Your 3D lock scene */}
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.5} />
-        </Canvas>
+          <Threedmode />
+        </div>
 
-        {/* Foreground Content */}
+        
         <div
           className="position-relative d-flex flex-column justify-content-center align-items-center text-center"
-          style={{ height: '100vh', zIndex: 1 }}
+          style={{ height: "100vh", zIndex: 2 }}
         >
-          <h1 className="display-4 fw-bold">Securing Your Digital Future</h1>
-          <p className="lead">Explore advanced cybersecurity solutions through immersive 3D experience.</p>
-          <button className="btn btn-outline-light mt-4">Learn More</button>
+          <h1 className="display-4 fw-bold">Streamline Your Delivery</h1>
+          <p className="lead">Experience DevOps automation in 3D</p>
+          <button className="btn btn-outline-light mt-4">Explore</button>
         </div>
-      </section>
+      </section> */}
 
-
-      {/* Solutions */}
+    
       {/* Solutions */}
       <section id="solutions" className="py-5">
         <Container>
@@ -186,7 +193,9 @@ export default function Home() {
 
       <section id="devops-process" className="py-5 bg-light">
         <Container>
-          <h2 className="text-center mb-5 fw-bold">DevOps Development Process</h2>
+          <h2 className="text-center mb-5 fw-bold">
+            DevOps Development Process
+          </h2>
 
           {[
             {
@@ -241,7 +250,10 @@ export default function Home() {
                 <h5 className="fw-bold mb-3">{item.title}</h5>
                 <ul className="ps-3">
                   {item.points.map((point, i) => (
-                    <li key={i} style={{ fontSize: "0.95rem", marginBottom: "6px" }}>
+                    <li
+                      key={i}
+                      style={{ fontSize: "0.95rem", marginBottom: "6px" }}
+                    >
                       {point}
                     </li>
                   ))}
@@ -271,13 +283,10 @@ export default function Home() {
         </Container>
       </section>
 
-
       {/* Let's Get Started Section */}
 
-
-
-      <section className="form-section py-5 px-4  text-dark"
-
+      <section
+        className="form-section py-5 px-4  text-dark"
         style={{ backgroundColor: "#0a0a23", color: "#fff" }}
       >
         <Container>
@@ -303,37 +312,53 @@ export default function Home() {
                     transition: "0.3s ease",
                     padding: "25px 25px",
                     borderRadius: "15px", // or any px value you like
-
-
                   }}
                 >
                   <h3 className="fw-bold text-white mb-1">Let’s Get Started</h3>
-                  <p className="text-white-50 mb-3" style={{ fontSize: "0.9rem" }}>
+                  <p
+                    className="text-white-50 mb-3"
+                    style={{ fontSize: "0.9rem" }}
+                  >
                     Just give a try with our 30-minute free consultation
                   </p>
 
                   <Form>
-
-                    <Form.Group className="mb-2" controlId="formName"
-                    >
-                      <Form.Label className="text-white" style={{ borderRadius: "12px" }}
-                      >Your Name</Form.Label>
-                      <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                    <Form.Group className="mb-2" controlId="formName">
+                      <Form.Label
+                        className="text-white"
+                        style={{ borderRadius: "12px" }}
+                      >
+                        Your Name
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        className="modern-input"
+                        style={{ borderRadius: "35px" }}
                       />
                     </Form.Group>
 
                     <Row>
                       <Col md={6}>
                         <Form.Group className="mb-2" controlId="formPhone">
-                          <Form.Label className="text-white">Phone Number</Form.Label>
-                          <Form.Control type="text" className="modern-input" style={{ borderRadius: "35px" }}
+                          <Form.Label className="text-white">
+                            Phone Number
+                          </Form.Label>
+                          <Form.Control
+                            type="text"
+                            className="modern-input"
+                            style={{ borderRadius: "35px" }}
                           />
                         </Form.Group>
                       </Col>
                       <Col md={6}>
                         <Form.Group className="mb-2" controlId="formEmail">
-                          <Form.Label className="text-white">Email ID</Form.Label>
-                          <Form.Control type="email" className="modern-input" style={{ borderRadius: "35px" }}
+                          <Form.Label className="text-white">
+                            Email ID
+                          </Form.Label>
+                          <Form.Control
+                            type="email"
+                            className="modern-input"
+                            style={{ borderRadius: "35px" }}
                           />
                         </Form.Group>
                       </Col>
@@ -355,7 +380,8 @@ export default function Home() {
                       type="submit"
                       className="w-100 py-3 fw-bold neon-button"
                       style={{
-                        background: "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
+                        background:
+                          "linear-gradient(90deg, #fa0965ff 0%, #ff039aff 100%)", // 🌸 Pink shades
                         color: "#fff",
                         textTransform: "uppercase",
                         letterSpacing: "1px",
@@ -363,20 +389,14 @@ export default function Home() {
                         // boxShadow: "0 0 15px rgba(255,110,196,0.6), 0 0 30px rgba(120,115,245,0.6)",
                         transition: "0.3s ease-in-out",
                         borderRadius: "35px", // or any px value you like
-
                       }}
-
                     >
                       🚀 Submit
                     </Button>
-
-
                   </Form>
-
                 </div>
               </div>
             </Col>
-
 
             {/* Right: Image */}
             <Col xs={12} md={6} className="mb-4 mb-md-0">
@@ -397,11 +417,7 @@ export default function Home() {
                   priority
                 />
               </div>
-
-
-
             </Col>
-
           </Row>
         </Container>
       </section>

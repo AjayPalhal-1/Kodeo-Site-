@@ -1,56 +1,91 @@
 "use client";
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { ScrollControls, useScroll, Html, Environment, Float } from "@react-three/drei";
+import React, { useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-function LockModel() {
-  const lockRef = useRef();
-  const scroll = useScroll();
-
+function Gear({ position = [0, 0, 0], speed = 0.01, size = 1, color = "cyan" }) {
+  const ref = useRef();
   useFrame(() => {
-    const scrollY = scroll.offset; // 0 to 1
-    if (lockRef.current) {
-      lockRef.current.rotation.y = scrollY * Math.PI * 2;
-      lockRef.current.position.y = -scrollY * 2;
-      lockRef.current.material.opacity = scrollY;
-    }
+    ref.current.rotation.z += speed;
   });
 
   return (
-    <Float floatIntensity={1} speed={2}>
-      <mesh ref={lockRef} position={[0, 0, 0]}>
-        {/* Body of the lock */}
-        <boxGeometry args={[1, 1.5, 0.5]} />
-        <meshStandardMaterial color="#0088ff" transparent opacity={0} />
-
-        {/* U part of lock */}
-        <mesh position={[0, 1.25, 0]}>
-          <torusGeometry args={[0.4, 0.05, 16, 100, Math.PI]} />
-          <meshStandardMaterial color="#004466" />
-        </mesh>
-      </mesh>
-    </Float>
+    <mesh ref={ref} position={position}>
+      <torusGeometry args={[size, 0.2, 16, 100]} />
+      <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.5} />
+    </mesh>
   );
 }
 
-export default function LockScenePage() {
+function PipelineSphere({ distance = 3, speed = 1, delay = 0 }) {
+  const ref = useRef();
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime() * speed + delay;
+    ref.current.position.x = distance * Math.sin(t);
+    ref.current.position.z = distance * Math.cos(t);
+  });
+
   return (
-    <div style={{ width: "100vw", height: "100vh", scrollSnapType: "y mandatory", overflowY: "scroll" }}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+    <mesh ref={ref}>
+      <sphereGeometry args={[0.15, 16, 16]} />
+      <meshStandardMaterial color="lime" emissive="lime" emissiveIntensity={0.4} />
+    </mesh>
+  );
+}
+
+function Server({ position = [0, -1.5, -2] }) {
+  return (
+    <mesh position={position}>
+      <boxGeometry args={[1, 0.5, 1]} />
+      <meshStandardMaterial color="#555" emissive="#0ff" emissiveIntensity={0.3} />
+    </mesh>
+  );
+}
+
+function Cloud({ position = [0, 2, -2] }) {
+  return (
+    <mesh position={position}>
+      <sphereGeometry args={[0.6, 32, 32]} />
+      <meshStandardMaterial color="white" emissive="white" emissiveIntensity={0.1} />
+    </mesh>
+  );
+}
+
+function ScrollZoomEffect() {
+  const { camera } = useThree();
+  const { scrollYProgress } = useScroll();
+  const zoom = useTransform(scrollYProgress, [0, 1], [8, 4]);
+
+  useFrame(() => {
+    camera.position.z = zoom.get();
+  });
+
+  return null;
+}
+
+export default function DevOps3DAnimation() {
+  return (
+    <div style={{ height: "100vh", background: "black" }}>
+      <Canvas camera={{ position: [0, 0, 8] }}>
         <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} />
-        <Environment preset="city" />
-        <ScrollControls pages={2} damping={0.1}>
-          <LockModel />
-          <Html>
-            <div style={{ height: "200vh", width: "100vw" }}>
-              <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <h1 style={{ color: "#0ff", fontSize: "2rem" }}>Scroll to Unlock Cybersecurity</h1>
-              </div>
-              <div style={{ height: "100vh" }}></div>
-            </div>
-          </Html>
-        </ScrollControls>
+        <directionalLight position={[2, 2, 2]} intensity={1.2} />
+
+        <ScrollZoomEffect />
+
+        {/* Gears symbolizing automation */}
+        <Gear position={[-1.5, 0, 0]} speed={0.02} color="orange" />
+        <Gear position={[1.5, 0, 0]} speed={-0.015} color="cyan" />
+
+        {/* CI/CD pipeline balls */}
+        <PipelineSphere distance={2.5} speed={1} />
+        <PipelineSphere distance={3} speed={0.7} delay={2} />
+
+        {/* Cloud and server */}
+        <Cloud />
+        <Server />
+
+        <OrbitControls enableZoom={false} />
       </Canvas>
     </div>
   );
