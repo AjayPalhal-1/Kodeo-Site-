@@ -275,31 +275,35 @@ export default function Home() {
         }}
       >
         {/* Text Positioned Lower on Image */}
-
-
-        <div className="hero-overlay d-flex flex-column justify-content-center "
-          style={{ height: "100%", paddingBottom: "10px", paddingTop: "110px" }}>
-          <div className="hero-text">
-            <h1 className="fw-bold">{heroSlides[currentIndex].heading}</h1>
-            <p>{heroSlides[currentIndex].text}</p>
+        <div className="w-100 px-3 px-md-5 pb-2">
+          <div
+            className="text-start"
+            style={{ maxWidth: "700px", zIndex: 2, position: "relative" }}
+          >
+            <h1 className="fw-bold display-5 mb-3">
+              {heroSlides[currentIndex].heading}
+            </h1>
+            <p className="lead text-light">{heroSlides[currentIndex].text}</p>
           </div>
 
-          <div className="hero-bottom-bar d-flex justify-content-around">
-            {heroSlides.map((slide, i) => (
-              <div
+          {/* Carousel Dots */}
+          <div className="mt-4 d-flex gap-2">
+            {heroSlides.map((_, i) => (
+              <span
                 key={i}
-                className={`bottom-item ${i === currentIndex ? "active" : ""}`}
-                onClick={() => setCurrentIndex(i)}
-              >
-                {slide.heading}
-              </div>
+                style={{
+                  width: "10px",
+                  height: "10px",
+                  backgroundColor:
+                    i === currentIndex ? "#ff007f" : "rgba(255,255,255,0.5)",
+                  borderRadius: "50%",
+                  display: "inline-block",
+                  transition: "background-color 0.3s",
+                }}
+              ></span>
             ))}
           </div>
         </div>
-
-
-
-
       </section>
 
 
@@ -542,139 +546,139 @@ export default function Home() {
       {/* Why Choose Us Section */}
 
 
-      <section className="py-5 px-4 text-white position-relative" style={{ overflow: "hidden" }}>
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="position-absolute w-100 h-100 object-fit-cover"
-          style={{ top: 0, left: 0, zIndex: 0 }}
+   <section className="py-5 px-4 text-white position-relative" style={{ overflow: "hidden" }}>
+  {/* Background Video */}
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="position-absolute w-100 h-100 object-fit-cover"
+    style={{ top: 0, left: 0, zIndex: 0 }}
+  >
+    <source src="/bcg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  {/* Overlay to darken video slightly */}
+  <div className="position-absolute w-100 h-100" style={{ top: 0, left: 0, background: "rgba(42, 0, 66, 0.7)", zIndex: 1 }}></div>
+
+  {/* Content Container */}
+  <div className="container-fluid position-relative" style={{ zIndex: 2 }}>
+    <div className="row align-items-start">
+      {/* LEFT TEXT CONTENT */}
+      <div className="col-lg-6 mb-4">
+        <h2 className="fw-bold mb-3">Transforming Expertise Into Business Results</h2>
+        <p>
+          We specialize in converting knowledge into action. Through expert training,
+          scalable digital solutions, and strategic consulting, Kodeo Software Technology
+          helps organizations across industries innovate safely and grow confidently in a
+          fast-changing tech landscape.
+        </p>
+        <ul className="list-unstyled mt-4">
+          <li>✔️ Bespoke Training for Operational Success</li>
+          <li>✔️ Solutions Engineered for Scale and Speed</li>
+          <li>✔️ Cross-Sector Experience You Can Trust</li>
+          <li>✔️ Support That Never Sleeps</li>
+        </ul>
+      </div>
+
+      {/* RIGHT: 3 CARDS IN HORIZONTAL SCROLL */}
+      <div className="col-lg-6 mt-5 mt-lg-0">
+        <div
+          style={{
+            minHeight: 220,
+            width: containerWidth,
+            overflow: "hidden",
+            margin: "0 auto",
+            position: "relative",
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          <source src="/bcg.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          <div
+            className="d-flex gap-4 align-items-stretch"
+            style={{
+              width: extendedCards.length * cardWidth,
+              transform: `translateX(-${slideIndex * cardWidth - (cardsPerSlide === 3 ? cardWidth : 0)}px)`,
+              transition: isTransitioning ? "transform 0.5s cubic-bezier(.4,2,.6,1)" : "none",
+            }}
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {extendedCards.map((item, i) => {
+              let pos = i - slideIndex;
+              if (pos < -1) pos += extendedCards.length;
+              if (pos > 1) pos -= extendedCards.length;
 
-        {/* Overlay to darken video slightly */}
-        <div className="position-absolute w-100 h-100" style={{ top: 0, left: 0, background: "rgba(42, 0, 66, 0.7)", zIndex: 1 }}></div>
+              let style = {
+                background: "rgba(255, 255, 255, 0.68)",
+                backdropFilter: "blur(10px)",
+                minWidth: "250px",
+                maxWidth: "250px",
+                color: "black",
+                flexShrink: 0,
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                position: "relative" as "relative",
+                opacity: pos === 0 ? 1 : 0.4,
+                transform: pos === 0 ? "scale(1)" : "scale(0.92)",
+                zIndex: pos === 0 ? 2 : 1,
+                transition: "all 0.5s cubic-bezier(.4,2,.6,1)",
+              };
 
-        {/* Content Container */}
-        <div className="container-fluid position-relative" style={{ zIndex: 2 }}>
-          <div className="row align-items-start">
-            {/* LEFT TEXT CONTENT */}
-            <div className="col-lg-6 mb-4">
-              <h2 className="fw-bold mb-3">Transforming Expertise Into Business Results</h2>
-              <p>
-                We specialize in converting knowledge into action. Through expert training,
-                scalable digital solutions, and strategic consulting, Kodeo Software Technology
-                helps organizations across industries innovate safely and grow confidently in a
-                fast-changing tech landscape.
-              </p>
-              <ul className="list-unstyled mt-4">
-                <li>✔️ Bespoke Training for Operational Success</li>
-                <li>✔️ Solutions Engineered for Scale and Speed</li>
-                <li>✔️ Cross-Sector Experience You Can Trust</li>
-                <li>✔️ Support That Never Sleeps</li>
-              </ul>
-            </div>
-
-            {/* RIGHT: 3 CARDS IN HORIZONTAL SCROLL */}
-            <div className="col-lg-6 mt-5 mt-lg-0">
-              <div
-                style={{
-                  minHeight: 220,
-                  width: containerWidth,
-                  overflow: "hidden",
-                  margin: "0 auto",
-                  position: "relative",
-                }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
-                <div
-                  className="d-flex gap-4 align-items-stretch"
-                  style={{
-                    width: extendedCards.length * cardWidth,
-                    transform: `translateX(-${slideIndex * cardWidth - (cardsPerSlide === 3 ? cardWidth : 0)}px)`,
-                    transition: isTransitioning ? "transform 0.5s cubic-bezier(.4,2,.6,1)" : "none",
-                  }}
-                  onTransitionEnd={handleTransitionEnd}
-                >
-                  {extendedCards.map((item, i) => {
-                    let pos = i - slideIndex;
-                    if (pos < -1) pos += extendedCards.length;
-                    if (pos > 1) pos -= extendedCards.length;
-
-                    let style = {
-                      background: "rgba(255, 255, 255, 0.68)",
-                      backdropFilter: "blur(10px)",
-                      minWidth: "250px",
-                      maxWidth: "250px",
-                      color: "black",
-                      flexShrink: 0,
-                      border: "1px solid rgba(255, 255, 255, 0.2)",
-                      position: "relative" as "relative",
-                      opacity: pos === 0 ? 1 : 0.4,
-                      transform: pos === 0 ? "scale(1)" : "scale(0.92)",
-                      zIndex: pos === 0 ? 2 : 1,
-                      transition: "all 0.5s cubic-bezier(.4,2,.6,1)",
-                    };
-
-                    return (
-                      <div key={item.title + i} className="p-4 rounded-4 shadow" style={style}>
-                        <div
-                          style={{
-                            backgroundColor: "#ff007f",
-                            width: 50,
-                            height: 50,
-                            borderRadius: "50%",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            color: "white",
-                            fontSize: "24px",
-                            marginBottom: "15px",
-                          }}
-                        >
-                          <i className={`bi ${item.icon}`}></i>
-                        </div>
-                        <h6 className="fw-bold">{item.title}</h6>
-                        <p className="mb-0" style={{ fontSize: "0.9rem" }}>{item.desc}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Carousel Dots */}
-              <div className="d-flex justify-content-center mt-3 gap-2">
-                {Array.from({ length: whyChooseUsCards.length }).map((_, idx) => (
-                  <span
-                    key={idx}
-                    onClick={() => {
-                      setIsTransitioning(true);
-                      setSlideIndex(idx + 1);
-                    }}
+              return (
+                <div key={item.title + i} className="p-4 rounded-4 shadow" style={style}>
+                  <div
                     style={{
-                      width: 12,
-                      height: 12,
+                      backgroundColor: "#ff007f",
+                      width: 50,
+                      height: 50,
                       borderRadius: "50%",
-                      background: idx === whySlide ? "#ff007f" : "#ccc",
-                      display: "inline-block",
-                      cursor: "pointer",
-                      transition: "background 0.3s",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "white",
+                      fontSize: "24px",
+                      marginBottom: "15px",
                     }}
-                  ></span>
-                ))}
-              </div>
-            </div>
+                  >
+                    <i className={`bi ${item.icon}`}></i>
+                  </div>
+                  <h6 className="fw-bold">{item.title}</h6>
+                  <p className="mb-0" style={{ fontSize: "0.9rem" }}>{item.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Hide Scrollbar */}
-        <style jsx>{`
+        {/* Carousel Dots */}
+        <div className="d-flex justify-content-center mt-3 gap-2">
+          {Array.from({ length: whyChooseUsCards.length }).map((_, idx) => (
+            <span
+              key={idx}
+              onClick={() => {
+                setIsTransitioning(true);
+                setSlideIndex(idx + 1);
+              }}
+              style={{
+                width: 12,
+                height: 12,
+                borderRadius: "50%",
+                background: idx === whySlide ? "#ff007f" : "#ccc",
+                display: "inline-block",
+                cursor: "pointer",
+                transition: "background 0.3s",
+              }}
+            ></span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Hide Scrollbar */}
+  <style jsx>{`
     ::-webkit-scrollbar {
       display: none;
     }
@@ -682,7 +686,7 @@ export default function Home() {
       object-fit: cover;
     }
   `}</style>
-      </section>
+</section>
 
 
       {/* Recent Projects */}
